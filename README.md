@@ -1,2 +1,3 @@
 # spending-webapp
-Monthly income and expenses
+Tracking monthly income and expenses
+Spending and saving plan
