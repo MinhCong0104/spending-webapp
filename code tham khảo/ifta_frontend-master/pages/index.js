@@ -46,27 +46,25 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>IFTA ya!</title>
-        <meta name="description" content="IFTA ya! is a website for filling and reporting IFTA Taxes in a fast, 
-        simple, and secure way. An affordable and easy-to-use form, every time you fuel your truck you can collect miles, gallons, 
-        and keep the record up to date!" />
+        <title>Spending-Webapp</title>
+        <meta name="description" content="PC spending-webapp. A gift to VPT for family finance management"/>
       </Head>
 
       <main className={styles.main}>
 
         <div className={styles.navbar_banner} >
           <h1 className={styles.navbar_h1}>
-            IFTA ya!
+            Spending-Webapp
           </h1>
         </div>
 
         <PresentationBanner />
 
         <div className={styles.start_now_section}>
-          <h2 className={styles.title_h2}>The Way IFTA filling process</h2>
+          <h2 className={styles.title_h2}>Profit of this App</h2>
           <p className={styles.start_section_p}>
-            An affordable and easy-to-use form, every time you fuel your truck
-            you can collect miles, gallons, and keep the record up to date!
+            An affordable and easy-to-use form, help you calculate your incomes, spending, saving...
+            By this way, you can tracking your spending and saving more for future life!
           </p>
 
           <div className={styles.start_now_button_div}>
