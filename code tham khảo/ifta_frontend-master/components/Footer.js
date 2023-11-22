@@ -11,7 +11,7 @@ export default function NextFooter() {
     return(
         <footer className={styles.footer}>
             <p className={styles.footer_p}>
-                Follow us in
+                Contact me
             </p>
 
             <Row className={styles.footer_row}>
@@ -31,9 +31,10 @@ export default function NextFooter() {
         <div className={styles.footer_dev_div}>
             <p className={styles.footer_dev_p}>
                 <span className={styles.footer_dev_span}>
-                Developed by:
-                </span>{" "}
-                 Cecilia Fernandez Aguilera
+                    Developed by: Trieu Minh Công
+                </span>
+                <br/>
+
             </p>
         </div>
         </footer>

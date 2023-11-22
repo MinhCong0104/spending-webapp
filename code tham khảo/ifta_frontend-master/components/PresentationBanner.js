@@ -29,7 +29,7 @@ export default function PresentationBanner() {
               <div className={styles.banner_col_wrapper}>
               <div className={styles.banner_logo_image_div}>
 
-                <Image
+                {/* <Image
                   src={ifta_logo}
                   alt="Ifta Now Logo"
                   className={styles.ifta_logo_img}
@@ -37,7 +37,7 @@ export default function PresentationBanner() {
                   // height={100}
                   layout="fill"
                   objectFit="cover"
-                />
+                /> */}
               </div>
 
                 <h2 className={styles.banner_h2}>

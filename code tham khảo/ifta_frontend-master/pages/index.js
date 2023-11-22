@@ -47,7 +47,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Spending-Webapp</title>
-        <meta name="description" content="PC spending-webapp. A gift to VPT for family finance management"/>
+        <meta name="description" content="An app for personal or family finance management"/>
       </Head>
 
       <main className={styles.main}>
@@ -70,7 +70,7 @@ export default function Home() {
           <div className={styles.start_now_button_div}>
             <Link href={'/credentials/register/create-account'}>
               <Button variant="danger" className={styles.start_now_button}>
-                START NOW
+                Register
               </Button>
             </Link>
           </div>
