@@ -29,14 +29,16 @@ export default function Home() {
       </div>
 
       <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+        <div className={styles.card}>
+          <h2>Login Form</h2>
+          <form>
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter your username"></input>
+            <br></br>
+            <label for="username">Password</label>
+            <input type="text" id="password" placeholder="Enter your password"></input>
+          </form>
+        </div>
       </div>
 
       <div className={styles.grid}>

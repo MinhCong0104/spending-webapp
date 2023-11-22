@@ -79,19 +79,19 @@ export default function Home() {
         <div className={styles.features_section}>
           <Container>
             <Row className={styles.features_section_row}>
-              <Col
+              {/* <Col
                 xs={12}
                 sm={12}
                 md={12}
                 lg={6}
                 className={styles.features_section_col}
-              >
+              > */}
                 <div className={styles.features_section_col_wrapper_div}>
                   <h3 className={styles.title_h3}>Features</h3>
 
                   <p className={styles.features_section_p}>
-                    No need to connect with GPS, Fuel cards, or ELDs, just enter
-                    your data manually and the App will take care the rest!
+                    Just enter your data manually and the App will take care the rest!
+                    In additional, you can connect to your bank account to extract data automatically.
                   </p>
                 </div>
                 <Row className={styles.features_section_icon_row}>
@@ -149,9 +149,10 @@ export default function Home() {
                     </div>
                   </Col>
                 </Row>
-              </Col>
+              {/* </Col> */}
 
-              <Col
+              {/* Youtube Icon */}
+              {/* <Col
                 xs={12}
                 sm={12}
                 md={12}
@@ -171,7 +172,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </Col>
+              </Col> */}
             </Row>
           </Container>
         </div>
