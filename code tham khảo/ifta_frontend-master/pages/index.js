@@ -86,7 +86,8 @@ export default function Home() {
                 lg={6}
                 className={styles.features_section_col}
               > */}
-                <div className={styles.features_section_col_wrapper_div}>
+
+                <div className='text-center'>
                   <h3 className={styles.title_h3}>Features</h3>
 
                   <p className={styles.features_section_p}>
@@ -94,6 +95,7 @@ export default function Home() {
                     In additional, you can connect to your bank account to extract data automatically.
                   </p>
                 </div>
+
                 <Row className={styles.features_section_icon_row}>
                   <Col
                     xs={4}
@@ -177,9 +179,9 @@ export default function Home() {
           </Container>
         </div>
 
-        <div className={styles.complex_banner}>
+        {/* <div className={styles.complex_banner}>
           <ComplexBanner />
-        </div>
+        </div> */}
 
         <div className={styles.steps_section}>
           <Container className={styles.steps_section_container}>
@@ -221,9 +223,9 @@ export default function Home() {
                     width={75}
                     alt="Analytics Red Icon"
                   />
-                  <p className={styles.steps_section_icon_title}>Analytics</p>
+                  <p className={styles.steps_section_icon_title}>Reports</p>
                   <p className={styles.steps_section_icon_p}>
-                    Run reports by state, truck, fuel, & more...
+                    Run reports by different time period
                   </p>
                 </div>
               </Col>
@@ -242,25 +244,25 @@ export default function Home() {
                     width={75}
                     alt="Report Red Icon"
                   />
-                  <p className={styles.steps_section_icon_title}>Reports</p>
+                  <p className={styles.steps_section_icon_title}>Calculate</p>
                   <p className={styles.steps_section_icon_p}>
-                    Generate accurate IFTA Reports in minutes
+                    Calculate total and percentage of spending
                   </p>
                 </div>
               </Col>
             </Row>
           </Container>
-
+{/* 
           <div className={styles.step_section_button_div}>
             <Link href={'/credentials/register/create-account'}>
               <Button variant="danger" className={styles.step_section_button}>
                 START NOW
               </Button>
             </Link>
-          </div>
+          </div> */}
         </div>
 
-        <div className={styles.simple_banner}>
+        {/* <div className={styles.simple_banner}>
           <SimpleBanner />
           <div className={styles.simple_banner_features_div}>
             <Row className={styles.simple_banner_features_row}>
@@ -409,11 +411,11 @@ export default function Home() {
               </Col>
             </Row>
           </div>
-        </div>
+        </div> */}
 
-        <div className={styles.clients_testimony_div}>
-          {/* <ClientsTestimony /> */}
-        </div>
+        {/* <div className={styles.clients_testimony_div}>
+          <ClientsTestimony />
+        </div> */}
       </main>
     </div>
   );
