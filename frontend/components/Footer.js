@@ -34,7 +34,7 @@ export default function NextFooter() {
                     Developed by: Trieu Minh Công
                 </span>
                 <br/>
-
+                <span>Tel: 0332472056 - Email: cong010401@gmail.com</span>
             </p>
         </div>
         </footer>

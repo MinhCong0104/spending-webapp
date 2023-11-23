@@ -12,7 +12,7 @@ export default function LoginFunction() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>IFTA ya! Login</title>
+        <title>Login</title>
         <meta name="description" costent="IFTA ya! Login" />
       </Head>
 
