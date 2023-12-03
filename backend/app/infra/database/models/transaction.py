@@ -3,55 +3,15 @@ from mongoengine import Document, StringField, DateTimeField, FloatField, Refere
 
 
 class Transaction(Document):
-    entry_no = StringField(required=False)
-    status = StringField(required=True)
-    timestamp = DateTimeField(required=True)
-    source = StringField()
-    source_type = StringField()
-    source_identifier = StringField()
+    date = DateTimeField(required=True)
     type = StringField()
-    tags = StringField()
-    function = StringField()
-    product = StringField()
+    category = ReferenceField()
+    amount = FloatField(required=True)
+    status = StringField(required=True)
 
-    classification = StringField()
-    classification_id = StringField()
-    behaviour = StringField()
-
-    amount = FloatField()
-    asset = StringField()
-    fee = FloatField()
-    fee_type = StringField()
-    cost_basis = FloatField()
-    cost_currency = StringField()
-    sale_value = FloatField()
-    sale_currency = StringField()
-    fee_value = FloatField()
-    fee_currency = StringField()
-    unit_price = FloatField()
-    unit_currency = StringField()
-
-    trade_id = StringField()
-    memo = StringField()
-
-    contract_name = StringField()
-    contract_id = StringField()
-    smart_contract = StringField()
-
-    tx_hash = StringField()
-    from_wallet_name = StringField()
-    from_wallet = StringField(required=True)
-    to_wallet_name = StringField()
-    to_wallet = StringField(required=True)
-    ledger_id = IntField()
-    label = StringField()
     description = StringField()
-
     created_at = DateTimeField(required=True)
     updated_at = DateTimeField(required=False)
-
-    client = ReferenceField("Client", required=False)
-    number_series = ReferenceField("NumberSeries", required=False)
 
     def save(self, *args, **kwargs):
         if not self.created_at:
@@ -71,7 +31,7 @@ class Transaction(Document):
 
     meta = {
         "collection": "Transactions",
-        "indexes": ["entry_no", "timestamp", "from_wallet", "to_wallet", "client"],
+        "indexes": ["date"],
         "allow_inheritance": True,
         "index_cls": False,
     }
