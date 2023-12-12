@@ -137,7 +137,7 @@ export const TransactionsTable = (props) => {
         onRowsPerPageChange={onRowsPerPageChange}
         page={page}
         rowsPerPage={rowsPerPage}
-        rowsPerPageOptions={[10, 20, 50]}
+        rowsPerPageOptions={[5, 10, 20, 50]}
       />
     </Card>
   );

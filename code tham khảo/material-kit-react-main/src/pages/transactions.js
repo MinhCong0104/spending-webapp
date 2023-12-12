@@ -54,20 +54,14 @@ const data = [
     type: 'Chi tiêu',
     category: 'Tiền ăn'
   },
-  // {
-  //   id: '5e887a1fbefd7938eea9c981',
-  //   address: {
-  //     city: 'Berkeley',
-  //     country: 'USA',
-  //     state: 'California',
-  //     street: '317 Angus Road'
-  //   },
-  //   avatar: '/assets/avatars/avatar-penjani-inyene.png',
-  //   createdAt: subDays(subHours(now, 5), 4).getTime(),
-  //   email: 'penjani.inyene@devias.io',
-  //   name: 'Penjani Inyene',
-  //   phone: '858-602-3409'
-  // },
+  {
+    id: '5e887a1fbefd7938eea9c981',
+    date: subDays(subHours(now, 5), 4).getTime(),
+    amount: -150000,
+    note: 'Mua gạo / khoản này chia 3',
+    type: 'Chi tiêu',
+    category: 'Tiền ăn'
+  },
   // {
   //   id: '5e887d0b3d090c1b8f162003',
   //   address: {
@@ -126,7 +120,7 @@ const data = [
   // }
 ];
 
-const useCustomers = (page, rowsPerPage) => {
+const useTransactions = (page, rowsPerPage) => {
   return useMemo(
     () => {
       return applyPagination(data, page, rowsPerPage);
@@ -135,21 +129,21 @@ const useCustomers = (page, rowsPerPage) => {
   );
 };
 
-const useCustomerIds = (customers) => {
+const useTransactionsIds = (transactions) => {
   return useMemo(
     () => {
-      return customers.map((customer) => customer.id);
+      return transactions.map((transaction) => transaction.id);
     },
-    [customers]
+    [transactions]
   );
 };
 
 const Page = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const customers = useCustomers(page, rowsPerPage);
-  const customersIds = useCustomerIds(customers);
-  const customersSelection = useSelection(customersIds);
+  const transactions = useTransactions(page, rowsPerPage);
+  const transactionsIds = useTransactionsIds(transactions);
+  const transactionsSelection = useSelection(transactionsIds);
 
   const handlePageChange = useCallback(
     (event, value) => {
@@ -233,16 +227,16 @@ const Page = () => {
             <TransactionsSearch />
             <TransactionsTable
               count={data.length}
-              items={customers}
-              onDeselectAll={customersSelection.handleDeselectAll}
-              onDeselectOne={customersSelection.handleDeselectOne}
+              items={transactions}
+              onDeselectAll={transactionsSelection.handleDeselectAll}
+              onDeselectOne={transactionsSelection.handleDeselectOne}
               onPageChange={handlePageChange}
               onRowsPerPageChange={handleRowsPerPageChange}
-              onSelectAll={customersSelection.handleSelectAll}
-              onSelectOne={customersSelection.handleSelectOne}
+              onSelectAll={transactionsSelection.handleSelectAll}
+              onSelectOne={transactionsSelection.handleSelectOne}
               page={page}
               rowsPerPage={rowsPerPage}
-              selected={customersSelection.selected}
+              selected={transactionsSelection.selected}
             />
           </Stack>
         </Container>
