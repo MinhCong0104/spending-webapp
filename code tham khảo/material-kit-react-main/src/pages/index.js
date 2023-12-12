@@ -41,7 +41,7 @@ const Page = () => (
               difference={12}
               positive
               sx={{ height: '100%' }}
-              value="$24k"
+              value="15.000.000"
             />
           </Grid>
           <Grid
@@ -53,17 +53,7 @@ const Page = () => (
               difference={16}
               positive={false}
               sx={{ height: '100%' }}
-              value="1.6k"
-            />
-          </Grid>
-          <Grid
-            xs={12}
-            sm={6}
-            lg={3}
-          >
-            <OverviewTasksProgress
-              sx={{ height: '100%' }}
-              value={75.5}
+              value="9.000.000"
             />
           </Grid>
           <Grid
@@ -73,10 +63,20 @@ const Page = () => (
           >
             <OverviewTotalProfit
               sx={{ height: '100%' }}
-              value="$15k"
+              value="5.000.000"
             />
           </Grid>
           <Grid
+            xs={12}
+            sm={6}
+            lg={3}
+          >
+            <OverviewTasksProgress
+              sx={{ height: '100%' }}
+              value="1.000.000"
+            />
+          </Grid>
+          {/* <Grid
             xs={12}
             lg={8}
           >
@@ -93,6 +93,18 @@ const Page = () => (
               ]}
               sx={{ height: '100%' }}
             />
+          </Grid> */}
+          <Grid
+            xs={12}
+            md={6}
+            lg={4}
+          >
+            <OverviewTraffic
+              title="This month"
+              chartSeries={[60, 33, 7]}
+              labels={['Spend', 'Save', 'Remain']}
+              sx={{ height: '100%' }}
+            />
           </Grid>
           <Grid
             xs={12}
@@ -100,12 +112,25 @@ const Page = () => (
             lg={4}
           >
             <OverviewTraffic
-              chartSeries={[63, 15, 22]}
-              labels={['Desktop', 'Tablet', 'Phone']}
+              title="Last month"
+              chartSeries={[60, 33, 7]}
+              labels={['Spend', 'Save', 'Remain']}
               sx={{ height: '100%' }}
             />
           </Grid>
           <Grid
+            xs={12}
+            md={6}
+            lg={4}
+          >
+            <OverviewTraffic
+              title="This year"
+              chartSeries={[60, 33, 7]}
+              labels={['Spend', 'Save', 'Remain']}
+              sx={{ height: '100%' }}
+            />
+          </Grid>
+          {/* <Grid
             xs={12}
             md={6}
             lg={4}
@@ -145,11 +170,11 @@ const Page = () => (
               ]}
               sx={{ height: '100%' }}
             />
-          </Grid>
-          <Grid
+          </Grid> */}
+          {/* <Grid
             xs={12}
-            md={12}
-            lg={8}
+            // md={12}
+            // lg={8}
           >
             <OverviewLatestOrders
               orders={[
@@ -216,7 +241,7 @@ const Page = () => (
               ]}
               sx={{ height: '100%' }}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
     </Box>

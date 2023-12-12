@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import ArrowDownIcon from '@heroicons/react/24/solid/ArrowDownIcon';
 import ArrowUpIcon from '@heroicons/react/24/solid/ArrowUpIcon';
 import CurrencyDollarIcon from '@heroicons/react/24/solid/CurrencyDollarIcon';
-import { Avatar, Card, CardContent, Stack, SvgIcon, Typography } from '@mui/material';
+import { Avatar, Card, CardContent, Stack, SvgIcon, Typography, Image } from '@mui/material';
 
 export const OverviewBudget = (props) => {
   const { difference, positive = false, sx, value } = props;
@@ -11,22 +11,11 @@ export const OverviewBudget = (props) => {
     <Card sx={sx}>
       <CardContent>
         <Stack
-          alignItems="flex-start"
-          direction="row"
+          alignItems="center"
+          // direction="row"
           justifyContent="space-between"
           spacing={3}
         >
-          <Stack spacing={1}>
-            <Typography
-              color="text.secondary"
-              variant="overline"
-            >
-              Budget
-            </Typography>
-            <Typography variant="h4">
-              {value}
-            </Typography>
-          </Stack>
           <Avatar
             sx={{
               backgroundColor: 'error.main',
@@ -38,8 +27,30 @@ export const OverviewBudget = (props) => {
               <CurrencyDollarIcon />
             </SvgIcon>
           </Avatar>
+          <Stack spacing={1}>
+            <Typography
+              color="text.secondary"
+              variant="overline"
+            >
+              Income
+            </Typography>
+            <Typography variant="h4">
+              {value}
+            </Typography>
+          </Stack>
+          {/* <Avatar
+            sx={{
+              backgroundColor: 'error.main',
+              height: 56,
+              width: 56
+            }}
+          >
+            <SvgIcon>
+              <CurrencyDollarIcon />
+            </SvgIcon>
+          </Avatar> */}
         </Stack>
-        {difference && (
+        {/* {difference && (
           <Stack
             alignItems="center"
             direction="row"
@@ -71,7 +82,7 @@ export const OverviewBudget = (props) => {
               Since last month
             </Typography>
           </Stack>
-        )}
+        )} */}
       </CardContent>
     </Card>
   );
