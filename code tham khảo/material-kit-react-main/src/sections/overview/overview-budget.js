@@ -31,6 +31,7 @@ export const OverviewBudget = (props) => {
             <Typography
               color="text.secondary"
               variant="overline"
+              textAlign="center"
             >
               Income
             </Typography>

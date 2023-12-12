@@ -18,23 +18,11 @@ export const OverviewTasksProgress = (props) => {
     <Card sx={sx}>
       <CardContent>
         <Stack
-          alignItems="flex-start"
-          direction="row"
+          alignItems="center"
+          // direction="row"
           justifyContent="space-between"
           spacing={3}
         >
-          <Stack spacing={1}>
-            <Typography
-              color="text.secondary"
-              gutterBottom
-              variant="overline"
-            >
-              Remain
-            </Typography>
-            <Typography variant="h4">
-              {value}
-            </Typography>
-          </Stack>
           <Avatar
             sx={{
               backgroundColor: 'warning.main',
@@ -46,6 +34,30 @@ export const OverviewTasksProgress = (props) => {
               <ListBulletIcon />
             </SvgIcon>
           </Avatar>
+          <Stack spacing={1}>
+            <Typography
+              color="text.secondary"
+              gutterBottom
+              variant="overline"
+              textAlign="center"
+            >
+              Remain
+            </Typography>
+            <Typography variant="h4">
+              {value}
+            </Typography>
+          </Stack>
+          {/* <Avatar
+            sx={{
+              backgroundColor: 'warning.main',
+              height: 56,
+              width: 56
+            }}
+          >
+            <SvgIcon>
+              <ListBulletIcon />
+            </SvgIcon>
+          </Avatar> */}
         </Stack>
         {/* <Box sx={{ mt: 3 }}>
           <LinearProgress

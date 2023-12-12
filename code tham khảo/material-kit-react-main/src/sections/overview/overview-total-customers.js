@@ -11,22 +11,11 @@ export const OverviewTotalCustomers = (props) => {
     <Card sx={sx}>
       <CardContent>
         <Stack
-          alignItems="flex-start"
-          direction="row"
+          alignItems="center"
+          // direction="row"
           justifyContent="space-between"
           spacing={3}
         >
-          <Stack spacing={1}>
-            <Typography
-              color="text.secondary"
-              variant="overline"
-            >
-              Spend
-            </Typography>
-            <Typography variant="h4">
-              {value}
-            </Typography>
-          </Stack>
           <Avatar
             sx={{
               backgroundColor: 'success.main',
@@ -38,6 +27,29 @@ export const OverviewTotalCustomers = (props) => {
               <UsersIcon />
             </SvgIcon>
           </Avatar>
+          <Stack spacing={1}>
+            <Typography
+              color="text.secondary"
+              variant="overline"
+              textAlign="center"
+            >
+              Spend
+            </Typography>
+            <Typography variant="h4">
+              {value}
+            </Typography>
+          </Stack>
+          {/* <Avatar
+            sx={{
+              backgroundColor: 'success.main',
+              height: 56,
+              width: 56
+            }}
+          >
+            <SvgIcon>
+              <UsersIcon />
+            </SvgIcon>
+          </Avatar> */}
         </Stack>
         {/* {difference && (
           <Stack

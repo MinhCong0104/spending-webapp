@@ -9,22 +9,11 @@ export const OverviewTotalProfit = (props) => {
     <Card sx={sx}>
       <CardContent>
         <Stack
-          alignItems="flex-start"
-          direction="row"
+          alignItems="center"
+          // direction="row"
           justifyContent="space-between"
           spacing={3}
         >
-          <Stack spacing={1}>
-            <Typography
-              color="text.secondary"
-              variant="overline"
-            >
-              Save
-            </Typography>
-            <Typography variant="h4">
-              {value}
-            </Typography>
-          </Stack>
           <Avatar
             sx={{
               backgroundColor: 'primary.main',
@@ -36,6 +25,29 @@ export const OverviewTotalProfit = (props) => {
               <CurrencyDollarIcon />
             </SvgIcon>
           </Avatar>
+          <Stack spacing={1}>
+            <Typography
+              color="text.secondary"
+              variant="overline"
+              textAlign="center"
+            >
+              Save
+            </Typography>
+            <Typography variant="h4">
+              {value}
+            </Typography>
+          </Stack>
+          {/* <Avatar
+            sx={{
+              backgroundColor: 'primary.main',
+              height: 56,
+              width: 56
+            }}
+          >
+            <SvgIcon>
+              <CurrencyDollarIcon />
+            </SvgIcon>
+          </Avatar> */}
         </Stack>
       </CardContent>
     </Card>
