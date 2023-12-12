@@ -94,31 +94,34 @@ export const TransactionsTable = (props) => {
                         }}
                       />
                     </TableCell>
-                    <TableCell>
+                    {/* <TableCell>
                       <Stack
                         alignItems="center"
                         direction="row"
                         spacing={2}
                       >
-                        {/* <Avatar src={customer.avatar}>
+                        <Avatar src={customer.avatar}>
                           {getInitials(customer.name)}
-                        </Avatar> */}
+                        </Avatar>
                         <Typography variant="subtitle2">
                           {transaction.name}
                         </Typography>
                       </Stack>
-                    </TableCell>
-                    <TableCell>
-                      {transaction.email}
-                    </TableCell>
-                    <TableCell>
-                      {transaction.address.city}, {transaction.address.state}, {transaction.address.country}
-                    </TableCell>
-                    <TableCell>
-                      {transaction.phone}
-                    </TableCell>
+                    </TableCell> */}
                     <TableCell>
                       {date}
+                    </TableCell>
+                    <TableCell>
+                      {transaction.amount}
+                    </TableCell>
+                    <TableCell>
+                      {transaction.note}
+                    </TableCell>
+                    <TableCell>
+                      {transaction.type}
+                    </TableCell>
+                    <TableCell>
+                      {transaction.category}
                     </TableCell>
                   </TableRow>
                 );
@@ -134,7 +137,7 @@ export const TransactionsTable = (props) => {
         onRowsPerPageChange={onRowsPerPageChange}
         page={page}
         rowsPerPage={rowsPerPage}
-        rowsPerPageOptions={[5, 10, 25]}
+        rowsPerPageOptions={[10, 20, 50]}
       />
     </Card>
   );
