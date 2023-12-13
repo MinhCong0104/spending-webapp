@@ -94,20 +94,6 @@ export const TransactionsTable = (props) => {
                         }}
                       />
                     </TableCell>
-                    {/* <TableCell>
-                      <Stack
-                        alignItems="center"
-                        direction="row"
-                        spacing={2}
-                      >
-                        <Avatar src={customer.avatar}>
-                          {getInitials(customer.name)}
-                        </Avatar>
-                        <Typography variant="subtitle2">
-                          {transaction.name}
-                        </Typography>
-                      </Stack>
-                    </TableCell> */}
                     <TableCell>
                       {date}
                     </TableCell>
