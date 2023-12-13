@@ -2,14 +2,14 @@ import Head from 'next/head';
 import { subDays, subHours } from 'date-fns';
 import { Box, Container, Unstable_Grid2 as Grid } from '@mui/material';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
-import { OverviewBudget } from 'src/sections/overview/overview-budget';
 import { OverviewLatestOrders } from 'src/sections/overview/overview-latest-orders';
 import { OverviewLatestProducts } from 'src/sections/overview/overview-latest-products';
 import { OverviewSales } from 'src/sections/overview/overview-sales';
-import { OverviewTasksProgress } from 'src/sections/overview/overview-tasks-progress';
-import { OverviewTotalCustomers } from 'src/sections/overview/overview-total-customers';
-import { OverviewTotalProfit } from 'src/sections/overview/overview-total-profit';
-import { OverviewTraffic } from 'src/sections/overview/overview-traffic';
+import { OverviewRemain } from 'src/sections/overview/overview-remain';
+import { OverviewIncome } from 'src/sections/overview/overview-income';
+import { OverviewSpend } from 'src/sections/overview/overview-spend';
+import { OverviewSave } from 'src/sections/overview/overview-save';
+import { OverviewPercentage } from 'src/sections/overview/overview-percentage';
 
 const now = new Date();
 
@@ -37,7 +37,7 @@ const Page = () => (
             sm={6}
             lg={3}
           >
-            <OverviewBudget
+            <OverviewIncome
               difference={12}
               positive
               sx={{ height: '100%' }}
@@ -49,7 +49,7 @@ const Page = () => (
             sm={6}
             lg={3}
           >
-            <OverviewTotalCustomers
+            <OverviewSpend
               difference={16}
               positive={false}
               sx={{ height: '100%' }}
@@ -61,7 +61,7 @@ const Page = () => (
             sm={6}
             lg={3}
           >
-            <OverviewTotalProfit
+            <OverviewSave
               sx={{ height: '100%' }}
               value="5.000.000"
             />
@@ -71,7 +71,7 @@ const Page = () => (
             sm={6}
             lg={3}
           >
-            <OverviewTasksProgress
+            <OverviewRemain
               sx={{ height: '100%' }}
               value="1.000.000"
             />
@@ -99,7 +99,7 @@ const Page = () => (
             md={6}
             lg={4}
           >
-            <OverviewTraffic
+            <OverviewPercentage
               title="This month"
               chartSeries={[60, 33, 7]}
               labels={['Spend', 'Save', 'Remain']}
@@ -111,7 +111,7 @@ const Page = () => (
             md={6}
             lg={4}
           >
-            <OverviewTraffic
+            <OverviewPercentage
               title="Last month"
               chartSeries={[60, 33, 7]}
               labels={['Spend', 'Save', 'Remain']}
@@ -123,7 +123,7 @@ const Page = () => (
             md={6}
             lg={4}
           >
-            <OverviewTraffic
+            <OverviewPercentage
               title="This year"
               chartSeries={[60, 33, 7]}
               labels={['Spend', 'Save', 'Remain']}
