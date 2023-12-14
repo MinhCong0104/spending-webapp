@@ -1,5 +1,5 @@
 
-import React, { useState }  from 'react'; 
+import React, { useState, FormEvent }  from 'react'; 
 import Popup from 'reactjs-popup'; 
 import 'reactjs-popup/dist/index.css'; 
 import { Box, Button, Container, Stack, SvgIcon, Typography, Modal } from '@mui/material';
@@ -51,27 +51,68 @@ export const PopupAddTransaction = () => {
                 margin: "auto",
             }}
         >
-            <button type="button" onClick={handleOpen}>
-                Click Me to Open Modal
-            </button>
+            <Button
+                startIcon={(
+                    <SvgIcon fontSize="small">
+                        <PlusIcon />
+                    </SvgIcon>
+            )}
+            variant="contained"
+            type="button" onClick={handleOpen}
+            >
+                Add
+            </Button>
             <Modal
-                onClose={handleClose}
+                // onClose={handleClose}
                 open={open}
                 style={{
                     position: "absolute",
                     border: "2px solid #000",
                     backgroundColor: "lightgray",
                     boxShadow: "2px solid black",
-                    height: 150,
-                    width: 240,
+                    height: 800,
+                    width: 500,
                     margin: "auto",
                     padding: "2%",
                     color: "white",
                 }}
             >
                 <>
-                    <h2>GFG</h2>
-                    <p>A computer science portal!</p>
+                    <h2 style={{textAlign: "center"}}>Add a transaction</h2>
+                    <form style={{lineHeight: 3}}>
+                        <label>Date</label>
+                        <input type="text" name="date"/>
+                        <br/>
+                        <label>Amount</label>
+                        <input type="text" name="amount"/>
+                        <br/>
+                        <label>Note</label>
+                        <input type="text" name="note"/>
+                        <br/>
+                        <label>Type</label>
+                        <input type="text" name="type"/>
+                        <br/>
+                        <label>Category</label>
+                        <input type="text" name="category"/>
+                        <br/>
+                        {/* <button type="submit">Submit</button> */}
+                        <div style={{marginTop: 40}}>
+                            <Button
+                                variant="contained"
+                                type="submit"
+                                style={{float: "left"}}
+                            >
+                                Submit
+                            </Button>
+                            <Button
+                                variant="contained"
+                                type="button" onClick={handleClose}
+                                style={{float: "right"}}
+                            >
+                                Close
+                            </Button>
+                        </div>
+                    </form>
                 </>
             </Modal>
         </div>

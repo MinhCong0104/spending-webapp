@@ -213,7 +213,7 @@ const Page = () => {
                 </Stack>
               </Stack>
               <div>
-                <PopupGfg/>
+                {/* <PopupGfg/> */}
                 <PopupAddTransaction/>
               </div>
             </Stack>
