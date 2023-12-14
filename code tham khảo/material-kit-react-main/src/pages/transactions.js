@@ -10,6 +10,7 @@ import { TransactionsTable } from 'src/sections/transaction/transactions-table';
 import { TransactionsSearch } from 'src/sections/transaction/transactions-search';
 import { applyPagination } from 'src/utils/apply-pagination';
 import { PopupGfg } from 'src/sections/transaction/transactions-add';
+import { PopupAddTransaction } from 'src/sections/transaction/transactions-add';
 
 const now = new Date();
 
@@ -213,6 +214,7 @@ const Page = () => {
               </Stack>
               <div>
                 <PopupGfg/>
+                <PopupAddTransaction/>
               </div>
             </Stack>
             <TransactionsSearch />
