@@ -1,44 +1,27 @@
 
 import React, { useState, FormEvent }  from 'react'; 
-import Popup from 'reactjs-popup'; 
 import 'reactjs-popup/dist/index.css'; 
-import { Box, Button, Container, Stack, SvgIcon, Typography, Modal, TextField, Link } from '@mui/material';
+import { Box, Button, Container, Stack, SvgIcon, Typography, TextField, Modal, Link } from '@mui/material';
 import PlusIcon from '@heroicons/react/24/solid/PlusIcon';
-// import { transactionForm } from './transactions-form';
-import Head from 'next/head';
-import NextLink from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-// import { Box, Button, Link, Stack, TextField, Typography } from '@mui/material';
 import { useAuth } from 'src/hooks/use-auth';
 import { Layout as AuthLayout } from 'src/layouts/auth/layout';
 
-export const AddBtn = () => {
-    return(
-        <Button
-            startIcon={(
-                <SvgIcon fontSize="small">
-                    <PlusIcon />
-                </SvgIcon>
-            )}
-            variant="contained"
-        >
-            Add
-        </Button>
-    )
-}
 
-export const PopupGfg = () => { 
-  return(
-    <Popup 
-        trigger={AddBtn}  
-        position="right center"
-    > 
-        <div>Chỗ này sẽ hiện popup để thêm giao dịch</div>  
-    </Popup>
-  ) 
-};
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
+
 
 export const PopupAddTransaction = () => {
     const [open, setOpen] = React.useState(false);
@@ -102,27 +85,18 @@ export const PopupAddTransaction = () => {
                         <PlusIcon />
                     </SvgIcon>
             )}
-            variant="contained"
-            type="button" onClick={handleOpen}
+                variant="contained"
+                type="button" onClick={handleOpen}
             >
                 Add
             </Button>
             <Modal
-                // onClose={handleClose}
                 open={open}
-                style={{
-                    position: "absolute",
-                    border: "2px solid #000",
-                    backgroundColor: "lightgray",
-                    boxShadow: "2px solid black",
-                    height: 500,
-                    width: 400,
-                    margin: "auto",
-                    padding: "2%",
-                    color: "white",
-                }}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
             >
-                <>
+                <Box sx={style}>
                     <h2 style={{textAlign: "center"}}>Add a transaction</h2>
                     <form
                         noValidate
@@ -161,6 +135,26 @@ export const PopupAddTransaction = () => {
                                 type="password"
                                 value={formik.values.password}
                             />
+                            <TextField
+                                error={!!(formik.touched.password && formik.errors.password)}
+                                fullWidth
+                                helperText={formik.touched.password && formik.errors.password}
+                                label="Type"
+                                name="type"
+                                onBlur={formik.handleBlur}
+                                onChange={formik.handleChange}
+                                value={formik.values.password}
+                            />
+                            <TextField
+                                error={!!(formik.touched.password && formik.errors.password)}
+                                fullWidth
+                                helperText={formik.touched.password && formik.errors.password}
+                                label="Category"
+                                name="category"
+                                onBlur={formik.handleBlur}
+                                onChange={formik.handleChange}
+                                value={formik.values.password}
+                            />
                         </Stack>
                         {formik.errors.submit && (
                             <Typography
@@ -181,7 +175,7 @@ export const PopupAddTransaction = () => {
                             Continue
                         </Button>
                     </form>
-                </>
+                </Box>
             </Modal>
         </div>
     );
