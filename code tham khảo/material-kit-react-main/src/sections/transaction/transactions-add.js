@@ -2,8 +2,17 @@
 import React, { useState, FormEvent }  from 'react'; 
 import Popup from 'reactjs-popup'; 
 import 'reactjs-popup/dist/index.css'; 
-import { Box, Button, Container, Stack, SvgIcon, Typography, Modal } from '@mui/material';
+import { Box, Button, Container, Stack, SvgIcon, Typography, Modal, TextField, Link } from '@mui/material';
 import PlusIcon from '@heroicons/react/24/solid/PlusIcon';
+// import { transactionForm } from './transactions-form';
+import Head from 'next/head';
+import NextLink from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+// import { Box, Button, Link, Stack, TextField, Typography } from '@mui/material';
+import { useAuth } from 'src/hooks/use-auth';
+import { Layout as AuthLayout } from 'src/layouts/auth/layout';
 
 export const AddBtn = () => {
     return(
@@ -41,6 +50,42 @@ export const PopupAddTransaction = () => {
     const handleOpen = () => {
         setOpen(true);
     };
+
+    const router = useRouter();
+    const auth = useAuth();
+    const formik = useFormik({
+      initialValues: {
+        email: '',
+        name: '',
+        password: '',
+        submit: null
+      },
+      validationSchema: Yup.object({
+        email: Yup
+          .string()
+          .email('Must be a valid email')
+          .max(255)
+          .required('Email is required'),
+        name: Yup
+          .string()
+          .max(255)
+          .required('Name is required'),
+        password: Yup
+          .string()
+          .max(255)
+          .required('Password is required')
+      }),
+      onSubmit: async (values, helpers) => {
+        try {
+          await auth.signUp(values.email, values.name, values.password);
+          router.push('/');
+        } catch (err) {
+          helpers.setStatus({ success: false });
+          helpers.setErrors({ submit: err.message });
+          helpers.setSubmitting(false);
+        }
+      }
+    });
  
     return (
         <div
@@ -70,8 +115,8 @@ export const PopupAddTransaction = () => {
                     border: "2px solid #000",
                     backgroundColor: "lightgray",
                     boxShadow: "2px solid black",
-                    height: 800,
-                    width: 500,
+                    height: 500,
+                    width: 400,
                     margin: "auto",
                     padding: "2%",
                     color: "white",
@@ -79,39 +124,62 @@ export const PopupAddTransaction = () => {
             >
                 <>
                     <h2 style={{textAlign: "center"}}>Add a transaction</h2>
-                    <form style={{lineHeight: 3}}>
-                        <label>Date</label>
-                        <input type="text" name="date"/>
-                        <br/>
-                        <label>Amount</label>
-                        <input type="text" name="amount"/>
-                        <br/>
-                        <label>Note</label>
-                        <input type="text" name="note"/>
-                        <br/>
-                        <label>Type</label>
-                        <input type="text" name="type"/>
-                        <br/>
-                        <label>Category</label>
-                        <input type="text" name="category"/>
-                        <br/>
-                        {/* <button type="submit">Submit</button> */}
-                        <div style={{marginTop: 40}}>
-                            <Button
-                                variant="contained"
-                                type="submit"
-                                style={{float: "left"}}
+                    <form
+                        noValidate
+                        onSubmit={formik.handleSubmit}
+                    >
+                        <Stack spacing={3}>
+                            <TextField
+                                error={!!(formik.touched.name && formik.errors.name)}
+                                fullWidth
+                                helperText={formik.touched.name && formik.errors.name}
+                                label="Name"
+                                name="name"
+                                onBlur={formik.handleBlur}
+                                onChange={formik.handleChange}
+                                value={formik.values.name}
+                            />
+                            <TextField
+                                error={!!(formik.touched.email && formik.errors.email)}
+                                fullWidth
+                                helperText={formik.touched.email && formik.errors.email}
+                                label="Email Address"
+                                name="email"
+                                onBlur={formik.handleBlur}
+                                onChange={formik.handleChange}
+                                type="email"
+                                value={formik.values.email}
+                            />
+                            <TextField
+                                error={!!(formik.touched.password && formik.errors.password)}
+                                fullWidth
+                                helperText={formik.touched.password && formik.errors.password}
+                                label="Password"
+                                name="password"
+                                onBlur={formik.handleBlur}
+                                onChange={formik.handleChange}
+                                type="password"
+                                value={formik.values.password}
+                            />
+                        </Stack>
+                        {formik.errors.submit && (
+                            <Typography
+                                color="error"
+                                sx={{ mt: 3 }}
+                                variant="body2"
                             >
-                                Submit
-                            </Button>
-                            <Button
-                                variant="contained"
-                                type="button" onClick={handleClose}
-                                style={{float: "right"}}
-                            >
-                                Close
-                            </Button>
-                        </div>
+                                {formik.errors.submit}
+                            </Typography>
+                        )}
+                        <Button
+                            fullWidth
+                            size="large"
+                            sx={{ mt: 3 }}
+                            type="submit"
+                            variant="contained"
+                        >
+                            Continue
+                        </Button>
                     </form>
                 </>
             </Modal>
