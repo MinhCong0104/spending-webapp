@@ -38,25 +38,29 @@ export const PopupAddTransaction = () => {
     const auth = useAuth();
     const formik = useFormik({
       initialValues: {
-        email: '',
-        name: '',
-        password: '',
+        date: '',
+        amount: 0,
+        note: '',
+        type: '',
+        category: '',
         submit: null
       },
       validationSchema: Yup.object({
         email: Yup
           .string()
-          .email('Must be a valid email')
           .max(255)
-          .required('Email is required'),
-        name: Yup
+          .required('Date is required'),
+        amount: Yup
+          .number()
+          .required('Amount must be a valid number'),
+        type: Yup
           .string()
           .max(255)
-          .required('Name is required'),
-        password: Yup
+          .required('Password is required'),
+        category: Yup
           .string()
           .max(255)
-          .required('Password is required')
+          .required('Category is required')
       }),
       onSubmit: async (values, helpers) => {
         try {
@@ -92,7 +96,7 @@ export const PopupAddTransaction = () => {
             </Button>
             <Modal
                 open={open}
-                onClose={handleClose}
+                // onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
@@ -104,56 +108,56 @@ export const PopupAddTransaction = () => {
                     >
                         <Stack spacing={3}>
                             <TextField
-                                error={!!(formik.touched.name && formik.errors.name)}
+                                error={!!(formik.touched.date && formik.errors.date)}
                                 fullWidth
-                                helperText={formik.touched.name && formik.errors.name}
-                                label="Name"
-                                name="name"
+                                helperText={formik.touched.date && formik.errors.date}
+                                label="Date"
+                                name="date"
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
-                                value={formik.values.name}
+                                value={formik.values.date}
                             />
                             <TextField
-                                error={!!(formik.touched.email && formik.errors.email)}
+                                error={!!(formik.touched.amount && formik.errors.amount)}
                                 fullWidth
-                                helperText={formik.touched.email && formik.errors.email}
-                                label="Email Address"
-                                name="email"
+                                helperText={formik.touched.amount && formik.errors.amount}
+                                label="Amount"
+                                name="amount"
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
                                 type="email"
-                                value={formik.values.email}
+                                value={formik.values.amount}
                             />
                             <TextField
-                                error={!!(formik.touched.password && formik.errors.password)}
+                                // error={!!(formik.touched.password && formik.errors.password)}
                                 fullWidth
-                                helperText={formik.touched.password && formik.errors.password}
-                                label="Password"
-                                name="password"
+                                // helperText={formik.touched.password && formik.errors.password}
+                                label="Note"
+                                name="note"
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
-                                type="password"
-                                value={formik.values.password}
+                                // type="password"
+                                value={formik.values.note}
                             />
                             <TextField
-                                error={!!(formik.touched.password && formik.errors.password)}
+                                error={!!(formik.touched.type && formik.errors.type)}
                                 fullWidth
-                                helperText={formik.touched.password && formik.errors.password}
+                                helperText={formik.touched.type && formik.errors.type}
                                 label="Type"
                                 name="type"
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
-                                value={formik.values.password}
+                                value={formik.values.type}
                             />
                             <TextField
-                                error={!!(formik.touched.password && formik.errors.password)}
+                                error={!!(formik.touched.category && formik.errors.category)}
                                 fullWidth
-                                helperText={formik.touched.password && formik.errors.password}
+                                helperText={formik.touched.category && formik.errors.category}
                                 label="Category"
                                 name="category"
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
-                                value={formik.values.password}
+                                value={formik.values.category}
                             />
                         </Stack>
                         {formik.errors.submit && (
@@ -173,6 +177,17 @@ export const PopupAddTransaction = () => {
                             variant="contained"
                         >
                             Continue
+                        </Button>
+                        <Button
+                            fullWidth
+                            size="large"
+                            sx={{ mt: 3 }}
+                            type="button"
+                            onClick={handleClose}
+                            color="inherit"
+                            variant="contained"
+                        >
+                            Cancel
                         </Button>
                     </form>
                 </Box>
