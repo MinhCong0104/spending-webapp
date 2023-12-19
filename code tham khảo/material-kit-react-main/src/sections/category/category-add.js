@@ -23,7 +23,7 @@ const style = {
   };
 
 
-export const PopupAddTransaction = () => {
+export const PopupAddCategory = () => {
     const [open, setOpen] = React.useState(false);
  
     const handleClose = () => {
@@ -38,29 +38,19 @@ export const PopupAddTransaction = () => {
     const auth = useAuth();
     const formik = useFormik({
       initialValues: {
-        date: '',
-        amount: 0,
-        note: '',
-        type: '',
         category: '',
-        submit: null
+        type: '',
+        note: '',
       },
       validationSchema: Yup.object({
-        date: Yup
-          .string()
-          .max(255)
-          .required('Date is required'),
-        amount: Yup
-          .number()
-          .required('Amount must be a valid number'),
-        type: Yup
-          .string()
-          .max(255)
-          .required('Password is required'),
         category: Yup
           .string()
           .max(255)
-          .required('Category is required')
+          .required('Category name is required'),
+        type: Yup
+          .string()
+          .max(255)
+          .required('Type is required'),
       }),
       onSubmit: async (values, helpers) => {
         try {
@@ -108,35 +98,21 @@ export const PopupAddTransaction = () => {
                     >
                         <Stack spacing={3}>
                             <TextField
-                                error={!!(formik.touched.date && formik.errors.date)}
+                                error={!!(formik.touched.category && formik.errors.category)}
                                 fullWidth
-                                helperText={formik.touched.date && formik.errors.date}
-                                label="Date"
-                                name="date"
+                                helperText={formik.touched.category && formik.errors.category}
+                                label="Category"
+                                name="category"
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
-                                value={formik.values.date}
+                                value={formik.values.category}
                             />
                             <TextField
-                                error={!!(formik.touched.amount && formik.errors.amount)}
                                 fullWidth
-                                helperText={formik.touched.amount && formik.errors.amount}
-                                label="Amount"
-                                name="amount"
-                                onBlur={formik.handleBlur}
-                                onChange={formik.handleChange}
-                                type="email"
-                                value={formik.values.amount}
-                            />
-                            <TextField
-                                // error={!!(formik.touched.password && formik.errors.password)}
-                                fullWidth
-                                // helperText={formik.touched.password && formik.errors.password}
                                 label="Note"
                                 name="note"
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
-                                // type="password"
                                 value={formik.values.note}
                             />
                             <TextField
@@ -148,16 +124,6 @@ export const PopupAddTransaction = () => {
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
                                 value={formik.values.type}
-                            />
-                            <TextField
-                                error={!!(formik.touched.category && formik.errors.category)}
-                                fullWidth
-                                helperText={formik.touched.category && formik.errors.category}
-                                label="Category"
-                                name="category"
-                                onBlur={formik.handleBlur}
-                                onChange={formik.handleChange}
-                                value={formik.values.category}
                             />
                         </Stack>
                         {formik.errors.submit && (
@@ -176,7 +142,7 @@ export const PopupAddTransaction = () => {
                             type="submit"
                             variant="contained"
                         >
-                            Continue
+                            Submit
                         </Button>
                         <Button
                             fullWidth
