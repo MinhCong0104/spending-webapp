@@ -10,6 +10,7 @@ class Transaction(Document):
     category = ReferenceField("Category", required=True)
     # status = StringField(required=True)
 
+    user = ReferenceField("User", required=True)
     created_at = DateTimeField(required=True)
     updated_at = DateTimeField(required=False)
 
