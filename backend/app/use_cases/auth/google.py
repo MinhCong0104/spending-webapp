@@ -59,7 +59,7 @@ class GoogleAuthUseCase(use_case.UseCase):
                 email=user_data.email,
                 first_name=user_data.given_name,
                 last_name=user_data.family_name,
-                role=UserRole.ACCOUNTANT,
+                role=UserRole.USER,
                 avatar=user_data.picture,
             )
             obj_in: UserInDB = UserInDB(

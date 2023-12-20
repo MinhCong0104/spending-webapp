@@ -12,7 +12,7 @@ def transform_email(email: str) -> str:
 class UserBase(BaseEntity):
     email: EmailStr
     status: UserStatus = UserStatus.INACTIVE
-    role: UserRole = UserRole.ACCOUNTANT
+    role: UserRole = UserRole.USER
     is_admin: Optional[bool] = None
     first_name: Optional[str] = None
     last_name: Optional[str] = None
@@ -30,10 +30,10 @@ class UserInDB(IDModelMixin, DateTimeModelMixin, UserBase):
         Check user validity
         :return:
         """
-        self.status is UserStatus.INACTIVE.value or self.status is UserStatus.DELETED.value
+        return self.status is UserStatus.INACTIVE.value or self.status is UserStatus.DELETED.value
 
-    def is_accountant(self):
-        return self.role == UserRole.ACCOUNTANT
+    def is_user(self):
+        return self.role == UserRole.USER
 
     def is_administrator(self):
         return self.role == UserRole.ADMIN
@@ -46,7 +46,7 @@ class UserInCreate(BaseEntity):
     password: Optional[str] = None
     avatar: Optional[str] = None
     status: UserStatus = UserStatus.ACTIVE
-    role: UserRole = UserRole.ACCOUNTANT
+    role: UserRole = UserRole.USER
     _extract_email = field_validator("email", mode="before")(transform_email)
 
 
@@ -67,4 +67,4 @@ class UserInUpdate(BaseEntity):
     first_name: Optional[str] = None
     last_name: Optional[str] = None
     status: UserStatus = UserStatus.INACTIVE
-    role: UserRole = UserRole.ACCOUNTANT
+    role: UserRole = UserRole.USER

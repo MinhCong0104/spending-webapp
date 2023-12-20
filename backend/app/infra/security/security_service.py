@@ -102,15 +102,6 @@ def get_current_active_user(
     return user
 
 
-def get_current_accountant(
-    user: UserModel = Depends(get_current_active_user),
-) -> UserModel:
-    current_user = UserInDB.model_validate(user)
-    if not current_user.is_accountant():
-        raise HTTPException(status_code=400, detail="Invalid accountant")
-    return user
-
-
 def get_current_superuser(
     current_user: UserModel = Depends(get_current_active_user),
 ) -> UserModel:

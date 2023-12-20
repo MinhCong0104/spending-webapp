@@ -2,13 +2,10 @@ import datetime
 from mongoengine import Document, StringField, DateTimeField, FloatField, ReferenceField, IntField
 
 
-class Transaction(Document):
-    date = DateTimeField(required=True)
-    amount = FloatField(required=True)
-    note = StringField(required=False)
+class Category(Document):
+    name = StringField(required=True)
     type = StringField()
-    category = ReferenceField("Category", required=True)
-    # status = StringField(required=True)
+    note = StringField()
 
     created_at = DateTimeField(required=True)
     updated_at = DateTimeField(required=False)
@@ -17,7 +14,7 @@ class Transaction(Document):
         if not self.created_at:
             self.created_at = datetime.datetime.utcnow()
         self.updated_at = datetime.datetime.utcnow()
-        return super(Transaction, self).save(*args, **kwargs)
+        return super(Category, self).save(*args, **kwargs)
 
     @classmethod
     def from_mongo(cls, data: dict, id_str=False):
@@ -30,8 +27,8 @@ class Transaction(Document):
         return cls(**dict(data, id=id))
 
     meta = {
-        "collection": "Transactions",
-        "indexes": ["date"],
+        "collection": "Categories",
+        "indexes": ["name"],
         "allow_inheritance": True,
         "index_cls": False,
     }

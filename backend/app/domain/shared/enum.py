@@ -1,6 +1,11 @@
 from app.shared.utils.general import ExtendedEnum
 
 
+class UserRole(str, ExtendedEnum):
+    USER = "user"
+    ADMIN = "admin"
+
+
 class UserStatus(str, ExtendedEnum):
     ACTIVE = "active"
     INACTIVE = "inactive"
@@ -8,9 +13,9 @@ class UserStatus(str, ExtendedEnum):
 
 
 class Type(str, ExtendedEnum):
-    SPEND = "Assets"
-    INCOME = "Revenue"
-    SAVE = "Expenses"
+    SPEND = "spend"
+    INCOME = "income"
+    SAVE = "save"
 
 
 class Status(str, ExtendedEnum):
@@ -23,3 +28,8 @@ class Period(str, ExtendedEnum):
     WEEK = "week"
     MONTH = "month"
     YEAR = "year"
+
+
+class AuthGrantType(str, ExtendedEnum):
+    RESET_PASSWORD = "reset_password"
+    ACCESS_TOKEN = "access_token"

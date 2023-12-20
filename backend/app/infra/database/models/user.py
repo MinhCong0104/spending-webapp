@@ -4,13 +4,13 @@ from mongoengine import Document, StringField, EmailField, DateTimeField, Boolea
 
 class User(Document):
     email = EmailField(required=True, unique=True)
-    status = StringField(required=True)
     role = StringField(required=True)
     first_name = StringField(required=False)
     last_name = StringField(required=False)
     avatar = StringField(required=False)
-    is_admin = BooleanField(required=False)
+    phone = StringField(required=False)
     hashed_password = StringField()
+
     created_at = DateTimeField(required=True)
     updated_at = DateTimeField(required=False)
 
