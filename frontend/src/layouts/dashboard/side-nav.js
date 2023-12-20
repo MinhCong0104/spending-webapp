@@ -71,13 +71,13 @@ export const SideNav = (props) => {
                 color="inherit"
                 variant="subtitle1"
               >
-                Devias
+                Spending
               </Typography>
               <Typography
                 color="neutral.400"
                 variant="body2"
               >
-                Production
+                Webapp
               </Typography>
             </div>
             <SvgIcon
@@ -132,33 +132,23 @@ export const SideNav = (props) => {
         >
           <Typography
             color="neutral.100"
-            variant="subtitle2"
+            variant="subtitle1"
           >
-            Need more features?
+            Contact me
           </Typography>
           <Typography
-            color="neutral.500"
-            variant="body2"
+            color="neutral.100"
+            variant="subtitle2"
           >
-            Check out our Pro solution template.
+            Email: tmcong1401@gmail.com
           </Typography>
-          <Box
-            sx={{
-              display: 'flex',
-              mt: 2,
-              mx: 'auto',
-              width: '160px',
-              '& img': {
-                width: '100%'
-              }
-            }}
+          <Typography
+            color="neutral.100"
+            variant="subtitle2"
           >
-            <img
-              alt="Go to pro"
-              src="/assets/devias-kit-pro.png"
-            />
-          </Box>
-          <Button
+            Phone: 0332472056
+          </Typography>
+          {/* <Button
             component="a"
             endIcon={(
               <SvgIcon fontSize="small">
@@ -172,7 +162,7 @@ export const SideNav = (props) => {
             variant="contained"
           >
             Pro Live Preview
-          </Button>
+          </Button> */}
         </Box>
       </Box>
     </Scrollbar>
