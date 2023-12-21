@@ -6,7 +6,7 @@ class Transaction(Document):
     date = DateTimeField(required=True)
     amount = FloatField(required=True)
     note = StringField(required=False)
-    type = StringField()
+    type = StringField(required=True)
     category = ReferenceField("Category", required=True)
     # status = StringField(required=True)
 

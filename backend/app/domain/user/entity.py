@@ -13,7 +13,6 @@ class UserBase(BaseEntity):
     email: EmailStr
     status: UserStatus = UserStatus.INACTIVE
     role: UserRole = UserRole.USER
-    is_admin: Optional[bool] = None
     first_name: Optional[str] = None
     last_name: Optional[str] = None
     avatar: Optional[str] = None
@@ -56,11 +55,6 @@ class User(UserBase):
     """
 
     id: str
-
-
-class ManyUsersInResponse(BaseEntity):
-    pagination: Optional[Pagination] = None
-    data: Optional[List[User]] = None
 
 
 class UserInUpdate(BaseEntity):
