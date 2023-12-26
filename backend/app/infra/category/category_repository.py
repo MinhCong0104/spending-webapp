@@ -3,7 +3,7 @@ from typing import Optional, Dict, Union, List, Any
 from mongoengine import QuerySet, DoesNotExist
 from bson import ObjectId
 
-from app.infra.database.models.user import User as UserModel
+from app.domain.user.entity import User
 from app.infra.database.models.category import Category as CategoryModel
 from app.domain.category.entity import CategoryInDB, CategoryInCreate, CategoryInUpdate
 from app.domain.shared.enum import UserRole, Type
@@ -56,13 +56,19 @@ class CategoryRepository:
 
     def list(
         self,
+        user: User,
         type: Type,
         name: Optional[str] = None,
         note: Optional[str] = None,
         sort: Optional[Dict[str, int]] = None,
     ) -> List[CategoryModel]:
         try:
-            match_pipelines = {"role": type.value}
+            match_pipelines = {"user": user.value}
+            if type:
+                match_pipelines = {
+                    **match_pipelines,
+                    "type": type.value,
+                }
             if note:
                 note = note.lower()
                 match_pipelines = {

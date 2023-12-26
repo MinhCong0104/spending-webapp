@@ -3,7 +3,7 @@ from mongoengine import Document, StringField, DateTimeField, FloatField, Refere
 
 
 class Category(Document):
-    name = StringField(required=True)
+    name = StringField(required=True, unique=True)
     type = StringField()
     note = StringField()
 
