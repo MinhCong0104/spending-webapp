@@ -1,0 +1,8 @@
+.venv
+
+.mongodb_*
+
+.db.env
+.env
+
+__pycache__

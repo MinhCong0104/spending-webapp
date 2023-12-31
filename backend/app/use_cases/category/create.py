@@ -29,6 +29,9 @@ class CreateCategoryUseCase(use_case.UseCase):
 
     def process_request(self, req_object: CreateCategoryRequestObject):
         category_in: CategoryInCreate = req_object.category_in
+        existing_category: Optional[CategoryInDB] = self.category_repository.get_by_name(name=category_in.name)
+        if existing_category:
+            return Category(**existing_category.model_dump())
 
         obj_in: CategoryInDB = CategoryInDB(**category_in.model_dump())
         category_in_db: CategoryInDB = self.category_repository.create(category=obj_in)

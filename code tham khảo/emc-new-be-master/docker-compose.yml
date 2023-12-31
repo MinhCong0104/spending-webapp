@@ -1,0 +1,59 @@
+version: "3"
+
+x-app-common: &app-common
+  environment:
+    REDIS_URL: redis://redis:6379
+   
+services:
+  emc_web_service:
+    <<: *app-common
+    container_name: emc_web_service
+    restart: unless-stopped
+    build: .
+    volumes: 
+      - ./src:/home/appuser/src
+    ports:
+      - "${PORT}:8000"
+    env_file: 
+      - .env
+
+  redis:
+    <<: *app-common
+    image: redis
+    restart: unless-stopped
+    ports:
+      - 6379:6379
+    volumes:
+      - task-data:/data
+
+  celery:
+    <<: *app-common
+    build: .
+    volumes: 
+      - ./src:/home/appuser/src
+    command: celery
+    restart: unless-stopped
+    env_file: 
+      - .env
+    depends_on:
+      - redis
+
+  dashboard:
+    <<: *app-common
+    build: .
+    command: dashboard --port=5555
+    ports:
+      - 5556:5555
+    env_file:
+      - .env
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379
+      - CELERY_RESULT_BACKEND=redis://redis:6379
+    depends_on:
+      - emc_web_service
+      - redis
+      - celery
+
+volumes:
+  task-data:
+      

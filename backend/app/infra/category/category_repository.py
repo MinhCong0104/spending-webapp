@@ -40,6 +40,16 @@ class CategoryRepository:
         except DoesNotExist:
             return None
 
+    def get_by_name(self, name: str) -> Optional[CategoryModel]:
+        qs: QuerySet = CategoryModel.objects(name=name)
+        # retrieve unique result
+        # https://mongoengine-odm.readthedocs.io/guide/querying.html#retrieving-unique-results
+        try:
+            category: CategoryModel = qs.get()
+            return category
+        except DoesNotExist:
+            return None
+
     def update(self, id: ObjectId, data: Union[CategoryInUpdate, Dict[str, Any]]) -> bool:
         try:
             data = data.model_dump(exclude_none=True) if isinstance(data, CategoryInUpdate) else data
