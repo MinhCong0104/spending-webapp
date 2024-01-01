@@ -7,37 +7,36 @@ from app.domain.category.field import PydanticCategoryType
 from app.domain.shared.enum import Type
 
 
-class CategoryBase(BaseEntity):
+class TransactionBase(BaseEntity):
     date: Union[datetime, Date]
     amount: float
     note: Optional[str] = None
     type: Type
 
 
-class TransactionInDB(IDModelMixin, DateTimeModelMixin, CategoryBase):
+class TransactionInDB(IDModelMixin, DateTimeModelMixin, TransactionBase):
     # https://docs.pydantic.dev/2.4/concepts/models/#arbitrary-class-instances
     model_config = ConfigDict(from_attributes=True)
     user: PydanticUserType
     category: PydanticCategoryType
 
 
-class CategoryInCreate(BaseEntity):
+class TransactionInCreate(BaseEntity):
     name: str
     type: Type
     note: Optional[str] = None
 
 
-class CategoryInUpdate(BaseEntity):
+class TransactionInUpdate(BaseEntity):
     date: Optional[Union[datetime, Date]]
     amount: Optional[float] = None
     note: Optional[str] = None
     type: Optional[Type] = None
 
 
-class Category(CategoryBase):
+class Transaction(TransactionBase):
     """
-    Category domain entity
+    Transaction domain entity
     """
 
     id: str
-    created_at: datetime

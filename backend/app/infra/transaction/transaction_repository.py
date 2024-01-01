@@ -4,26 +4,26 @@ from mongoengine import QuerySet, DoesNotExist
 from bson import ObjectId
 
 from app.infra.database.models.user import User as UserModel
-from app.infra.database.models.category import Category as CategoryModel
-from app.domain.category.entity import CategoryInDB, CategoryInCreate, CategoryInUpdate
+from app.infra.database.models.transaction import Transaction as TransactionModel
+from app.domain.transaction.entity import TransactionInDB, TransactionInCreate, TransactionInUpdate
 from app.domain.shared.enum import UserRole, Type
 
 
-class CategoryRepository:
+class TransactionRepository:
     def __init__(self):
         pass
 
-    def create(self, category: CategoryInCreate) -> CategoryInDB:
+    def create(self, transaction: TransactionInCreate) -> TransactionInDB:
         """
-        Create new category in db
-        :param category:
+        Create new transaction in db
+        :param transaction:
         :return:
         """
-        new_category = CategoryModel(**category.model_dump())
+        new_transaction = TransactionModel(**transaction.model_dump())
         # and save it to db
-        new_category.save()
+        new_transaction.save()
 
-        return CategoryInDB.model_validate(new_category)
+        return TransactionInDB.model_validate(new_transaction)
 
     def get_by_id(self, id: Union[str, ObjectId]) -> Optional[CategoryModel]:
         """

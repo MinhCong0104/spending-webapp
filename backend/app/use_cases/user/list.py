@@ -56,9 +56,4 @@ class ListUsersUseCase(use_case.UseCase):
             conditions = {**conditions, "email": {"$regex": ".*" + req_object.email + ".*"}}
         total = self.user_repository.count(conditions)
         data = [User(**UserInDB.model_validate(model).model_dump()) for model in users]
-        return ManyUsersInResponse(
-            pagination=Pagination(
-                total=total, page_index=req_object.page_index, total_pages=math.ceil(total / req_object.page_size)
-            ),
-            data=data,
-        )
+        return data
