@@ -8,12 +8,12 @@ from app.infra.category.category_repository import CategoryRepository
 
 
 class UpdateCategoryRequestObject(request_object.ValidRequestObject):
-    def __init__(self, id: str, obj_in: UserInUpdate) -> None:
+    def __init__(self, id: str, obj_in: CategoryInUpdate) -> None:
         self.id = id
         self.obj_in = obj_in
 
     @classmethod
-    def builder(cls, id: str, payload: Optional[UserInUpdate]) -> request_object.RequestObject:
+    def builder(cls, id: str, payload: Optional[CategoryInUpdate]) -> request_object.RequestObject:
         invalid_req = request_object.InvalidRequestObject()
         if id is None:
             invalid_req.add_error("id", "Invalid category id")
