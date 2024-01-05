@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Body, Depends, Path, Query
 from typing import Annotated, Union
-from app.domain.user.entity import User, UserInCreate, UserInDB, ManyUsersInResponse, UserInUpdate
+from app.domain.user.entity import User, UserInCreate, UserInDB, UserInUpdate
 from app.infra.security.security_service import get_current_active_user, get_current_administrator
 from app.shared.decorator import response_decorator
 from app.infra.database.models.user import User as UserModel

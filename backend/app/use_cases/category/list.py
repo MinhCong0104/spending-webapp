@@ -3,7 +3,7 @@ from typing import Optional, List
 from fastapi import Depends
 from app.shared import request_object, use_case
 from app.domain.user.entity import User
-from app.domain.category.entity import Category
+from app.domain.category.entity import Category, CategoryInDB
 from app.infra.database.models.category import Category as CategoryModel
 from app.infra.category.category_repository import CategoryRepository
 from app.domain.shared.enum import Type
@@ -46,5 +46,5 @@ class ListCategoriesUseCase(use_case.UseCase):
             note=req_object.note,
         )
 
-        data = [Category(**UserInDB.model_validate(model).model_dump()) for model in categories]
+        data = [Category(**CategoryInDB.model_validate(model).model_dump()) for model in categories]
         return data
