@@ -62,3 +62,8 @@ class UserInUpdate(BaseEntity):
     last_name: Optional[str] = None
     status: UserStatus = UserStatus.INACTIVE
     role: UserRole = UserRole.USER
+
+
+class ManyUsersInResponse(BaseEntity):
+    pagination: Optional[Pagination] = None
+    data: Optional[List[User]] = None

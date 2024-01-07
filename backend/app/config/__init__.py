@@ -27,6 +27,7 @@ class Settings(BaseSettings):
     UPLOAD_DIR: str = "/uploads"
     # project config
     PROJECT_NAME: str = "SPENDING-WEBAPP"
+    API_V1_STR: str = "/api/v1"
     API_PORT: Optional[int] = 8000
 
     BACKEND_CORS_ORIGINS: List[str] = []

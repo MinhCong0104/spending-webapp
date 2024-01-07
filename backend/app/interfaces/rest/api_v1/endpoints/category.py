@@ -1,70 +1,52 @@
 from fastapi import APIRouter, Body, Depends, Path, Query
 from typing import Annotated, Union
-from app.domain.user.entity import User, UserInCreate, UserInDB, UserInUpdate
+from app.domain.category.entity import Category, CategoryInCreate, CategoryInDB, CategoryInUpdate
 from app.infra.security.security_service import get_current_active_user, get_current_administrator
 from app.shared.decorator import response_decorator
 from app.infra.database.models.user import User as UserModel
-from app.use_cases.user.list import ListUsersUseCase, ListUsersRequestObject
-from app.use_cases.user.update import UpdateUserUseCase, UpdateUserRequestObject
 from app.domain.shared.enum import UserRole
 
-from app.use_cases.user.get import (
-    GetUserRequestObject,
-    GetUserCase,
-)
-from app.use_cases.user.create import (
-    CreateUserRequestObject,
-    CreateUserUseCase,
-)
+from app.use_cases.category.get import GetCategoryRequestObject, GetCategoryUseCase
+from app.use_cases.category.create import CreateCategoryUseCase, CreateCategoryRequestObject
+from app.use_cases.user.list import ListUsersUseCase, ListUsersRequestObject
+from app.use_cases.user.update import UpdateUserUseCase, UpdateUserRequestObject
 
 router = APIRouter()
 
 
-@router.get("/me", response_model=User)
-async def get_me(
-    current_user: UserInDB = Depends(get_current_active_user),
-):
-    """
-    get current user data
-    :param current_user:
-    :return:
-    """
-    return User(**UserInDB.model_validate(current_user).model_dump())
-
-
 @router.get(
-    "/{user_id}",
+    "/{category_id}",
     dependencies=[Depends(get_current_active_user)],  # auth route
-    response_model=User,
+    response_model=Category,
 )
 @response_decorator()
-def get_user(
-    user_id: str = Path(..., title="User id"),
-    get_user_use_case: GetUserCase = Depends(GetUserCase),
+def get_category(
+    category_id: str = Path(..., title="Category id"),
+    get_category_use_case: GetCategoryUseCase = Depends(GetCategoryUseCase),
 ):
-    get_user_request_object = GetUserRequestObject.builder(user_id=user_id)
-    response = get_user_use_case.execute(request_object=get_user_request_object)
+    get_category_request_object = GetCategoryRequestObject.builder(category_id=category_id)
+    response = get_category_use_case.execute(request_object=get_category_request_object)
     return response
 
 
 @router.post(
     "",
     dependencies=[Depends(get_current_active_user)],
-    response_model=User,
+    response_model=Category,
 )
 @response_decorator()
-def create_user(
-    payload: UserInCreate = Body(..., title="UserInCreate payload"),
-    create_user_use_case: CreateUserUseCase = Depends(CreateUserUseCase),
+def create_category(
+    payload: CategoryInCreate = Body(..., title="CategoryInCreate payload"),
+    create_category_use_case: CreateCategoryUseCase = Depends(CreateCategoryUseCase),
 ):
-    req_object = CreateUserRequestObject.builder(payload=payload)
-    response = create_user_use_case.execute(request_object=req_object)
+    req_object = CreateCategoryRequestObject.builder(payload=payload)
+    response = create_category_use_case.execute(request_object=req_object)
     return response
 
 
-@router.get("", response_model=ManyUsersInResponse)
+@router.get("")
 @response_decorator()
-def get_list_users(
+def get_list_categories(
     current_user: UserModel = Depends(get_current_administrator),
     list_users_use_case: ListUsersUseCase = Depends(ListUsersUseCase),
     page_index: Annotated[int, Query(title="Page Index")] = 1,

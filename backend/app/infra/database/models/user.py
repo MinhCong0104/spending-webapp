@@ -32,7 +32,7 @@ class User(Document):
 
     meta = {
         "collection": "Users",
-        "indexes": ["email", "status", "role"],
+        "indexes": ["email", "role"],
         "allow_inheritance": True,
         "index_cls": False,
     }

@@ -69,7 +69,7 @@ def get_list_users(
     list_users_use_case: ListUsersUseCase = Depends(ListUsersUseCase),
     page_index: Annotated[int, Query(title="Page Index")] = 1,
     page_size: Annotated[int, Query(title="Page size")] = 100,
-    role: Annotated[UserRole, Query(title="User role")] = UserRole.ACCOUNTANT,
+    role: Annotated[UserRole, Query(title="User role")] = UserRole.USER,
     email: Annotated[Union[str, None], Query(title="Email")] = None,
 ):
     req_object = ListUsersRequestObject.builder(
