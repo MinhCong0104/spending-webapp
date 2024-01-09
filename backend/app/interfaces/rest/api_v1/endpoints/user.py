@@ -67,8 +67,6 @@ def create_user(
 def get_list_users(
     current_user: UserModel = Depends(get_current_administrator),
     list_users_use_case: ListUsersUseCase = Depends(ListUsersUseCase),
-    page_index: Annotated[int, Query(title="Page Index")] = 1,
-    page_size: Annotated[int, Query(title="Page size")] = 100,
     role: Annotated[UserRole, Query(title="User role")] = UserRole.USER,
     email: Annotated[Union[str, None], Query(title="Email")] = None,
 ):

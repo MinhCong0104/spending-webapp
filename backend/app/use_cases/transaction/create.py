@@ -22,7 +22,7 @@ class CreateTransactionRequestObject(request_object.ValidRequestObject):
         return CreateTransactionRequestObject(transaction_in=payload)
 
 
-class CreateTransactionRequestObject(use_case.UseCase):
+class CreateTransactionUseCase(use_case.UseCase):
     def __init__(self, transaction_repository: TransactionRepository = Depends(TransactionRepository)):
         self.transaction_repository = transaction_repository
 

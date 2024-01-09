@@ -3,13 +3,12 @@ from typing import Annotated, Union
 from app.domain.category.entity import Category, CategoryInCreate, CategoryInDB, CategoryInUpdate
 from app.infra.security.security_service import get_current_active_user, get_current_administrator
 from app.shared.decorator import response_decorator
-from app.infra.database.models.user import User as UserModel
-from app.domain.shared.enum import UserRole
+from app.domain.shared.enum import UserRole, Type
 
 from app.use_cases.category.get import GetCategoryRequestObject, GetCategoryUseCase
 from app.use_cases.category.create import CreateCategoryUseCase, CreateCategoryRequestObject
-from app.use_cases.user.list import ListUsersUseCase, ListUsersRequestObject
-from app.use_cases.user.update import UpdateUserUseCase, UpdateUserRequestObject
+from app.use_cases.category.list import ListCategoriesUseCase, ListCategoriesRequestObject
+from app.use_cases.category.update import UpdateCategoryUseCase, UpdateCategoryRequestObject
 
 router = APIRouter()
 
@@ -24,8 +23,8 @@ def get_category(
     category_id: str = Path(..., title="Category id"),
     get_category_use_case: GetCategoryUseCase = Depends(GetCategoryUseCase),
 ):
-    get_category_request_object = GetCategoryRequestObject.builder(category_id=category_id)
-    response = get_category_use_case.execute(request_object=get_category_request_object)
+    req_object = GetCategoryRequestObject.builder(category_id=category_id)
+    response = get_category_use_case.execute(request_object=req_object)
     return response
 
 
@@ -47,46 +46,29 @@ def create_category(
 @router.get("")
 @response_decorator()
 def get_list_categories(
-    current_user: UserModel = Depends(get_current_administrator),
-    list_users_use_case: ListUsersUseCase = Depends(ListUsersUseCase),
-    page_index: Annotated[int, Query(title="Page Index")] = 1,
-    page_size: Annotated[int, Query(title="Page size")] = 100,
-    role: Annotated[UserRole, Query(title="User role")] = UserRole.USER,
-    email: Annotated[Union[str, None], Query(title="Email")] = None,
+    current_user: UserModel = Depends(get_current_active_user),
+    list_categories_use_case: ListCategoriesUseCase = Depends(ListCategoriesUseCase),
+    type: Annotated[Union[Type, None], Query(title="Category Type")] = None,
+    name: Annotated[Union[Type, None], Query(title="Category Name")] = None,
+    note: Annotated[Union[str, None], Query(title="Category Note")] = None,
 ):
-    req_object = ListUsersRequestObject.builder(
-        current_user=current_user, page_size=page_size, page_index=page_index, role=role, email=email
-    )
-    response = list_users_use_case.execute(request_object=req_object)
-    return response
-
-
-@router.get(
-    "/admin/{id}",
-    dependencies=[Depends(get_current_administrator)],  # auth route
-    response_model=User,
-)
-@response_decorator()
-def admin_get_user(
-    id: str = Path(..., title="User id"),
-    get_user_use_case: GetUserCase = Depends(GetUserCase),
-):
-    req_object = GetUserRequestObject.builder(user_id=id)
-    response = get_user_use_case.execute(request_object=req_object)
+    req_object = ListCategoriesRequestObject.builder(current_user=current_user, type=type,
+                                                     name=name, note=note)
+    response = list_categories_use_case.execute(request_object=req_object)
     return response
 
 
 @router.put(
     "/{id}",
     dependencies=[Depends(get_current_administrator)],  # auth route
-    response_model=User,
+    response_model=Category,
 )
 @response_decorator()
-def update_user(
-    id: str = Path(..., title="User Id"),
-    payload: UserInUpdate = Body(..., title="User updated payload"),
-    update_user_use_case: UpdateUserUseCase = Depends(UpdateUserUseCase),
+def update_category(
+    id: str = Path(..., title="Category Id"),
+    payload: CategoryInUpdate = Body(..., title="Category updated payload"),
+    update_category_use_case: UpdateCategoryUseCase = Depends(UpdateCategoryUseCase),
 ):
-    req_object = UpdateUserRequestObject.builder(id=id, payload=payload)
-    response = update_user_use_case.execute(request_object=req_object)
+    req_object = UpdateCategoryRequestObject.builder(id=id, payload=payload)
+    response = update_category_use_case.execute(request_object=req_object)
     return response

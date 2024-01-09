@@ -7,7 +7,7 @@ from app.domain.transaction.entity import TransactionInUpdate, TransactionInDB, 
 from app.infra.transaction.transaction_repository import TransactionRepository
 
 
-class UpdateCategoryRequestObject(request_object.ValidRequestObject):
+class UpdateTransactionRequestObject(request_object.ValidRequestObject):
     def __init__(self, id: str, obj_in: TransactionInUpdate) -> None:
         self.id = id
         self.obj_in = obj_in
@@ -27,7 +27,7 @@ class UpdateCategoryRequestObject(request_object.ValidRequestObject):
         return UpdateCategoryRequestObject(id=id, obj_in=payload)
 
 
-class UpdateCategoryUseCase(use_case.UseCase):
+class UpdateTransactionUseCase(use_case.UseCase):
     def __init__(self, category_repository: TransactionRepository = Depends(TransactionRepository)):
         self.category_repository = category_repository
 

@@ -22,7 +22,7 @@ class GetTransactionRequestObject(request_object.ValidRequestObject):
         return GetTransactionRequestObject(transaction_id=transaction_id)
 
 
-class GetCategoryUseCase(use_case.UseCase):
+class GetTransactionUseCase(use_case.UseCase):
     def __init__(self, transaction_repository: TransactionRepository = Depends(TransactionRepository)):
         self.transaction_repository = transaction_repository
 
