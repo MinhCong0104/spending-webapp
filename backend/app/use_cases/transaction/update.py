@@ -24,14 +24,14 @@ class UpdateTransactionRequestObject(request_object.ValidRequestObject):
         if invalid_req.has_errors():
             return invalid_req
 
-        return UpdateCategoryRequestObject(id=id, obj_in=payload)
+        return UpdateTransactionRequestObject(id=id, obj_in=payload)
 
 
 class UpdateTransactionUseCase(use_case.UseCase):
     def __init__(self, category_repository: TransactionRepository = Depends(TransactionRepository)):
         self.category_repository = category_repository
 
-    def process_request(self, req_object: UpdateCategoryRequestObject):
+    def process_request(self, req_object: UpdateTransactionRequestObject):
         transaction: Optional[CategoryModel] = self.category_repository.get_by_id(req_object.id)
         if not transaction:
             return response_object.ResponseFailure.build_not_found_error("Transaction does not exist")

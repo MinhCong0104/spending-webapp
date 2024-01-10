@@ -70,9 +70,7 @@ def get_list_users(
     role: Annotated[UserRole, Query(title="User role")] = UserRole.USER,
     email: Annotated[Union[str, None], Query(title="Email")] = None,
 ):
-    req_object = ListUsersRequestObject.builder(
-        current_user=current_user, page_size=page_size, page_index=page_index, role=role, email=email
-    )
+    req_object = ListUsersRequestObject.builder(current_user=current_user, role=role, email=email)
     response = list_users_use_case.execute(request_object=req_object)
     return response
 

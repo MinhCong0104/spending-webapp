@@ -4,6 +4,7 @@ from mongoengine import QuerySet, DoesNotExist
 from bson import ObjectId
 
 from app.infra.database.models.user import User as UserModel
+from app.infra.database.models.category import Category as CategoryModel
 from app.infra.database.models.transaction import Transaction as TransactionModel
 from app.domain.transaction.entity import TransactionInDB, TransactionInCreate, TransactionInUpdate
 from app.domain.shared.enum import UserRole, Type
@@ -25,42 +26,42 @@ class TransactionRepository:
 
         return TransactionInDB.model_validate(new_transaction)
 
-    def get_by_id(self, id: Union[str, ObjectId]) -> Optional[CategoryModel]:
+    def get_by_id(self, id: Union[str, ObjectId]) -> Optional[TransactionModel]:
         """
         Get category in db from id
         :param id:
         :return:
         """
-        qs: QuerySet = CategoryModel.objects(id=id)
+        qs: QuerySet = TransactionModel.objects(id=id)
         # retrieve unique result
         # https://mongoengine-odm.readthedocs.io/guide/querying.html#retrieving-unique-results
         try:
-            category: CategoryModel = qs.get()
+            category: TransactionModel = qs.get()
             return category
         except DoesNotExist:
             return None
 
-    def update(self, id: ObjectId, data: Union[CategoryInUpdate, Dict[str, Any]]) -> bool:
+    def update(self, id: ObjectId, data: Union[TransactionInUpdate, Dict[str, Any]]) -> bool:
         try:
-            data = data.model_dump(exclude_none=True) if isinstance(data, CategoryInUpdate) else data
-            CategoryModel.objects(id=id).update_one(**data, upsert=False)
+            data = data.model_dump(exclude_none=True) if isinstance(data, TransactionInUpdate) else data
+            TransactionModel.objects(id=id).update_one(**data, upsert=False)
             return True
         except Exception:
             return False
 
     def count(self, conditions: Dict[str, Union[str, bool, ObjectId]] = {}) -> int:
         try:
-            return CategoryModel._get_collection().count_documents(conditions)
+            return TransactionModel._get_collection().count_documents(conditions)
         except Exception:
             return 0
 
     def list(
         self,
         type: Type,
-        name: Optional[str] = None,
+        category: Optional[CategoryModel] = None,
         note: Optional[str] = None,
         sort: Optional[Dict[str, int]] = None,
-    ) -> List[CategoryModel]:
+    ) -> List[TransactionModel]:
         try:
             match_pipelines = {"role": type.value}
             if note:
@@ -69,17 +70,11 @@ class TransactionRepository:
                     **match_pipelines,
                     "note": {"$regex": ".*" + note + ".*"},
                 }
-            if name:
-                name = name.lower()
-                match_pipelines = {
-                    **match_pipelines,
-                    "name": {"$regex": ".*" + name + ".*"},
-                }
             pipeline = [
                 {"$match": match_pipelines},
                 sort if sort else {"$sort": {"_id": -1}},
             ]
-            docs = CategoryModel.objects().aggregate(pipeline)
-            return [CategoryModel.from_mongo(doc) for doc in docs]
+            docs = TransactionModel.objects().aggregate(pipeline)
+            return [TransactionModel.from_mongo(doc) for doc in docs]
         except Exception:
             return []

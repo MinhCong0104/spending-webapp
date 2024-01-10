@@ -4,6 +4,7 @@ from app.domain.category.entity import Category, CategoryInCreate, CategoryInDB,
 from app.infra.security.security_service import get_current_active_user, get_current_administrator
 from app.shared.decorator import response_decorator
 from app.domain.shared.enum import UserRole, Type
+from app.infra.database.models.user import User as UserModel
 
 from app.use_cases.category.get import GetCategoryRequestObject, GetCategoryUseCase
 from app.use_cases.category.create import CreateCategoryUseCase, CreateCategoryRequestObject
@@ -49,7 +50,7 @@ def get_list_categories(
     current_user: UserModel = Depends(get_current_active_user),
     list_categories_use_case: ListCategoriesUseCase = Depends(ListCategoriesUseCase),
     type: Annotated[Union[Type, None], Query(title="Category Type")] = None,
-    name: Annotated[Union[Type, None], Query(title="Category Name")] = None,
+    name: Annotated[Union[str, None], Query(title="Category Name")] = None,
     note: Annotated[Union[str, None], Query(title="Category Note")] = None,
 ):
     req_object = ListCategoriesRequestObject.builder(current_user=current_user, type=type,

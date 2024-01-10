@@ -4,6 +4,8 @@ from app.domain.transaction.entity import Transaction, TransactionInCreate, Tran
 from app.infra.security.security_service import get_current_active_user, get_current_administrator
 from app.shared.decorator import response_decorator
 from app.domain.shared.enum import UserRole, Type
+from app.infra.database.models.user import User as UserModel
+from app.infra.database.models.category import Category as CategoryModel
 
 from app.use_cases.transaction.get import GetTransactionRequestObject, GetTransactionUseCase
 from app.use_cases.transaction.create import CreateTransactionRequestObject, CreateTransactionUseCase
@@ -49,7 +51,7 @@ def get_list_transaction(
     current_user: UserModel = Depends(get_current_active_user),
     list_transactions_use_case: ListTransactionsUseCase = Depends(ListTransactionsUseCase),
     type: Annotated[Union[Type, None], Query(title="Transaction Type")] = None,
-    category: Annotated[Union[str, None], Query(title="Category")] = None,
+    category: Annotated[Union[CategoryModel, None], Query(title="Category")] = None,
     date_from: Annotated[Union[str, None], Query(title="From Date")] = None,
     date_to: Annotated[Union[str, None], Query(title="To Date")] = None,
 ):
@@ -62,7 +64,7 @@ def get_list_transaction(
 @router.put(
     "/{id}",
     dependencies=[Depends(get_current_administrator)],  # auth route
-    response_model=Category,
+    response_model=Transaction,
 )
 @response_decorator()
 def update_transaction(

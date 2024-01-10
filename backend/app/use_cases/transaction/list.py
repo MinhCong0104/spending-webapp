@@ -3,6 +3,7 @@ from typing import Optional, List
 from fastapi import Depends
 from app.shared import request_object, use_case
 from app.domain.user.entity import User
+from app.domain.category.entity import Category
 from app.domain.transaction.entity import Transaction, TransactionInDB
 from app.infra.database.models.transaction import Transaction as TransactionModel
 from app.infra.transaction.transaction_repository import TransactionRepository
@@ -16,7 +17,7 @@ class ListTransactionsRequestObject(request_object.ValidRequestObject):
         date_from: str,
         date_to: str,
         type: Type,
-        category: str,
+        category: Category,
 
     ):
         self.current_user = current_user
@@ -32,7 +33,7 @@ class ListTransactionsRequestObject(request_object.ValidRequestObject):
         type: Optional[Type] = None,
         date_from: Optional[str] = None,
         date_to: Optional[str] = None,
-        category: Optional[str] = None,
+        category: Optional[Category] = None,
     ) -> request_object.RequestObject:
         return ListTransactionsRequestObject(current_user=current_user, type=type, category=category,
                                              date_from=date_from, date_to=date_to)

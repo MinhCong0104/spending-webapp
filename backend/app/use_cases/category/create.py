@@ -8,7 +8,7 @@ from app.infra.category.category_repository import CategoryRepository
 
 
 class CreateCategoryRequestObject(request_object.ValidRequestObject):
-    def __init__(self, category_in: UserInCreate = None) -> None:
+    def __init__(self, category_in: CategoryInCreate = None) -> None:
         self.category_in = category_in
 
     @classmethod
