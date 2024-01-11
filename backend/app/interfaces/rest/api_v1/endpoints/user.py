@@ -49,7 +49,7 @@ def get_user(
 
 @router.post(
     "",
-    dependencies=[Depends(get_current_active_user)],
+    # dependencies=[Depends(get_current_active_user)],
     response_model=User,
 )
 @response_decorator()

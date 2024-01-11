@@ -9,6 +9,7 @@ class User(Document):
     last_name = StringField(required=False)
     avatar = StringField(required=False)
     phone = StringField(required=False)
+    status = StringField(required=False)
     hashed_password = StringField()
 
     created_at = DateTimeField(required=True)

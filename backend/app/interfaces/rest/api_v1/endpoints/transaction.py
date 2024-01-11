@@ -51,7 +51,7 @@ def get_list_transaction(
     current_user: UserModel = Depends(get_current_active_user),
     list_transactions_use_case: ListTransactionsUseCase = Depends(ListTransactionsUseCase),
     type: Annotated[Union[Type, None], Query(title="Transaction Type")] = None,
-    category: Annotated[Union[CategoryModel, None], Query(title="Category")] = None,
+    category: Annotated[Union[str, None], Query(title="Category")] = None,
     date_from: Annotated[Union[str, None], Query(title="From Date")] = None,
     date_to: Annotated[Union[str, None], Query(title="To Date")] = None,
 ):
