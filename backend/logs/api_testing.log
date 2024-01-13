@@ -1,29 +1,307 @@
-2024-01-07 14:31:13.848 | WARNING  | logging:callHandlers:1706 - cjson not found, falling back to stdlib json
-2024-01-07 14:32:34.755 | WARNING  | logging:callHandlers:1706 - cjson not found, falling back to stdlib json
-2024-01-07 14:32:55.412 | WARNING  | logging:callHandlers:1706 - cjson not found, falling back to stdlib json
-2024-01-07 14:34:12.637 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
-2024-01-07 14:34:12.637 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
-2024-01-07 14:34:12.637 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
-2024-01-07 22:50:55.730 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
-2024-01-07 22:50:55.731 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
-2024-01-07 22:50:55.731 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
-2024-01-07 22:52:14.938 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
-2024-01-07 22:52:14.938 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
-2024-01-07 22:52:14.939 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
-2024-01-07 22:52:15.069 | DEBUG    | logging:callHandlers:1706 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
-2024-01-07 22:53:28.152 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
-2024-01-07 22:53:28.152 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
-2024-01-07 22:53:28.153 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
-2024-01-07 22:53:28.278 | DEBUG    | logging:callHandlers:1706 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
-2024-01-07 22:54:32.614 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
-2024-01-07 22:54:32.614 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
-2024-01-07 22:54:32.615 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
-2024-01-07 22:54:32.741 | DEBUG    | logging:callHandlers:1706 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
-2024-01-07 22:54:57.169 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
-2024-01-07 22:54:57.170 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
-2024-01-07 22:54:57.170 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
-2024-01-07 22:54:57.300 | DEBUG    | logging:callHandlers:1706 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
-2024-01-07 22:59:36.023 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
-2024-01-07 22:59:36.024 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
-2024-01-07 22:59:36.024 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
-2024-01-07 22:59:36.150 | DEBUG    | logging:callHandlers:1706 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-10 23:23:06.938 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-10 23:23:06.941 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-10 23:23:06.941 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-10 23:23:07.211 | DEBUG    | logging:callHandlers:1706 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-10 23:23:44.972 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-10 23:23:44.973 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-10 23:23:44.973 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-10 23:23:45.113 | DEBUG    | logging:callHandlers:1706 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-10 23:26:23.247 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-10 23:26:23.248 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-10 23:26:23.248 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-10 23:26:23.386 | DEBUG    | logging:callHandlers:1706 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-10 23:26:57.187 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-10 23:26:57.188 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-10 23:26:57.188 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-10 23:26:57.327 | DEBUG    | logging:callHandlers:1706 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-11 21:56:11.849 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-11 21:56:11.849 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-11 21:56:11.850 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-11 21:56:12.135 | DEBUG    | logging:callHandlers:1706 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-11 22:06:41.055 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-11 22:06:41.056 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-11 22:06:41.056 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-11 22:06:41.193 | DEBUG    | logging:callHandlers:1706 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-11 22:08:16.579 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-11 22:08:16.580 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-11 22:08:16.580 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-11 22:08:16.718 | DEBUG    | logging:callHandlers:1706 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-11 22:08:16.812 | INFO     | logging:callHandlers:1706 - Started server process [8868]
+2024-01-11 22:08:16.812 | INFO     | logging:callHandlers:1706 - Started server process [8868]
+2024-01-11 22:08:16.813 | INFO     | logging:callHandlers:1706 - Waiting for application startup.
+2024-01-11 22:08:16.814 | INFO     | logging:callHandlers:1706 - Waiting for application startup.
+2024-01-11 22:08:16.859 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2024-01-11 22:08:16.859 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2024-01-11 22:08:18.711 | INFO     | logging:callHandlers:1706 - Shutting down
+2024-01-11 22:08:18.711 | INFO     | logging:callHandlers:1706 - Shutting down
+2024-01-11 22:08:18.820 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2024-01-11 22:08:18.820 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2024-01-11 22:08:18.821 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2024-01-11 22:08:18.821 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2024-01-11 22:08:18.822 | INFO     | logging:callHandlers:1706 - Finished server process [8868]
+2024-01-11 22:08:18.822 | INFO     | logging:callHandlers:1706 - Finished server process [8868]
+2024-01-11 22:09:08.942 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-11 22:09:08.942 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-11 22:09:08.943 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-11 22:09:09.081 | DEBUG    | logging:callHandlers:1706 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-11 22:09:09.174 | INFO     | logging:callHandlers:1706 - Started server process [6868]
+2024-01-11 22:09:09.175 | INFO     | logging:callHandlers:1706 - Started server process [6868]
+2024-01-11 22:09:09.175 | INFO     | logging:callHandlers:1706 - Waiting for application startup.
+2024-01-11 22:09:09.176 | INFO     | logging:callHandlers:1706 - Waiting for application startup.
+2024-01-11 22:09:09.183 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2024-01-11 22:09:09.183 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2024-01-11 22:13:19.936 | INFO     | logging:callHandlers:1706 - 127.0.0.1:52168 - "GET /api_v1/users HTTP/1.1" 404
+2024-01-11 22:14:25.905 | INFO     | logging:callHandlers:1706 - 127.0.0.1:52177 - "GET /users HTTP/1.1" 401
+2024-01-11 22:16:00.167 | INFO     | logging:callHandlers:1706 - 127.0.0.1:52194 - "POST /users HTTP/1.1" 401
+2024-01-11 22:16:02.058 | INFO     | logging:callHandlers:1706 - 127.0.0.1:52194 - "POST /users HTTP/1.1" 401
+2024-01-11 22:16:12.939 | INFO     | logging:callHandlers:1706 - Shutting down
+2024-01-11 22:16:12.939 | INFO     | logging:callHandlers:1706 - Shutting down
+2024-01-11 22:16:13.047 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2024-01-11 22:16:13.047 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2024-01-11 22:16:13.048 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2024-01-11 22:16:13.048 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2024-01-11 22:16:13.049 | INFO     | logging:callHandlers:1706 - Finished server process [6868]
+2024-01-11 22:16:13.049 | INFO     | logging:callHandlers:1706 - Finished server process [6868]
+2024-01-11 22:16:14.652 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-11 22:16:14.652 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-11 22:16:14.653 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-11 22:16:14.812 | DEBUG    | logging:callHandlers:1706 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-11 22:16:14.912 | INFO     | logging:callHandlers:1706 - Started server process [1840]
+2024-01-11 22:16:14.912 | INFO     | logging:callHandlers:1706 - Started server process [1840]
+2024-01-11 22:16:14.913 | INFO     | logging:callHandlers:1706 - Waiting for application startup.
+2024-01-11 22:16:14.914 | INFO     | logging:callHandlers:1706 - Waiting for application startup.
+2024-01-11 22:16:14.921 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2024-01-11 22:16:14.921 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2024-01-11 22:16:14.940 | INFO     | logging:callHandlers:1706 - 127.0.0.1:52206 - "POST /users HTTP/1.1" 422
+2024-01-11 22:16:57.367 | WARNING  | logging:callHandlers:1706 - (trapped) error reading bcrypt versionTraceback (most recent call last):
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 995, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x0000027A7BA11C60>
+    └ <WorkerThread(AnyIO worker thread, started 7912)>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1038, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x0000027A01A3DC60>
+    └ <WorkerThread(AnyIO worker thread, started 7912)>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\anyio\_backends\_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             │       │   │      └ ()
+             │       │   └ functools.partial(<function create_user at 0x0000027A017449A0>, create_user_use_case=<app.use_cases.user.create.CreateUserUse...
+             │       └ <method 'run' of '_contextvars.Context' objects>
+             └ <_contextvars.Context object at 0x0000027A018A7AC0>
+
+  File "E:\spending-webapp\backend\app\shared\decorator.py", line 24, in wrapper
+    response = f(*args, **kwargs)
+               │  │       └ {'create_user_use_case': <app.use_cases.user.create.CreateUserUseCase object at 0x0000027A01901A10>, 'payload': UserInCreate(...
+               │  └ ()
+               └ <function create_user at 0x0000027A01744900>
+
+  File "E:\spending-webapp\backend\app\interfaces\rest\api_v1\endpoints\user.py", line 61, in create_user
+    response = create_user_use_case.execute(request_object=req_object)
+               │                    │                      └ <app.use_cases.user.create.CreateUserRequestObject object at 0x0000027A01A63A10>
+               │                    └ <function UseCase.execute at 0x0000027A01724F40>
+               └ <app.use_cases.user.create.CreateUserUseCase object at 0x0000027A01901A10>
+
+  File "E:\spending-webapp\backend\app\shared\use_case.py", line 30, in execute
+    result = self.process_request(request_object)
+             │    │               └ <app.use_cases.user.create.CreateUserRequestObject object at 0x0000027A01A63A10>
+             │    └ <function CreateUserUseCase.process_request at 0x0000027A01726700>
+             └ <app.use_cases.user.create.CreateUserUseCase object at 0x0000027A01901A10>
+
+  File "E:\spending-webapp\backend\app\use_cases\user\create.py", line 40, in process_request
+    **user_in.model_dump(exclude={"password"}), hashed_password=get_password_hash(password=user_in.password)
+      │       │                                                 │                          │       └ '1'
+      │       │                                                 │                          └ UserInCreate(email='test@gmail.com', first_name=None, last_name=None, password='1', avatar=None, status=<UserStatus.ACTIVE: '...
+      │       │                                                 └ <function get_password_hash at 0x0000027A01724400>
+      │       └ <function BaseModel.model_dump at 0x0000027A7E6D1940>
+      └ UserInCreate(email='test@gmail.com', first_name=None, last_name=None, password='1', avatar=None, status=<UserStatus.ACTIVE: '...
+
+  File "E:\spending-webapp\backend\app\infra\security\security_service.py", line 53, in get_password_hash
+    return pwd_context.hash(password)
+           │           │    └ '1'
+           │           └ <function CryptContext.hash at 0x0000027A010D2200>
+           └ <CryptContext at 0x27a7fe12c90>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\context.py", line 2258, in hash
+    return record.hash(secret, **kwds)
+           │      │    │         └ {}
+           │      │    └ '1'
+           │      └ <classmethod(<function GenericHandler.hash at 0x0000027A0107F9C0>)>
+           └ <class 'passlib.handlers.bcrypt.<customized bcrypt hasher>'>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\utils\handlers.py", line 779, in hash
+    self.checksum = self._calc_checksum(secret)
+    │    │          │    │              └ '1'
+    │    │          │    └ <function _NoBackend._calc_checksum at 0x0000027A016F7100>
+    │    │          └ <passlib.handlers.bcrypt.<customized bcrypt hasher> object at 0x0000027A7FCED210>
+    │    └ None
+    └ <passlib.handlers.bcrypt.<customized bcrypt hasher> object at 0x0000027A7FCED210>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\handlers\bcrypt.py", line 591, in _calc_checksum
+    self._stub_requires_backend()
+    │    └ <classmethod(<function BackendMixin._stub_requires_backend at 0x0000027A0109DDA0>)>
+    └ <passlib.handlers.bcrypt.<customized bcrypt hasher> object at 0x0000027A7FCED210>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\utils\handlers.py", line 2254, in _stub_requires_backend
+    cls.set_backend()
+    │   └ <classmethod(<function BackendMixin.set_backend at 0x0000027A0109DB20>)>
+    └ <class 'passlib.handlers.bcrypt.<customized bcrypt hasher>'>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\utils\handlers.py", line 2156, in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           │     │           │            └ False
+           │     │           └ 'any'
+           │     └ <classmethod(<function BackendMixin.set_backend at 0x0000027A0109DB20>)>
+           └ <class 'passlib.handlers.bcrypt.bcrypt'>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\utils\handlers.py", line 2163, in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           │   │           │            └ False
+           │   │           └ 'bcrypt'
+           │   └ <classmethod(<function BackendMixin.set_backend at 0x0000027A0109DB20>)>
+           └ <class 'passlib.handlers.bcrypt.bcrypt'>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\utils\handlers.py", line 2188, in set_backend
+    cls._set_backend(name, dryrun)
+    │   │            │     └ False
+    │   │            └ 'bcrypt'
+    │   └ <classmethod(<function SubclassBackendMixin._set_backend at 0x0000027A0109DEE0>)>
+    └ <class 'passlib.handlers.bcrypt.bcrypt'>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\utils\handlers.py", line 2311, in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+          │                     │                 │     └ False
+          │                     │                 └ 'bcrypt'
+          │                     └ <class 'passlib.handlers.bcrypt.bcrypt'>
+          └ <class 'passlib.utils.handlers.SubclassBackendMixin'>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\utils\handlers.py", line 2224, in _set_backend
+    ok = loader(**kwds)
+         │        └ {'name': 'bcrypt', 'dryrun': False}
+         └ <bound method _BcryptBackend._load_backend_mixin of <class 'passlib.handlers.bcrypt._BcryptBackend'>>
+> File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              └ <module 'bcrypt' from 'C:\\Users\\tmcon\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\bcrypt\\__init__.py'>
+
+AttributeError: module 'bcrypt' has no attribute '__about__'
+
+2024-01-11 22:16:57.383 | DEBUG    | logging:callHandlers:1706 - detected 'bcrypt' backend, version '<unknown>'
+2024-01-11 22:16:57.384 | DEBUG    | logging:callHandlers:1706 - 'bcrypt' backend lacks $2$ support, enabling workaround
+2024-01-11 22:16:57.623 | INFO     | logging:callHandlers:1706 - 127.0.0.1:52211 - "POST /users HTTP/1.1" 500
+2024-01-11 22:17:45.218 | INFO     | logging:callHandlers:1706 - Shutting down
+2024-01-11 22:17:45.218 | INFO     | logging:callHandlers:1706 - Shutting down
+2024-01-11 22:17:45.326 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2024-01-11 22:17:45.326 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2024-01-11 22:17:45.329 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2024-01-11 22:17:45.330 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2024-01-11 22:17:45.330 | INFO     | logging:callHandlers:1706 - Finished server process [1840]
+2024-01-11 22:17:45.331 | INFO     | logging:callHandlers:1706 - Finished server process [1840]
+2024-01-11 22:17:46.674 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-11 22:17:46.674 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-11 22:17:46.675 | DEBUG    | logging:callHandlers:1706 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-11 22:17:46.829 | DEBUG    | logging:callHandlers:1706 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-11 22:17:46.926 | INFO     | logging:callHandlers:1706 - Started server process [11760]
+2024-01-11 22:17:46.927 | INFO     | logging:callHandlers:1706 - Started server process [11760]
+2024-01-11 22:17:46.927 | INFO     | logging:callHandlers:1706 - Waiting for application startup.
+2024-01-11 22:17:46.928 | INFO     | logging:callHandlers:1706 - Waiting for application startup.
+2024-01-11 22:17:46.935 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2024-01-11 22:17:46.936 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2024-01-11 22:17:52.955 | WARNING  | logging:callHandlers:1706 - (trapped) error reading bcrypt versionTraceback (most recent call last):
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 995, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x000001CDE30E1C60>
+    └ <WorkerThread(AnyIO worker thread, started 15796)>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1038, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x000001CDE90A5760>
+    └ <WorkerThread(AnyIO worker thread, started 15796)>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\anyio\_backends\_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             │       │   │      └ ()
+             │       │   └ functools.partial(<function create_user at 0x000001CDE8D94040>, create_user_use_case=<app.use_cases.user.create.CreateUserUse...
+             │       └ <method 'run' of '_contextvars.Context' objects>
+             └ <_contextvars.Context object at 0x000001CDE90B0600>
+
+  File "E:\spending-webapp\backend\app\shared\decorator.py", line 24, in wrapper
+    response = f(*args, **kwargs)
+               │  │       └ {'create_user_use_case': <app.use_cases.user.create.CreateUserUseCase object at 0x000001CDE8E87FD0>, 'payload': UserInCreate(...
+               │  └ ()
+               └ <function create_user at 0x000001CDE8D79260>
+
+  File "E:\spending-webapp\backend\app\interfaces\rest\api_v1\endpoints\user.py", line 61, in create_user
+    response = create_user_use_case.execute(request_object=req_object)
+               │                    │                      └ <app.use_cases.user.create.CreateUserRequestObject object at 0x000001CDE8DB99D0>
+               │                    └ <function UseCase.execute at 0x000001CDE8D78F40>
+               └ <app.use_cases.user.create.CreateUserUseCase object at 0x000001CDE8E87FD0>
+
+  File "E:\spending-webapp\backend\app\shared\use_case.py", line 30, in execute
+    result = self.process_request(request_object)
+             │    │               └ <app.use_cases.user.create.CreateUserRequestObject object at 0x000001CDE8DB99D0>
+             │    └ <function CreateUserUseCase.process_request at 0x000001CDE8D94A40>
+             └ <app.use_cases.user.create.CreateUserUseCase object at 0x000001CDE8E87FD0>
+
+  File "E:\spending-webapp\backend\app\use_cases\user\create.py", line 40, in process_request
+    **user_in.model_dump(exclude={"password"}), hashed_password=get_password_hash(password=user_in.password)
+      │       │                                                 │                          │       └ '1'
+      │       │                                                 │                          └ UserInCreate(email='test@gmail.com', first_name=None, last_name=None, password='1', avatar=None, status=<UserStatus.ACTIVE: '...
+      │       │                                                 └ <function get_password_hash at 0x000001CDE8D78360>
+      │       └ <function BaseModel.model_dump at 0x000001CDE5DE1940>
+      └ UserInCreate(email='test@gmail.com', first_name=None, last_name=None, password='1', avatar=None, status=<UserStatus.ACTIVE: '...
+
+  File "E:\spending-webapp\backend\app\infra\security\security_service.py", line 53, in get_password_hash
+    return pwd_context.hash(password)
+           │           │    └ '1'
+           │           └ <function CryptContext.hash at 0x000001CDE8772200>
+           └ <CryptContext at 0x1cde851c2d0>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\context.py", line 2258, in hash
+    return record.hash(secret, **kwds)
+           │      │    │         └ {}
+           │      │    └ '1'
+           │      └ <classmethod(<function GenericHandler.hash at 0x000001CDE871F9C0>)>
+           └ <class 'passlib.handlers.bcrypt.<customized bcrypt hasher>'>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\utils\handlers.py", line 779, in hash
+    self.checksum = self._calc_checksum(secret)
+    │    │          │    │              └ '1'
+    │    │          │    └ <function _NoBackend._calc_checksum at 0x000001CDE8D47100>
+    │    │          └ <passlib.handlers.bcrypt.<customized bcrypt hasher> object at 0x000001CDE68627D0>
+    │    └ None
+    └ <passlib.handlers.bcrypt.<customized bcrypt hasher> object at 0x000001CDE68627D0>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\handlers\bcrypt.py", line 591, in _calc_checksum
+    self._stub_requires_backend()
+    │    └ <classmethod(<function BackendMixin._stub_requires_backend at 0x000001CDE873DDA0>)>
+    └ <passlib.handlers.bcrypt.<customized bcrypt hasher> object at 0x000001CDE68627D0>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\utils\handlers.py", line 2254, in _stub_requires_backend
+    cls.set_backend()
+    │   └ <classmethod(<function BackendMixin.set_backend at 0x000001CDE873DB20>)>
+    └ <class 'passlib.handlers.bcrypt.<customized bcrypt hasher>'>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\utils\handlers.py", line 2156, in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           │     │           │            └ False
+           │     │           └ 'any'
+           │     └ <classmethod(<function BackendMixin.set_backend at 0x000001CDE873DB20>)>
+           └ <class 'passlib.handlers.bcrypt.bcrypt'>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\utils\handlers.py", line 2163, in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           │   │           │            └ False
+           │   │           └ 'bcrypt'
+           │   └ <classmethod(<function BackendMixin.set_backend at 0x000001CDE873DB20>)>
+           └ <class 'passlib.handlers.bcrypt.bcrypt'>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\utils\handlers.py", line 2188, in set_backend
+    cls._set_backend(name, dryrun)
+    │   │            │     └ False
+    │   │            └ 'bcrypt'
+    │   └ <classmethod(<function SubclassBackendMixin._set_backend at 0x000001CDE873DEE0>)>
+    └ <class 'passlib.handlers.bcrypt.bcrypt'>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\utils\handlers.py", line 2311, in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+          │                     │                 │     └ False
+          │                     │                 └ 'bcrypt'
+          │                     └ <class 'passlib.handlers.bcrypt.bcrypt'>
+          └ <class 'passlib.utils.handlers.SubclassBackendMixin'>
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\utils\handlers.py", line 2224, in _set_backend
+    ok = loader(**kwds)
+         │        └ {'name': 'bcrypt', 'dryrun': False}
+         └ <bound method _BcryptBackend._load_backend_mixin of <class 'passlib.handlers.bcrypt._BcryptBackend'>>
+> File "C:\Users\tmcon\AppData\Local\Programs\Python\Python311\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              └ <module 'bcrypt' from 'C:\\Users\\tmcon\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\bcrypt\\__init__.py'>
+
+AttributeError: module 'bcrypt' has no attribute '__about__'
+
+2024-01-11 22:17:52.964 | DEBUG    | logging:callHandlers:1706 - detected 'bcrypt' backend, version '<unknown>'
+2024-01-11 22:17:52.965 | DEBUG    | logging:callHandlers:1706 - 'bcrypt' backend lacks $2$ support, enabling workaround
+2024-01-11 22:17:53.243 | INFO     | logging:callHandlers:1706 - 127.0.0.1:52246 - "POST /users HTTP/1.1" 200

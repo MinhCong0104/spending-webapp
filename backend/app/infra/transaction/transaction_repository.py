@@ -8,6 +8,7 @@ from app.infra.database.models.category import Category as CategoryModel
 from app.infra.database.models.transaction import Transaction as TransactionModel
 from app.domain.transaction.entity import TransactionInDB, TransactionInCreate, TransactionInUpdate
 from app.domain.shared.enum import UserRole, Type
+from app.shared.utils.general import date2datetime
 
 
 class TransactionRepository:
@@ -55,10 +56,20 @@ class TransactionRepository:
         except Exception:
             return 0
 
+    def find(self, conditions: Dict[str, Union[str, bool, ObjectId]]) -> List[Optional[TransactionModel]]:
+        try:
+            docs = TransactionModel._get_collection().find(conditions)
+            return [TransactionModel.from_mongo(doc) for doc in docs] if docs else []
+        except Exception:
+            return []
+
     def list(
         self,
         type: Type,
-        category: Optional[CategoryModel] = None,
+        user: ObjectId,
+        category: Optional[list[str]] = [],
+        date_from: Optional[str] = None,
+        date_to: Optional[str] = None,
         note: Optional[str] = None,
         sort: Optional[Dict[str, int]] = None,
     ) -> List[TransactionModel]:
@@ -70,11 +81,34 @@ class TransactionRepository:
                     **match_pipelines,
                     "note": {"$regex": ".*" + note + ".*"},
                 }
+
+            if date_from and date_to:
+                match_pipelines = {
+                    **match_pipelines,
+                    "timestamp": {
+                        "$gte": date2datetime(date_from),
+                        "$lte": date2datetime(date_to, min_time=False),
+                    },
+                }
+
             pipeline = [
                 {"$match": match_pipelines},
                 sort if sort else {"$sort": {"_id": -1}},
             ]
-            docs = TransactionModel.objects().aggregate(pipeline)
-            return [TransactionModel.from_mongo(doc) for doc in docs]
+            if date_from and date_to:
+                match_pipelines = {
+                    **match_pipelines,
+                    "timestamp": {
+                        "$gte": date2datetime(start_date),
+                        "$lte": date2datetime(end_date, min_time=False),
+                    },
+                }
+            docs = TransactionModel.objects(user=user).aggregate(pipeline)
+            data = [TransactionModel.from_mongo(doc) for doc in docs]
+            res = []
+            for d in data:
+                if str(d['category']) in category:
+                    res.append(d)
+            return res
         except Exception:
             return []
