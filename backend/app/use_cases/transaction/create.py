@@ -29,6 +29,6 @@ class CreateTransactionUseCase(use_case.UseCase):
     def process_request(self, req_object: CreateTransactionRequestObject):
         transaction_in: TransactionInCreate = req_object.transaction_in
 
-        obj_in: TransactionInDB = TransactionInDB(**user_in.model_dump())
+        obj_in: TransactionInDB = TransactionInDB(**transaction_in.model_dump())
         transaction_in_db: TransactionInDB = self.transaction_repository.create(transaction=obj_in)
         return Transaction(**transaction_in_db.model_dump())

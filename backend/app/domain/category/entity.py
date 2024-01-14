@@ -20,7 +20,7 @@ class CategoryInDB(IDModelMixin, DateTimeModelMixin, CategoryBase):
 
 class CategoryInCreate(BaseEntity):
     name: str
-    type: str
+    type: Type
     note: Optional[str] = None
 
 

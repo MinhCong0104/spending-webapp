@@ -10,6 +10,7 @@ from app.use_cases.category.get import GetCategoryRequestObject, GetCategoryUseC
 from app.use_cases.category.create import CreateCategoryUseCase, CreateCategoryRequestObject
 from app.use_cases.category.list import ListCategoriesUseCase, ListCategoriesRequestObject
 from app.use_cases.category.update import UpdateCategoryUseCase, UpdateCategoryRequestObject
+from app.infra.database.models.user import User
 
 router = APIRouter()
 
@@ -37,9 +38,10 @@ def get_category(
 @response_decorator()
 def create_category(
     payload: CategoryInCreate = Body(..., title="CategoryInCreate payload"),
+    current_user: User = Depends(get_current_active_user),
     create_category_use_case: CreateCategoryUseCase = Depends(CreateCategoryUseCase),
 ):
-    req_object = CreateCategoryRequestObject.builder(payload=payload)
+    req_object = CreateCategoryRequestObject.builder(payload=payload, current_user=current_user)
     response = create_category_use_case.execute(request_object=req_object)
     return response
 
