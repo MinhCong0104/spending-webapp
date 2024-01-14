@@ -11,9 +11,11 @@ class MigrateModel:
         self.active = True
         self.create_gap = True
         self.patch = 1000
-        self.field_mapping = {}
+        self.field_changed = {}
         self.default_vals = {}
         self.have_parent = False
+        self.mapping_file = []
+        self.field_mapping = []
 
     def _read_source(self):
         if self.active:
