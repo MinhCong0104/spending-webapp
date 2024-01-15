@@ -66,31 +66,35 @@ class CategoryRepository:
 
     def list(
         self,
-        user: User,
-        type: Type,
+        user: ObjectId,
+        type: Optional[Type] = None,
         name: Optional[str] = None,
         note: Optional[str] = None,
         sort: Optional[Dict[str, int]] = None,
     ) -> List[CategoryModel]:
         try:
-            match_pipelines = {"user": user.value}
+            match_pipelines = {"user": user}
+
             if type:
                 match_pipelines = {
                     **match_pipelines,
                     "type": type.value,
                 }
+
             if note:
                 note = note.lower()
                 match_pipelines = {
                     **match_pipelines,
                     "note": {"$regex": ".*" + note + ".*"},
                 }
+
             if name:
                 name = name.lower()
                 match_pipelines = {
                     **match_pipelines,
                     "name": {"$regex": ".*" + name + ".*"},
                 }
+
             pipeline = [
                 {"$match": match_pipelines},
                 sort if sort else {"$sort": {"_id": -1}},

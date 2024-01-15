@@ -49,7 +49,7 @@ class ListTransactionsUseCase(use_case.UseCase):
     def process_request(self, req_object: ListTransactionsRequestObject):
 
         transactions: List[TransactionModel] = self.transaction_repository.list(
-            user=req_object.current_user,
+            user=req_object.current_user.id,
             type=req_object.type,
             category=req_object.category,
             date_from=req_object.date_from,

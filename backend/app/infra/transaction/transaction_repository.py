@@ -67,14 +67,21 @@ class TransactionRepository:
         self,
         type: Type,
         user: ObjectId,
-        category: Optional[list[str]] = [],
+        category: ObjectId,
         date_from: Optional[str] = None,
         date_to: Optional[str] = None,
         note: Optional[str] = None,
         sort: Optional[Dict[str, int]] = None,
     ) -> List[TransactionModel]:
         try:
-            match_pipelines = {"role": type.value}
+            match_pipelines = {"type": type.value, "user": user}
+
+            if category:
+                match_pipelines = {
+                    **match_pipelines,
+                    "category": category
+                }
+
             if note:
                 note = note.lower()
                 match_pipelines = {
@@ -95,14 +102,7 @@ class TransactionRepository:
                 {"$match": match_pipelines},
                 sort if sort else {"$sort": {"_id": -1}},
             ]
-            if date_from and date_to:
-                match_pipelines = {
-                    **match_pipelines,
-                    "timestamp": {
-                        "$gte": date2datetime(start_date),
-                        "$lte": date2datetime(end_date, min_time=False),
-                    },
-                }
+
             docs = TransactionModel.objects(user=user).aggregate(pipeline)
             data = [TransactionModel.from_mongo(doc) for doc in docs]
             res = []
