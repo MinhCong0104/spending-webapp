@@ -38,9 +38,10 @@ def get_transaction(
 @response_decorator()
 def create_transaction(
     payload: TransactionInCreate = Body(..., title="TransactionInCreate payload"),
+    current_user: UserModel = Depends(get_current_active_user),
     create_transaction_use_case: CreateTransactionUseCase = Depends(CreateTransactionUseCase),
 ):
-    req_object = CreateTransactionRequestObject.builder(payload=payload)
+    req_object = CreateTransactionRequestObject.builder(payload=payload, current_user=current_user)
     response = create_transaction_use_case.execute(request_object=req_object)
     return response
 

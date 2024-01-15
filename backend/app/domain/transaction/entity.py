@@ -23,6 +23,7 @@ class TransactionInDB(IDModelMixin, DateTimeModelMixin, TransactionBase):
 class TransactionInCreate(BaseEntity):
     name: str
     type: Type
+    amount: float
     note: Optional[str] = None
     category: str
 

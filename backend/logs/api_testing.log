@@ -1107,3 +1107,580 @@ TypeError: CreateCategoryRequestObject.builder() missing 1 required positional a
 2024-01-14 11:13:28.790 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
 2024-01-14 11:13:28.790 | INFO     | logging:callHandlers:1706 - Finished server process [3160]
 2024-01-14 11:13:28.791 | INFO     | logging:callHandlers:1706 - Finished server process [3160]
+2024-01-15 15:36:18.931 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-15 15:36:18.932 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-15 15:36:18.932 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-15 15:36:19.215 | DEBUG    | passlib.registry:register_crypt_handler:296 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-15 15:36:19.435 | INFO     | uvicorn.server:serve:76 - Started server process [21864]
+2024-01-15 15:36:19.435 | INFO     | uvicorn.server:serve:76 - Started server process [21864]
+2024-01-15 15:36:19.436 | INFO     | uvicorn.lifespan.on:startup:46 - Waiting for application startup.
+2024-01-15 15:36:19.436 | INFO     | uvicorn.lifespan.on:startup:46 - Waiting for application startup.
+2024-01-15 15:36:19.454 | INFO     | uvicorn.lifespan.on:startup:60 - Application startup complete.
+2024-01-15 15:36:19.455 | INFO     | uvicorn.lifespan.on:startup:60 - Application startup complete.
+2024-01-15 15:39:13.783 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53555 - "POST /users HTTP/1.1" 422
+2024-01-15 15:39:52.955 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53560 - "POST /users HTTP/1.1" 422
+2024-01-15 15:41:04.793 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53572 - "POST /users HTTP/1.1" 422
+2024-01-15 15:41:23.485 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53576 - "POST /users HTTP/1.1" 422
+2024-01-15 15:41:55.016 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53586 - "POST /users HTTP/1.1" 422
+2024-01-15 15:45:37.532 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53662 - "POST /users HTTP/1.1" 422
+2024-01-15 15:46:38.033 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53672 - "POST /users HTTP/1.1" 422
+2024-01-15 15:47:39.699 | DEBUG    | passlib.handlers.bcrypt:_load_backend_mixin:625 - detected 'bcrypt' backend, version '4.0.1'
+2024-01-15 15:47:39.701 | DEBUG    | passlib.handlers.bcrypt:_finalize_backend_mixin:406 - 'bcrypt' backend lacks $2$ support, enabling workaround
+2024-01-15 15:47:40.149 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53713 - "POST /users HTTP/1.1" 200
+2024-01-15 15:47:58.884 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53721 - "POST /users HTTP/1.1" 422
+2024-01-15 15:48:26.068 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53725 - "POST /users HTTP/1.1" 422
+2024-01-15 15:48:50.452 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53742 - "POST /auth/logiin HTTP/1.1" 404
+2024-01-15 15:48:57.589 | DEBUG    | multipart.multipart:callback:586 - Calling on_part_begin with no data
+2024-01-15 15:48:57.590 | DEBUG    | multipart.multipart:callback:583 - Calling on_header_field with data[54:73]
+2024-01-15 15:48:57.590 | DEBUG    | multipart.multipart:callback:583 - Calling on_header_value with data[75:101]
+2024-01-15 15:48:57.591 | DEBUG    | multipart.multipart:callback:586 - Calling on_header_end with no data
+2024-01-15 15:48:57.592 | DEBUG    | multipart.multipart:callback:586 - Calling on_headers_finished with no data
+2024-01-15 15:48:57.593 | DEBUG    | multipart.multipart:callback:583 - Calling on_part_data with data[105:121]
+2024-01-15 15:48:57.594 | DEBUG    | multipart.multipart:callback:586 - Calling on_part_end with no data
+2024-01-15 15:48:57.594 | DEBUG    | multipart.multipart:callback:586 - Calling on_part_begin with no data
+2024-01-15 15:48:57.595 | DEBUG    | multipart.multipart:callback:583 - Calling on_header_field with data[177:196]
+2024-01-15 15:48:57.596 | DEBUG    | multipart.multipart:callback:583 - Calling on_header_value with data[198:224]
+2024-01-15 15:48:57.597 | DEBUG    | multipart.multipart:callback:586 - Calling on_header_end with no data
+2024-01-15 15:48:57.597 | DEBUG    | multipart.multipart:callback:586 - Calling on_headers_finished with no data
+2024-01-15 15:48:57.598 | DEBUG    | multipart.multipart:callback:583 - Calling on_part_data with data[228:229]
+2024-01-15 15:48:57.599 | DEBUG    | multipart.multipart:callback:586 - Calling on_part_end with no data
+2024-01-15 15:48:57.599 | DEBUG    | multipart.multipart:callback:586 - Calling on_end with no data
+2024-01-15 15:48:58.026 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53744 - "POST /auth/login HTTP/1.1" 200
+2024-01-15 15:52:34.048 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53805 - "POST /categories HTTP/1.1" 422
+2024-01-15 15:52:48.069 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53815 - "POST /categories HTTP/1.1" 200
+2024-01-15 15:56:16.932 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53863 - "POST /transactions HTTP/1.1" 500
+2024-01-15 15:58:42.541 | INFO     | uvicorn.server:shutdown:264 - Shutting down
+2024-01-15 15:58:42.542 | INFO     | uvicorn.server:shutdown:264 - Shutting down
+2024-01-15 15:58:42.650 | INFO     | uvicorn.lifespan.on:shutdown:65 - Waiting for application shutdown.
+2024-01-15 15:58:42.651 | INFO     | uvicorn.lifespan.on:shutdown:65 - Waiting for application shutdown.
+2024-01-15 15:58:42.656 | INFO     | uvicorn.lifespan.on:shutdown:76 - Application shutdown complete.
+2024-01-15 15:58:42.657 | INFO     | uvicorn.lifespan.on:shutdown:76 - Application shutdown complete.
+2024-01-15 15:58:42.658 | INFO     | uvicorn.server:serve:86 - Finished server process [21864]
+2024-01-15 15:58:42.659 | INFO     | uvicorn.server:serve:86 - Finished server process [21864]
+2024-01-15 15:58:44.953 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-15 15:58:44.954 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-15 15:58:44.955 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-15 15:58:45.167 | DEBUG    | passlib.registry:register_crypt_handler:296 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-15 15:59:24.428 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-15 15:59:24.430 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-15 15:59:24.430 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-15 15:59:24.631 | DEBUG    | passlib.registry:register_crypt_handler:296 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-15 15:59:38.338 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-15 15:59:38.339 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-15 15:59:38.339 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-15 15:59:38.567 | DEBUG    | passlib.registry:register_crypt_handler:296 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-15 15:59:38.793 | INFO     | uvicorn.server:serve:76 - Started server process [17912]
+2024-01-15 15:59:38.794 | INFO     | uvicorn.server:serve:76 - Started server process [17912]
+2024-01-15 15:59:38.795 | INFO     | uvicorn.lifespan.on:startup:46 - Waiting for application startup.
+2024-01-15 15:59:38.796 | INFO     | uvicorn.lifespan.on:startup:46 - Waiting for application startup.
+2024-01-15 15:59:38.806 | INFO     | uvicorn.lifespan.on:startup:60 - Application startup complete.
+2024-01-15 15:59:38.807 | INFO     | uvicorn.lifespan.on:startup:60 - Application startup complete.
+2024-01-15 15:59:40.088 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53938 - "POST /transactions HTTP/1.1" 500
+2024-01-15 15:59:40.089 | ERROR    | uvicorn.protocols.http.httptools_impl:run_asgi:431 - Exception in ASGI application
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 320
+               │     └ 3
+               └ <function _main at 0x000001E9C12AB430>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 320
+           │    └ <function BaseProcess._bootstrap at 0x000001E9C1141820>
+           └ <SpawnProcess name='SpawnProcess-4' parent=25544 started>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\multiprocessing\process.py", line 315, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x000001E9C113EE50>
+    └ <SpawnProcess name='SpawnProcess-4' parent=25544 started>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x000001E9C0E80430>, 'target': <bound method Server.run of <uvicorn.server.Server...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-4' parent=25544 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-4' parent=25544 started>
+    │    └ <function subprocess_started at 0x000001E9C35C25E0>
+    └ <SpawnProcess name='SpawnProcess-4' parent=25544 started>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\uvicorn\_subprocess.py", line 76, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=700, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x000001E9C0E80460>>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\uvicorn\server.py", line 61, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ [<socket.socket fd=700, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 8000)>]
+           │       │   │    └ <function Server.serve at 0x000001E9C35A59D0>
+           │       │   └ <uvicorn.server.Server object at 0x000001E9C0E80460>
+           │       └ <function run at 0x000001E9C2E62040>
+           └ <module 'asyncio' from 'C:\\Users\\tmcon\\AppData\\Local\\Programs\\Python\\Python39\\lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+           │    │                  └ <coroutine object Server.serve at 0x000001E9C36E1B40>
+           │    └ <function BaseEventLoop.run_until_complete at 0x000001E9C2E63A60>
+           └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py", line 634, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x000001E9C2E639D0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py", line 601, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x000001E9C2E65550>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py", line 1905, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x000001E9C2E02040>
+    └ <Handle <TaskWakeupMethWrapper object at 0x000001E9C6E80FD0>(<Future finis...rrent_user'")>)>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <TaskWakeupMethWrapper object at 0x000001E9C6E80FD0>(<Future finis...rrent_user'")>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <TaskWakeupMethWrapper object at 0x000001E9C6E80FD0>(<Future finis...rrent_user'")>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <TaskWakeupMethWrapper object at 0x000001E9C6E80FD0>(<Future finis...rrent_user'")>)>
+
+> File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x000001E9C3703520>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E9C6...
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+                 │    └ <fastapi.applications.FastAPI object at 0x000001E9C37B5490>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x000001E9C3703520>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\fastapi\applications.py", line 292, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E9C6...
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E9C6...
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x000001E9C6D7CDF0>
+          └ <fastapi.applications.FastAPI object at 0x000001E9C37B5490>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x000001E9C6E8C0D0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.cors.CORSMiddleware object at 0x000001E9C6D7CE80>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x000001E9C6D7CDF0>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x000001E9C6E8C0D0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.sessions.SessionMiddleware object at 0x000001E9C6D7CFD0>
+          └ <starlette.middleware.cors.CORSMiddleware object at 0x000001E9C6D7CE80>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\middleware\sessions.py", line 86, in __call__
+    await self.app(scope, receive, send_wrapper)
+          │    │   │      │        └ <function SessionMiddleware.__call__.<locals>.send_wrapper at 0x000001E9C6E8C160>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x000001E9C6D7CFA0>
+          └ <starlette.middleware.sessions.SessionMiddleware object at 0x000001E9C6D7CFD0>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x000001E9C6E8C1F0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x000001E9C6D7CEE0>
+          └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x000001E9C6D7CFA0>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x000001E9C6E8C1F0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.routing.APIRouter object at 0x000001E9C5984EB0>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x000001E9C6D7CEE0>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x000001E9C6E8C1F0>
+          │     │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │     └ <function Route.handle at 0x000001E9C593D670>
+          └ APIRoute(path='/transactions', name='create_transaction', methods=['POST'])
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x000001E9C6E8C1F0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <function request_response.<locals>.app at 0x000001E9C6D6F670>
+          └ APIRoute(path='/transactions', name='create_transaction', methods=['POST'])
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+                     │    └ <starlette.requests.Request object at 0x000001E9C6E80E20>
+                     └ <function get_request_handler.<locals>.app at 0x000001E9C6D6F820>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x000001E9C5933280>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\fastapi\routing.py", line 192, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+                 │                 │         │       └ {'create_transaction_use_case': <app.use_cases.transaction.create.CreateTransactionUseCase object at 0x000001E9C6F46EE0>, 'pa...
+                 │                 │         └ <function create_transaction at 0x000001E9C6C7A940>
+                 │                 └ <fastapi.dependencies.models.Dependant object at 0x000001E9C6D6C880>
+                 └ <function run_in_threadpool at 0x000001E9C45B8EE0>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+                 │     │         │        │      └ ()
+                 │     │         │        └ functools.partial(<function create_transaction at 0x000001E9C6C7A940>, create_transaction_use_case=<app.use_cases.transaction...
+                 │     │         └ <function run_sync at 0x000001E9C36330D0>
+                 │     └ <module 'anyio.to_thread' from 'C:\\Users\\tmcon\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\anyio\\to_t...
+                 └ <module 'anyio' from 'C:\\Users\\tmcon\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\anyio\\__init__.py'>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\anyio\to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+                 └ <function get_asynclib at 0x000001E9C35F5EE0>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\anyio\_backends\_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+                 └ <Future finished exception=TypeError("builder() missing 1 required positional argument: 'current_user'")>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\anyio\_backends\_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             │       │   │      └ ()
+             │       │   └ functools.partial(<function create_transaction at 0x000001E9C6C7A940>, create_transaction_use_case=<app.use_cases.transaction...
+             │       └ <method 'run' of 'Context' objects>
+             └ <Context object at 0x000001E9C6F51C80>
+
+  File "D:\spending-webapp\backend\app\shared\decorator.py", line 24, in wrapper
+    response = f(*args, **kwargs)
+               │  │       └ {'create_transaction_use_case': <app.use_cases.transaction.create.CreateTransactionUseCase object at 0x000001E9C6F46EE0>, 'pa...
+               │  └ ()
+               └ <function create_transaction at 0x000001E9C6C7A8B0>
+
+  File "D:\spending-webapp\backend\app\interfaces\rest\api_v1\endpoints\transaction.py", line 43, in create_transaction
+    req_object = CreateTransactionRequestObject.builder(payload=payload)
+                 │                              │               └ TransactionInCreate(name='Lương tháng 12 Công', type=<Type.INCOME: 'income'>, note=None, category='65a4f26061fd0c9be09da87b')
+                 │                              └ <classmethod object at 0x000001E9C6C1DF70>
+                 └ <class 'app.use_cases.transaction.create.CreateTransactionRequestObject'>
+
+TypeError: builder() missing 1 required positional argument: 'current_user'
+
+2024-01-15 15:59:40.122 | ERROR    | uvicorn.protocols.http.httptools_impl:run_asgi:431 - Exception in ASGI application
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\multiprocessing\spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 320
+               │     └ 3
+               └ <function _main at 0x000001E9C12AB430>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\multiprocessing\spawn.py", line 129, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 320
+           │    └ <function BaseProcess._bootstrap at 0x000001E9C1141820>
+           └ <SpawnProcess name='SpawnProcess-4' parent=25544 started>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\multiprocessing\process.py", line 315, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x000001E9C113EE50>
+    └ <SpawnProcess name='SpawnProcess-4' parent=25544 started>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x000001E9C0E80430>, 'target': <bound method Server.run of <uvicorn.server.Server...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-4' parent=25544 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-4' parent=25544 started>
+    │    └ <function subprocess_started at 0x000001E9C35C25E0>
+    └ <SpawnProcess name='SpawnProcess-4' parent=25544 started>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\uvicorn\_subprocess.py", line 76, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=700, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x000001E9C0E80460>>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\uvicorn\server.py", line 61, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ [<socket.socket fd=700, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 8000)>]
+           │       │   │    └ <function Server.serve at 0x000001E9C35A59D0>
+           │       │   └ <uvicorn.server.Server object at 0x000001E9C0E80460>
+           │       └ <function run at 0x000001E9C2E62040>
+           └ <module 'asyncio' from 'C:\\Users\\tmcon\\AppData\\Local\\Programs\\Python\\Python39\\lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+           │    │                  └ <coroutine object Server.serve at 0x000001E9C36E1B40>
+           │    └ <function BaseEventLoop.run_until_complete at 0x000001E9C2E63A60>
+           └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py", line 634, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x000001E9C2E639D0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py", line 601, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x000001E9C2E65550>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\asyncio\base_events.py", line 1905, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x000001E9C2E02040>
+    └ <Handle <TaskWakeupMethWrapper object at 0x000001E9C6E80FD0>(<Future finis...rrent_user'")>)>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <TaskWakeupMethWrapper object at 0x000001E9C6E80FD0>(<Future finis...rrent_user'")>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <TaskWakeupMethWrapper object at 0x000001E9C6E80FD0>(<Future finis...rrent_user'")>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <TaskWakeupMethWrapper object at 0x000001E9C6E80FD0>(<Future finis...rrent_user'")>)>
+
+> File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x000001E9C3703520>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E9C6...
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+                 │    └ <fastapi.applications.FastAPI object at 0x000001E9C37B5490>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x000001E9C3703520>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\fastapi\applications.py", line 292, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E9C6...
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E9C6...
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x000001E9C6D7CDF0>
+          └ <fastapi.applications.FastAPI object at 0x000001E9C37B5490>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x000001E9C6E8C0D0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.cors.CORSMiddleware object at 0x000001E9C6D7CE80>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x000001E9C6D7CDF0>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x000001E9C6E8C0D0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.sessions.SessionMiddleware object at 0x000001E9C6D7CFD0>
+          └ <starlette.middleware.cors.CORSMiddleware object at 0x000001E9C6D7CE80>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\middleware\sessions.py", line 86, in __call__
+    await self.app(scope, receive, send_wrapper)
+          │    │   │      │        └ <function SessionMiddleware.__call__.<locals>.send_wrapper at 0x000001E9C6E8C160>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x000001E9C6D7CFA0>
+          └ <starlette.middleware.sessions.SessionMiddleware object at 0x000001E9C6D7CFD0>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x000001E9C6E8C1F0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x000001E9C6D7CEE0>
+          └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x000001E9C6D7CFA0>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x000001E9C6E8C1F0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.routing.APIRouter object at 0x000001E9C5984EB0>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x000001E9C6D7CEE0>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x000001E9C6E8C1F0>
+          │     │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │     └ <function Route.handle at 0x000001E9C593D670>
+          └ APIRoute(path='/transactions', name='create_transaction', methods=['POST'])
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x000001E9C6E8C1F0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.httptools_impl.RequestResponseCycle object at 0x000001E...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <function request_response.<locals>.app at 0x000001E9C6D6F670>
+          └ APIRoute(path='/transactions', name='create_transaction', methods=['POST'])
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+                     │    └ <starlette.requests.Request object at 0x000001E9C6E80E20>
+                     └ <function get_request_handler.<locals>.app at 0x000001E9C6D6F820>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\fastapi\routing.py", line 273, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x000001E9C5933280>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\fastapi\routing.py", line 192, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+                 │                 │         │       └ {'create_transaction_use_case': <app.use_cases.transaction.create.CreateTransactionUseCase object at 0x000001E9C6F46EE0>, 'pa...
+                 │                 │         └ <function create_transaction at 0x000001E9C6C7A940>
+                 │                 └ <fastapi.dependencies.models.Dependant object at 0x000001E9C6D6C880>
+                 └ <function run_in_threadpool at 0x000001E9C45B8EE0>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+                 │     │         │        │      └ ()
+                 │     │         │        └ functools.partial(<function create_transaction at 0x000001E9C6C7A940>, create_transaction_use_case=<app.use_cases.transaction...
+                 │     │         └ <function run_sync at 0x000001E9C36330D0>
+                 │     └ <module 'anyio.to_thread' from 'C:\\Users\\tmcon\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\anyio\\to_t...
+                 └ <module 'anyio' from 'C:\\Users\\tmcon\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\anyio\\__init__.py'>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\anyio\to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+                 └ <function get_asynclib at 0x000001E9C35F5EE0>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\anyio\_backends\_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+                 └ <Future finished exception=TypeError("builder() missing 1 required positional argument: 'current_user'")>
+
+  File "C:\Users\tmcon\AppData\Local\Programs\Python\Python39\lib\site-packages\anyio\_backends\_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             │       │   │      └ ()
+             │       │   └ functools.partial(<function create_transaction at 0x000001E9C6C7A940>, create_transaction_use_case=<app.use_cases.transaction...
+             │       └ <method 'run' of 'Context' objects>
+             └ <Context object at 0x000001E9C6F51C80>
+
+  File "D:\spending-webapp\backend\app\shared\decorator.py", line 24, in wrapper
+    response = f(*args, **kwargs)
+               │  │       └ {'create_transaction_use_case': <app.use_cases.transaction.create.CreateTransactionUseCase object at 0x000001E9C6F46EE0>, 'pa...
+               │  └ ()
+               └ <function create_transaction at 0x000001E9C6C7A8B0>
+
+  File "D:\spending-webapp\backend\app\interfaces\rest\api_v1\endpoints\transaction.py", line 43, in create_transaction
+    req_object = CreateTransactionRequestObject.builder(payload=payload)
+                 │                              │               └ TransactionInCreate(name='Lương tháng 12 Công', type=<Type.INCOME: 'income'>, note=None, category='65a4f26061fd0c9be09da87b')
+                 │                              └ <classmethod object at 0x000001E9C6C1DF70>
+                 └ <class 'app.use_cases.transaction.create.CreateTransactionRequestObject'>
+
+TypeError: builder() missing 1 required positional argument: 'current_user'
+
+2024-01-15 16:00:19.358 | INFO     | uvicorn.server:shutdown:264 - Shutting down
+2024-01-15 16:00:19.359 | INFO     | uvicorn.server:shutdown:264 - Shutting down
+2024-01-15 16:00:19.467 | INFO     | uvicorn.lifespan.on:shutdown:65 - Waiting for application shutdown.
+2024-01-15 16:00:19.468 | INFO     | uvicorn.lifespan.on:shutdown:65 - Waiting for application shutdown.
+2024-01-15 16:00:19.471 | INFO     | uvicorn.lifespan.on:shutdown:76 - Application shutdown complete.
+2024-01-15 16:00:19.472 | INFO     | uvicorn.lifespan.on:shutdown:76 - Application shutdown complete.
+2024-01-15 16:00:19.472 | INFO     | uvicorn.server:serve:86 - Finished server process [17912]
+2024-01-15 16:00:19.474 | INFO     | uvicorn.server:serve:86 - Finished server process [17912]
+2024-01-15 16:00:21.516 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-15 16:00:21.517 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-15 16:00:21.518 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-15 16:00:21.720 | DEBUG    | passlib.registry:register_crypt_handler:296 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-15 16:02:32.998 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-15 16:02:32.999 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-15 16:02:32.999 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-15 16:02:33.198 | DEBUG    | passlib.registry:register_crypt_handler:296 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-15 16:02:33.384 | INFO     | uvicorn.server:serve:76 - Started server process [14112]
+2024-01-15 16:02:33.385 | INFO     | uvicorn.server:serve:76 - Started server process [14112]
+2024-01-15 16:02:33.385 | INFO     | uvicorn.lifespan.on:startup:46 - Waiting for application startup.
+2024-01-15 16:02:33.386 | INFO     | uvicorn.lifespan.on:startup:46 - Waiting for application startup.
+2024-01-15 16:02:33.397 | INFO     | uvicorn.lifespan.on:startup:60 - Application startup complete.
+2024-01-15 16:02:33.397 | INFO     | uvicorn.lifespan.on:startup:60 - Application startup complete.
+2024-01-15 16:02:37.375 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:53977 - "POST /transactions HTTP/1.1" 500
+2024-01-15 16:05:42.982 | INFO     | uvicorn.server:shutdown:264 - Shutting down
+2024-01-15 16:05:42.983 | INFO     | uvicorn.server:shutdown:264 - Shutting down
+2024-01-15 16:05:43.092 | INFO     | uvicorn.lifespan.on:shutdown:65 - Waiting for application shutdown.
+2024-01-15 16:05:43.093 | INFO     | uvicorn.lifespan.on:shutdown:65 - Waiting for application shutdown.
+2024-01-15 16:05:43.095 | INFO     | uvicorn.lifespan.on:shutdown:76 - Application shutdown complete.
+2024-01-15 16:05:43.096 | INFO     | uvicorn.lifespan.on:shutdown:76 - Application shutdown complete.
+2024-01-15 16:05:43.096 | INFO     | uvicorn.server:serve:86 - Finished server process [14112]
+2024-01-15 16:05:43.097 | INFO     | uvicorn.server:serve:86 - Finished server process [14112]
+2024-01-15 16:05:44.940 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-15 16:05:44.941 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-15 16:05:44.942 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-15 16:05:45.154 | DEBUG    | passlib.registry:register_crypt_handler:296 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-15 16:05:45.372 | INFO     | uvicorn.server:serve:76 - Started server process [24356]
+2024-01-15 16:05:45.374 | INFO     | uvicorn.server:serve:76 - Started server process [24356]
+2024-01-15 16:05:45.374 | INFO     | uvicorn.lifespan.on:startup:46 - Waiting for application startup.
+2024-01-15 16:05:45.375 | INFO     | uvicorn.lifespan.on:startup:46 - Waiting for application startup.
+2024-01-15 16:05:45.385 | INFO     | uvicorn.lifespan.on:startup:60 - Application startup complete.
+2024-01-15 16:05:45.386 | INFO     | uvicorn.lifespan.on:startup:60 - Application startup complete.
+2024-01-15 16:05:45.414 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:54011 - "POST /transactions HTTP/1.1" 500
+2024-01-15 16:09:09.079 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:54076 - "POST /transactions HTTP/1.1" 500
+2024-01-15 16:09:25.017 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:54078 - "POST /transactions HTTP/1.1" 500
+2024-01-15 16:09:31.162 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:54088 - "POST /transactions HTTP/1.1" 500
+2024-01-15 16:11:00.974 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:54117 - "POST /transactions HTTP/1.1" 500
+2024-01-15 16:11:15.719 | INFO     | uvicorn.server:shutdown:264 - Shutting down
+2024-01-15 16:11:15.719 | INFO     | uvicorn.server:shutdown:264 - Shutting down
+2024-01-15 16:11:15.828 | INFO     | uvicorn.lifespan.on:shutdown:65 - Waiting for application shutdown.
+2024-01-15 16:11:15.829 | INFO     | uvicorn.lifespan.on:shutdown:65 - Waiting for application shutdown.
+2024-01-15 16:11:15.832 | INFO     | uvicorn.lifespan.on:shutdown:76 - Application shutdown complete.
+2024-01-15 16:11:15.833 | INFO     | uvicorn.lifespan.on:shutdown:76 - Application shutdown complete.
+2024-01-15 16:11:15.834 | INFO     | uvicorn.server:serve:86 - Finished server process [24356]
+2024-01-15 16:11:15.834 | INFO     | uvicorn.server:serve:86 - Finished server process [24356]
+2024-01-15 16:12:06.665 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-15 16:12:06.666 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-15 16:12:06.667 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-15 16:12:06.873 | DEBUG    | passlib.registry:register_crypt_handler:296 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-15 16:12:07.062 | INFO     | uvicorn.server:serve:76 - Started server process [12156]
+2024-01-15 16:12:07.063 | INFO     | uvicorn.server:serve:76 - Started server process [12156]
+2024-01-15 16:12:07.064 | INFO     | uvicorn.lifespan.on:startup:46 - Waiting for application startup.
+2024-01-15 16:12:07.064 | INFO     | uvicorn.lifespan.on:startup:46 - Waiting for application startup.
+2024-01-15 16:12:07.085 | INFO     | uvicorn.lifespan.on:startup:60 - Application startup complete.
+2024-01-15 16:12:07.086 | INFO     | uvicorn.lifespan.on:startup:60 - Application startup complete.
+2024-01-15 16:15:45.477 | INFO     | uvicorn.server:shutdown:264 - Shutting down
+2024-01-15 16:15:45.478 | INFO     | uvicorn.server:shutdown:264 - Shutting down
+2024-01-15 16:15:45.589 | INFO     | uvicorn.lifespan.on:shutdown:65 - Waiting for application shutdown.
+2024-01-15 16:15:45.589 | INFO     | uvicorn.lifespan.on:shutdown:65 - Waiting for application shutdown.
+2024-01-15 16:15:45.592 | INFO     | uvicorn.lifespan.on:shutdown:76 - Application shutdown complete.
+2024-01-15 16:15:45.592 | INFO     | uvicorn.lifespan.on:shutdown:76 - Application shutdown complete.
+2024-01-15 16:15:45.593 | INFO     | uvicorn.server:serve:86 - Finished server process [12156]
+2024-01-15 16:15:45.594 | INFO     | uvicorn.server:serve:86 - Finished server process [12156]
