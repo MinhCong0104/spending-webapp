@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
+from model import MigrateModel
 
 
 def migrate_partner(o_source, o_target, from_id=8):
