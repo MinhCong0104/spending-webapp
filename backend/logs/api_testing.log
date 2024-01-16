@@ -2780,3 +2780,63 @@ TypeError: builder() missing 1 required positional argument: 'current_user'
 2024-01-16 14:48:10.418 | INFO     | uvicorn.lifespan.on:startup:60 - Application startup complete.
 2024-01-16 14:48:10.419 | INFO     | uvicorn.lifespan.on:startup:60 - Application startup complete.
 2024-01-16 14:48:39.805 | INFO     | uvicorn.protocols.http.httptools_impl:send:496 - 127.0.0.1:57123 - "DELETE /transactions/65a6086d482c1edc3d6c0d4a HTTP/1.1" 200
+2024-01-16 14:50:15.075 | INFO     | uvicorn.server:shutdown:264 - Shutting down
+2024-01-16 14:50:15.076 | INFO     | uvicorn.server:shutdown:264 - Shutting down
+2024-01-16 14:50:15.185 | INFO     | uvicorn.lifespan.on:shutdown:65 - Waiting for application shutdown.
+2024-01-16 14:50:15.186 | INFO     | uvicorn.lifespan.on:shutdown:65 - Waiting for application shutdown.
+2024-01-16 14:50:15.189 | INFO     | uvicorn.lifespan.on:shutdown:76 - Application shutdown complete.
+2024-01-16 14:50:15.189 | INFO     | uvicorn.lifespan.on:shutdown:76 - Application shutdown complete.
+2024-01-16 14:50:15.190 | INFO     | uvicorn.server:serve:86 - Finished server process [7660]
+2024-01-16 14:50:15.192 | INFO     | uvicorn.server:serve:86 - Finished server process [7660]
+2024-01-16 14:50:17.185 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-16 14:50:17.185 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-16 14:50:17.186 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-16 14:50:17.382 | DEBUG    | passlib.registry:register_crypt_handler:296 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-16 14:50:17.569 | INFO     | uvicorn.server:serve:76 - Started server process [8616]
+2024-01-16 14:50:17.570 | INFO     | uvicorn.server:serve:76 - Started server process [8616]
+2024-01-16 14:50:17.571 | INFO     | uvicorn.lifespan.on:startup:46 - Waiting for application startup.
+2024-01-16 14:50:17.571 | INFO     | uvicorn.lifespan.on:startup:46 - Waiting for application startup.
+2024-01-16 14:50:17.581 | INFO     | uvicorn.lifespan.on:startup:60 - Application startup complete.
+2024-01-16 14:50:17.582 | INFO     | uvicorn.lifespan.on:startup:60 - Application startup complete.
+2024-01-16 14:50:50.572 | INFO     | uvicorn.server:shutdown:264 - Shutting down
+2024-01-16 14:50:50.573 | INFO     | uvicorn.server:shutdown:264 - Shutting down
+2024-01-16 14:50:50.682 | INFO     | uvicorn.lifespan.on:shutdown:65 - Waiting for application shutdown.
+2024-01-16 14:50:50.682 | INFO     | uvicorn.lifespan.on:shutdown:65 - Waiting for application shutdown.
+2024-01-16 14:50:50.684 | INFO     | uvicorn.lifespan.on:shutdown:76 - Application shutdown complete.
+2024-01-16 14:50:50.685 | INFO     | uvicorn.lifespan.on:shutdown:76 - Application shutdown complete.
+2024-01-16 14:50:50.686 | INFO     | uvicorn.server:serve:86 - Finished server process [8616]
+2024-01-16 14:50:50.686 | INFO     | uvicorn.server:serve:86 - Finished server process [8616]
+2024-01-16 14:50:52.779 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-16 14:50:52.780 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-16 14:50:52.781 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-16 14:50:52.976 | DEBUG    | passlib.registry:register_crypt_handler:296 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-16 14:51:07.768 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-16 14:51:07.769 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-16 14:51:07.770 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-16 14:51:07.970 | DEBUG    | passlib.registry:register_crypt_handler:296 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-16 14:52:17.036 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-16 14:52:17.037 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-16 14:52:17.037 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-16 14:52:17.235 | DEBUG    | passlib.registry:register_crypt_handler:296 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-16 14:52:38.310 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-16 14:52:38.311 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-16 14:52:38.312 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-16 14:52:38.506 | DEBUG    | passlib.registry:register_crypt_handler:296 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-16 14:53:13.195 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2024-01-16 14:53:13.196 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2024-01-16 14:53:13.196 | DEBUG    | passlib.utils.compat:__getattr__:449 - loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2024-01-16 14:53:13.391 | DEBUG    | passlib.registry:register_crypt_handler:296 - registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2024-01-16 14:53:13.584 | INFO     | uvicorn.server:serve:76 - Started server process [11316]
+2024-01-16 14:53:13.584 | INFO     | uvicorn.server:serve:76 - Started server process [11316]
+2024-01-16 14:53:13.585 | INFO     | uvicorn.lifespan.on:startup:46 - Waiting for application startup.
+2024-01-16 14:53:13.586 | INFO     | uvicorn.lifespan.on:startup:46 - Waiting for application startup.
+2024-01-16 14:53:13.596 | INFO     | uvicorn.lifespan.on:startup:60 - Application startup complete.
+2024-01-16 14:53:13.596 | INFO     | uvicorn.lifespan.on:startup:60 - Application startup complete.
+2024-01-16 14:53:44.078 | INFO     | uvicorn.server:shutdown:264 - Shutting down
+2024-01-16 14:53:44.079 | INFO     | uvicorn.server:shutdown:264 - Shutting down
+2024-01-16 14:53:44.187 | INFO     | uvicorn.lifespan.on:shutdown:65 - Waiting for application shutdown.
+2024-01-16 14:53:44.188 | INFO     | uvicorn.lifespan.on:shutdown:65 - Waiting for application shutdown.
+2024-01-16 14:53:44.189 | INFO     | uvicorn.lifespan.on:shutdown:76 - Application shutdown complete.
+2024-01-16 14:53:44.189 | INFO     | uvicorn.lifespan.on:shutdown:76 - Application shutdown complete.
+2024-01-16 14:53:44.190 | INFO     | uvicorn.server:serve:86 - Finished server process [11316]
+2024-01-16 14:53:44.191 | INFO     | uvicorn.server:serve:86 - Finished server process [11316]

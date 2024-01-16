@@ -58,6 +58,13 @@ class CategoryRepository:
         except Exception:
             return False
 
+    def delete(self, id: ObjectId) -> bool:
+        try:
+            CategoryModel.objects(id=id).delete()
+            return True
+        except Exception:
+            return False
+
     def count(self, conditions: Dict[str, Union[str, bool, ObjectId]] = {}) -> int:
         try:
             return CategoryModel._get_collection().count_documents(conditions)

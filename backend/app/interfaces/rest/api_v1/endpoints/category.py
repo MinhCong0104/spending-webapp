@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Body, Depends, Path, Query
-from typing import Annotated, Union
+from typing import Annotated, Union, Dict
 from app.domain.category.entity import Category, CategoryInCreate, CategoryInDB, CategoryInUpdate
 from app.infra.security.security_service import get_current_active_user, get_current_administrator
 from app.shared.decorator import response_decorator
@@ -10,6 +10,7 @@ from app.use_cases.category.get import GetCategoryRequestObject, GetCategoryUseC
 from app.use_cases.category.create import CreateCategoryUseCase, CreateCategoryRequestObject
 from app.use_cases.category.list import ListCategoriesUseCase, ListCategoriesRequestObject
 from app.use_cases.category.update import UpdateCategoryUseCase, UpdateCategoryRequestObject
+from app.use_cases.category.delete import DeleteTransactionUseCase, DeleteCategoryRequestObject
 from app.infra.database.models.user import User
 
 router = APIRouter()
@@ -74,4 +75,19 @@ def update_category(
 ):
     req_object = UpdateCategoryRequestObject.builder(id=id, payload=payload)
     response = update_category_use_case.execute(request_object=req_object)
+    return response
+
+
+@router.delete(
+    "/{id}",
+    dependencies=[Depends(get_current_active_user)],  # auth route
+    response_model=Dict[str, bool],
+)
+@response_decorator()
+def delete_transaction(
+    id: str = Path(..., title="Account Id"),
+    delete_category: DeleteTransactionUseCase = Depends(DeleteTransactionUseCase),
+):
+    req_object = DeleteCategoryRequestObject.builder(id=id)
+    response = delete_category.execute(request_object=req_object)
     return response
