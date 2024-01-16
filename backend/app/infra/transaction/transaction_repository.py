@@ -50,6 +50,13 @@ class TransactionRepository:
         except Exception:
             return False
 
+    def delete(self, id: ObjectId) -> bool:
+        try:
+            TransactionModel.objects(id=id).delete()
+            return True
+        except Exception:
+            return False
+
     def count(self, conditions: Dict[str, Union[str, bool, ObjectId]] = {}) -> int:
         try:
             return TransactionModel._get_collection().count_documents(conditions)
@@ -74,7 +81,19 @@ class TransactionRepository:
         sort: Optional[Dict[str, int]] = None,
     ) -> List[TransactionModel]:
         try:
-            match_pipelines = {"type": type.value, "user": user}
+            match_pipelines = {"user": user}
+
+            if category:
+                match_pipelines = {
+                    **match_pipelines,
+                    "category": category
+                }
+
+            if type:
+                match_pipelines = {
+                    **match_pipelines,
+                    "type": type.value
+                }
 
             if category:
                 match_pipelines = {
@@ -103,12 +122,8 @@ class TransactionRepository:
                 sort if sort else {"$sort": {"_id": -1}},
             ]
 
-            docs = TransactionModel.objects(user=user).aggregate(pipeline)
-            data = [TransactionModel.from_mongo(doc) for doc in docs]
-            res = []
-            for d in data:
-                if str(d['category']) in category:
-                    res.append(d)
-            return res
+            docs = TransactionModel.objects().aggregate(pipeline)
+            return [TransactionModel.from_mongo(doc) for doc in docs]
+
         except Exception:
             return []
