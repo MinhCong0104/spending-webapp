@@ -26,7 +26,7 @@ class TransactionInCreate(BaseEntity):
     type: Type
     amount: float
     note: Optional[str] = None
-    # category: str
+    category_id: str
     date: str
 
 
@@ -35,6 +35,7 @@ class TransactionInUpdate(BaseEntity):
     amount: Optional[float] = None
     note: Optional[str] = None
     type: Optional[Type] = None
+    category_id: Optional[str] = None
 
 
 class Transaction(TransactionBase):
