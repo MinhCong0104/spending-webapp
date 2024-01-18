@@ -6,127 +6,148 @@ class MigrateModel:
                  patch=1000, field_mapping=None, default_vals=None, have_parent=False, create_mapping_file=False):
         self.source = source
         self.target = target
-        self.model = model
-        self.sync_fields = sync_fields
-        self.from_id = from_id
-        self.have_active_field = have_active_field
-        self.create_gap = create_gap
-        self.patch = patch
-        self.field_mapping = field_mapping
-        self.default_vals = default_vals
-        self.have_parent = have_parent
-        self.create_mapping_file = create_mapping_file
+        # self.model = model
+        # self.sync_fields = sync_fields
+        # self.from_id = from_id
+        # self.have_active_field = have_active_field
+        # self.create_gap = create_gap
+        # self.patch = patch
+        # self.field_mapping = field_mapping
+        # self.default_vals = default_vals
+        # self.have_parent = have_parent
+        # self.create_mapping_file = create_mapping_file
 
-    def _source_ids(self):
+    def search(self, model, from_id=1, domain=False, can_archive=True):
         """
-        Function to search records in source DB.
-        :return: list id
+        Function to search records created in source DB.
+        :param model: str name of model
+        :param from_id: search record from id
+        :param can_archive: bool - True if model have active fields and False if not
+        :param domain: if input domain, search by this domain and ignore from_id, can_archive
+        :return: list id -> []
         """
 
-        if self.have_active_field:
-            ids = self.source.search(
-                [('id', '>=', self.from_id), '|', ('active', '=', True), ('active', '=', False)],
+        if domain:
+            return self.source.env[model].search(domain,  order='id asc')
+
+        if can_archive:
+            return self.source.env[model].search(
+                [('id', '>=', from_id), '|', ('active', '=', True), ('active', '=', False)],
                 order='id asc'
             )
-        else:
-            ids = self.source.search([('id', '>=', self.from_id)], order='id asc')
-        print("Total %s record: %s" % (self.model, len(ids)))
-        return ids
 
-    def _source_datas(self):
+        return self.source.env[model].search([('id', '>=', from_id)], order='id asc')
+
+    def read(self, model, fields, from_id=1, domain=False, can_archive=True):
         """
-        Function to read data in source DB.
-        :return: list data
+        Function to read records created in source DB.
+        :param model: str name of model
+        :param from_id: search record from id
+        :param can_archive: bool - True if model have active fields and False if not
+        :param domain: if input domain, search by this domain and ignore from_id, can_archive
+        :param fields: fields to read data
+        :return: list data -> [{}]
         """
 
-        if self.have_active_field:
-            datas = self.source.search_read(
-                [('id', '>=', self.from_id), '|', ('active', '=', True), ('active', '=', False)],
-                order='id asc', fields=self.sync_fields, load=''
+        if domain:
+            return self.source.env[model].search_read(domain, fields, order='id asc', load='')
+
+        if can_archive:
+            return self.source.env[model].search_read(
+                [('id', '>=', from_id), '|', ('active', '=', True), ('active', '=', False)],
+                fields, order='id asc', load=''
             )
-        else:
-            datas = self.source.search_read([('id', '>=', self.from_id)], order='id asc',
-                                            fields=self.sync_fields, load='')
-        print("Total %s record: %s" % (self.model, len(datas)))
-        return datas
 
-    def _old_ids(self):
+        return self.source.env[model].search_read([('id', '>=', from_id)], fields, order='id asc', load='')
+
+    def search_default(self, model, from_id, domain=False, can_archive=True):
         """
-        Function to read default data created in target DB.
-        :return: list data
+        Function to search records default in source DB.
+        :param model: str name of model
+        :param from_id: search record from id
+        :param can_archive: bool - True if model have active fields and False if not
+        :param domain: if input domain, search by this domain and ignore from_id, can_archive
+        :return: list id -> []
         """
 
-        if self.have_active_field:
-            datas = self.source.search_read(
-                [('id', '<', self.from_id), '|', ('active', '=', True), ('active', '=', False)],
-                order='id asc', fields=self.sync_fields, load=''
+        if domain:
+            return self.source.env[model].search(domain,  order='id asc')
+
+        if can_archive:
+            return self.source.env[model].search(
+                [('id', '<', from_id), '|', ('active', '=', True), ('active', '=', False)],
+                order='id asc'
             )
-        else:
-            datas = self.source.search_read([('id', '<', self.from_id)], order='id asc',
-                                            fields=self.sync_fields, load='')
-        print("Total %s record: %s" % (self.model, len(datas)))
-        return datas
 
-    def _old_data(self):
+        return self.source.env[model].search([('id', '<', from_id)], order='id asc')
+
+    def read_default(self, model, fields, from_id=1, domain=False, can_archive=True):
         """
-        Function to read default data changed in source DB.
-        :return: list data
+        Function to read records default in source DB.
+        :param model: str name of model
+        :param from_id: search record from id
+        :param can_archive: bool - True if model have active fields and False if not
+        :param domain: if input domain, search by this domain and ignore from_id, can_archive
+        :param fields: fields to read data
+        :return: list data -> [{}]
         """
 
-        if self.have_active_field:
-            datas = self.source.search_read(
-                [('id', '<', self.from_id), '|', ('active', '=', True), ('active', '=', False)],
-                order='id asc', fields=self.sync_fields, load=''
+        if domain:
+            return self.source.env[model].search_read(domain, fields, order='id asc', load='')
+
+        if can_archive:
+            return self.source.env[model].search_read(
+                [('id', '<', from_id), '|', ('active', '=', True), ('active', '=', False)],
+                fields, order='id asc', load=''
             )
-        else:
-            datas = self.source.search_read([('id', '<', self.from_id)], order='id asc',
-                                            fields=self.sync_fields, load='')
-        print("Total %s record: %s" % (self.model, len(datas)))
-        return datas
 
-    def _process_datas(self):
+        return self.source.env[model].search_read([('id', '<', from_id)], fields, order='id asc', load='')
+
+    def _process_datas(self, create_gap, datas, from_id=1, default_vals={}):
         # TODO: Cần thêm tình huống xử lý lệch id các trường related
 
         """
-        Function to process data before create in target DB.
-        :return: list data to create, list id to delete
+        Function to search records in source DB.
+        :param create_gap:
+        :param from_id:
+        :param default_vals:
+        :return: list data -> [{}]
         """
 
-        if not self.create_gap:
-            return self._source_datas(), []
+        if not create_gap:
+            return datas, []
 
-        datas = self._source_datas()
         new_datas = []
         to_delete = []
-        previous_id = self.from_id - 1
+        previous_id = from_id - 1
 
         for data in datas:
             if data['id'] > previous_id + 1:
                 for i in range(previous_id + 1, data['id']):
-                    new_datas.append(dict(self.default_vals, **{'name': 'Record %s' % i}))
+                    new_datas.append(dict(default_vals, **{'name': 'Record %s' % i}))
                     to_delete.append(i)
 
             previous_id = data.pop('id')
             new_datas.append(data)
         return new_datas, to_delete
 
-    def write(self):
+    def write(self, datas):
         """
         Function to write value to the match id record in target DB.
+        :param datas:
         :return: not return
         """
 
-        datas = self._old_data()
         for data in datas:
             self.target.browse(data['id']).write(data)
 
-    def create(self):
+    def create(self, datas, create_mapping_file=False):
         """
         Function to create new record and delete gap in target DB.
         :return: not return
         """
 
-        if self.create_mapping_file:
+        if create_mapping_file:
             return
 
         new_datas = self._process_datas()[0]
