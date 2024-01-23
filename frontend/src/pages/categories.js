@@ -8,6 +8,8 @@ import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
 import { CategoriesTable } from 'src/sections/category/categories-table';
 import { applyPagination } from 'src/utils/apply-pagination';
 import { PopupAddCategory } from 'src/sections/category/category-add';
+import api from 'src/fetch/api';
+
 
 const now = new Date();
 
@@ -55,6 +57,12 @@ const data = [
     note: 'Dùng khi giao dịch là gửi tiền tiết kiệm'
   },
 ];
+
+const fetchCategories = async () => {
+  const response = await api.get('/categories/');
+  setCategories(response.data);
+}
+
 
 const useCategories = (page, rowsPerPage) => {
   return useMemo(
@@ -151,7 +159,6 @@ const Page = () => {
                 <PopupAddCategory/>
               </div>
             </Stack>
-            {/* <TransactionsSearch /> */}
             <CategoriesTable
               count={data.length}
               items={categories}

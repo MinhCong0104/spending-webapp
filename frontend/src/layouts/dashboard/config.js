@@ -37,6 +37,15 @@ export const items = [
     )
   },
   {
+    title: 'Share money',
+    path: '/contribute',
+    icon: (
+      <SvgIcon fontSize="small">
+        <UsersIcon />
+      </SvgIcon>
+    )
+  },
+  {
     title: 'Account',
     path: '/account',
     icon: (

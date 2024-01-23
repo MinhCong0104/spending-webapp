@@ -46,22 +46,22 @@ export const ContributeTable = (props) => {
                   Date
                 </TableCell>
                 <TableCell>
-                  Person pay money
+                  Who paid
                 </TableCell>
                 <TableCell>
                   Anount
                 </TableCell>
                 <TableCell>
-                  People contribute
+                  People share
                 </TableCell>
                 <TableCell>
                   Note
                 </TableCell>
                 <TableCell>
-                  amount_each
+                  Amount each 
                 </TableCell>
                 <TableCell>
-                  Note
+                  Is this done?
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -129,7 +129,7 @@ export const ContributeTable = (props) => {
   );
 };
 
-contributeTable.propTypes = {
+ContributeTable.propTypes = {
   count: PropTypes.number,
   items: PropTypes.array,
   onDeselectAll: PropTypes.func,
