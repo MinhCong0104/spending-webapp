@@ -1,70 +1,63 @@
 import { useCallback, useMemo, useState } from 'react';
 import Head from 'next/head';
+import { subDays, subHours } from 'date-fns';
 import ArrowDownOnSquareIcon from '@heroicons/react/24/solid/ArrowDownOnSquareIcon';
 import ArrowUpOnSquareIcon from '@heroicons/react/24/solid/ArrowUpOnSquareIcon';
 import { Box, Button, Container, Stack, SvgIcon, Typography } from '@mui/material';
 import { useSelection } from 'src/hooks/use-selection';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
-import { CategoriesTable } from 'src/sections/category/categories-table';
 import { applyPagination } from 'src/utils/apply-pagination';
-import { PopupAddCategory } from 'src/sections/category/category-add';
-import api from 'src/fetch/api';
+import { PopupAddContribute } from 'src/sections/contribute/contribute-add';
+import { ContributeTable } from 'src/sections/contribute/contribute-table';
 
 
 const now = new Date();
 
 const data = [
   {
-    id: '6e887ac47eed253091be10cb',
-    category: 'Tiền ăn',
-    type: 'Spend',
-    note: 'Dùng khi giao dịch là trả tiền ăn uống hàng ngày'
+    id: '5e887ac47eed253091be12cb',
+    date: subDays(subHours(now, 7), 1).getTime(), //Input with default
+    amount: 430000, //Input
+    note: 'Đóng tiền mạng',
+    from: 'Phương', //Select
+    people: 'Phương, Công, Phú', //Select many
+    amount_each: 144000, //Compute
+    done: false, //Check with default false
   },
   {
-    id: '6e887b209c28ac3dd97f6db5',
-    category: 'Tiền nhà',
-    type: 'Spend',
-    note: 'Dùng khi giao dịch là trả tiền nhà (điện, nước, dịch vụ, tiền thuê phòng)'
+    id: '5e887b209c28ac3dd97f7db8',
+    date: subDays(subHours(now, 1), 2).getTime(),
+    amount: -100000,
+    note: 'Xem phim',
+    from: 'Huyền',
+    people: 'Huyền, Đạt, Công, Phương',
+    amount_each: 25000,
+    done: false,
   },
   {
-    id: '6e887b7602bdbc4dbb234b27',
-    category: 'Tiêu dùng',
-    type: 'Spend',
-    note: 'Dùng khi giao dịch là trả tiền đi chơi, ăn vặt, chi tiêu linh tinh...'
+    id: '5e887b209c28ac3dd97f7db9',
+    date: subDays(subHours(now, 1), 2).getTime(),
+    amount: 240000,
+    note: 'Mua gạo, rau',
+    from: 'Phú',
+    people: 'Phú, Công, Phương',
+    amount_each: 80000,
+    done: false,
   },
   {
-    id: '6e86809283e28b96d2d38537',
-    category: 'Mua đồ',
-    type: 'Spend',
-    note: 'Dùng khi giao dịch là trả tiền mua sắm quần áo, đồ gia dụng'
-  },
-  {
-    id: '6e86805e2bafd54f66cc95c3',
-    category: 'Lương',
-    type: 'Income',
-    note: 'Dùng khi giao dịch là góp tiền lương vào để chi tiêu'
-  },
-  {
-    id: '6e887a1fbefd7938eea9c981',
-    category: 'Rút tiền tiết kiệm',
-    type: 'Income',
-    note: 'Dùng khi giao dịch là rút tiền tiết kiệm để chi tiêu'
-  },
-  {
-    id: '6e887a1fbefd7938eea9axz1',
-    category: 'Tiết kiệm',
-    type: 'Save',
-    note: 'Dùng khi giao dịch là gửi tiền tiết kiệm'
+    id: '5e887b209c28ac3dd97f7db5',
+    date: subDays(subHours(now, 1), 2).getTime(),
+    amount: 450000,
+    note: 'Đóng tiền điện',
+    from: 'Phương',
+    people: 'Phú, Công, Phương',
+    amount_each: 150000,
+    done: true,
   },
 ];
 
-const fetchCategories = async () => {
-  const response = await api.get('/categories/');
-  setCategories(response.data);
-}
 
-
-const useCategories = (page, rowsPerPage) => {
+const useContribute = (page, rowsPerPage) => {
   return useMemo(
     () => {
       return applyPagination(data, page, rowsPerPage);
@@ -73,21 +66,21 @@ const useCategories = (page, rowsPerPage) => {
   );
 };
 
-const useCategoriesIds = (categories) => {
+const useContributeIds = (contribute) => {
   return useMemo(
     () => {
-      return categories.map((categorie) => categorie.id);
+      return contribute.map((c) => c.id);
     },
-    [categories]
+    [contribute]
   );
 };
 
 const Page = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const categories = useCategories(page, rowsPerPage);
-  const categoriesIds = useCategoriesIds(categories);
-  const categoriesSelection = useSelection(categoriesIds);
+  const contribute = useContribute(page, rowsPerPage);
+  const contributeIds = useContributeIds(contribute);
+  const contributeSelection = useSelection(contributeIds);
 
   const handlePageChange = useCallback(
     (event, value) => {
@@ -107,7 +100,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Categories | Spending-Webapp
+          Contribute | Spending-Webapp
         </title>
       </Head>
       <Box
@@ -126,7 +119,7 @@ const Page = () => {
             >
               <Stack spacing={1}>
                 <Typography variant="h4">
-                  Categories
+                  Contribute
                 </Typography>
                 <Stack
                   alignItems="center"
@@ -156,21 +149,22 @@ const Page = () => {
                 </Stack>
               </Stack>
               <div>
-                <PopupAddCategory/>
+                <PopupAddContribute/>
               </div>
             </Stack>
-            <CategoriesTable
+            {/* <ContributeSearch /> */}
+            <ContributeTable
               count={data.length}
-              items={categories}
-              onDeselectAll={categoriesSelection.handleDeselectAll}
-              onDeselectOne={categoriesSelection.handleDeselectOne}
+              items={contribute}
+              onDeselectAll={contributeSelection.handleDeselectAll}
+              onDeselectOne={contributeSelection.handleDeselectOne}
               onPageChange={handlePageChange}
               onRowsPerPageChange={handleRowsPerPageChange}
-              onSelectAll={categoriesSelection.handleSelectAll}
-              onSelectOne={categoriesSelection.handleSelectOne}
+              onSelectAll={contributeSelection.handleSelectAll}
+              onSelectOne={contributeSelection.handleSelectOne}
               page={page}
               rowsPerPage={rowsPerPage}
-              selected={categoriesSelection.selected}
+              selected={contributeSelection.selected}
             />
           </Stack>
         </Container>

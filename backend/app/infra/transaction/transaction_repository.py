@@ -50,6 +50,13 @@ class TransactionRepository:
         except Exception:
             return False
 
+    def delete(self, id: ObjectId) -> bool:
+        try:
+            TransactionModel.objects(id=id).delete()
+            return True
+        except Exception:
+            return False
+
     def count(self, conditions: Dict[str, Union[str, bool, ObjectId]] = {}) -> int:
         try:
             return TransactionModel._get_collection().count_documents(conditions)
@@ -67,14 +74,33 @@ class TransactionRepository:
         self,
         type: Type,
         user: ObjectId,
-        category: Optional[list[str]] = [],
+        category: ObjectId,
         date_from: Optional[str] = None,
         date_to: Optional[str] = None,
         note: Optional[str] = None,
         sort: Optional[Dict[str, int]] = None,
     ) -> List[TransactionModel]:
         try:
-            match_pipelines = {"role": type.value}
+            match_pipelines = {"user": user}
+
+            if category:
+                match_pipelines = {
+                    **match_pipelines,
+                    "category": category
+                }
+
+            if type:
+                match_pipelines = {
+                    **match_pipelines,
+                    "type": type.value
+                }
+
+            if category:
+                match_pipelines = {
+                    **match_pipelines,
+                    "category": category
+                }
+
             if note:
                 note = note.lower()
                 match_pipelines = {
@@ -95,20 +121,9 @@ class TransactionRepository:
                 {"$match": match_pipelines},
                 sort if sort else {"$sort": {"_id": -1}},
             ]
-            if date_from and date_to:
-                match_pipelines = {
-                    **match_pipelines,
-                    "timestamp": {
-                        "$gte": date2datetime(start_date),
-                        "$lte": date2datetime(end_date, min_time=False),
-                    },
-                }
-            docs = TransactionModel.objects(user=user).aggregate(pipeline)
-            data = [TransactionModel.from_mongo(doc) for doc in docs]
-            res = []
-            for d in data:
-                if str(d['category']) in category:
-                    res.append(d)
-            return res
+
+            docs = TransactionModel.objects().aggregate(pipeline)
+            return [TransactionModel.from_mongo(doc) for doc in docs]
+
         except Exception:
             return []

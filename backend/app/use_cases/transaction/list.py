@@ -7,6 +7,7 @@ from app.domain.category.entity import Category
 from app.domain.transaction.entity import Transaction, TransactionInDB
 from app.infra.database.models.transaction import Transaction as TransactionModel
 from app.infra.transaction.transaction_repository import TransactionRepository
+from app.infra.category.category_repository import CategoryRepository
 from app.domain.shared.enum import Type
 
 
@@ -17,7 +18,7 @@ class ListTransactionsRequestObject(request_object.ValidRequestObject):
         date_from: str,
         date_to: str,
         type: Type,
-        category: str,
+        category_id: str,
         note: str
 
     ):
@@ -25,7 +26,7 @@ class ListTransactionsRequestObject(request_object.ValidRequestObject):
         self.date_from = date_from
         self.date_to = date_to
         self.type = type
-        self.category = category
+        self.category_id = category_id
         self.note = note
 
     @classmethod
@@ -36,22 +37,26 @@ class ListTransactionsRequestObject(request_object.ValidRequestObject):
         note: Optional[str] = None,
         date_from: Optional[str] = None,
         date_to: Optional[str] = None,
-        category: Optional[str] = None,
+        category_id: Optional[str] = None,
     ) -> request_object.RequestObject:
-        return ListTransactionsRequestObject(current_user=current_user, type=type, category=category,
+        return ListTransactionsRequestObject(current_user=current_user, type=type, category_id=category_id,
                                              date_from=date_from, date_to=date_to, note=note)
 
 
 class ListTransactionsUseCase(use_case.UseCase):
-    def __init__(self, transaction_repository: TransactionRepository = Depends(TransactionRepository)):
+    def __init__(self, transaction_repository: TransactionRepository = Depends(TransactionRepository),
+                 category_repository: CategoryRepository = Depends(CategoryRepository)):
         self.transaction_repository = transaction_repository
+        self.category_repository = category_repository
 
     def process_request(self, req_object: ListTransactionsRequestObject):
+        if req_object.category_id:
+            category: Category = self.category_repository.get_by_id(req_object.category_id)
 
         transactions: List[TransactionModel] = self.transaction_repository.list(
-            user=req_object.current_user,
+            user=req_object.current_user.id,
             type=req_object.type,
-            category=req_object.category,
+            category=category.id if req_object.category_id else None,
             date_from=req_object.date_from,
             date_to=req_object.date_to,
             note=req_object.note

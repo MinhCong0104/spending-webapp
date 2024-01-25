@@ -18,13 +18,16 @@ class TransactionInDB(IDModelMixin, DateTimeModelMixin, TransactionBase):
     # https://docs.pydantic.dev/2.4/concepts/models/#arbitrary-class-instances
     model_config = ConfigDict(from_attributes=True)
     user: PydanticUserType
+    category: PydanticCategoryType
 
 
 class TransactionInCreate(BaseEntity):
     name: str
     type: Type
+    amount: float
     note: Optional[str] = None
-    category: str
+    category_id: str
+    date: str
 
 
 class TransactionInUpdate(BaseEntity):
@@ -32,6 +35,7 @@ class TransactionInUpdate(BaseEntity):
     amount: Optional[float] = None
     note: Optional[str] = None
     type: Optional[Type] = None
+    category_id: Optional[str] = None
 
 
 class Transaction(TransactionBase):

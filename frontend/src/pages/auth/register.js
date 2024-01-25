@@ -7,6 +7,7 @@ import { Box, Button, Link, Stack, TextField, Typography } from '@mui/material';
 import { useAuth } from 'src/hooks/use-auth';
 import { Layout as AuthLayout } from 'src/layouts/auth/layout';
 
+
 const Page = () => {
   const router = useRouter();
   const auth = useAuth();
@@ -34,8 +35,18 @@ const Page = () => {
     }),
     onSubmit: async (values, helpers) => {
       try {
-        await auth.signUp(values.email, values.name, values.password);
-        router.push('/');
+        console.log(process.env.NEXT_PUBLIC_API_URL);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users`, {
+          method: "POST",
+          body: JSON.stringify(values),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        if (res.ok) {
+          alert("User registered success")
+          router.push('/');
+        }
       } catch (err) {
         helpers.setStatus({ success: false });
         helpers.setErrors({ submit: err.message });
@@ -48,7 +59,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Register | Devias Kit
+          Register | Spending-Webapp
         </title>
       </Head>
       <Box

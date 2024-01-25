@@ -10,7 +10,7 @@ import { TransactionsTable } from 'src/sections/transaction/transactions-table';
 import { TransactionsSearch } from 'src/sections/transaction/transactions-search';
 import { applyPagination } from 'src/utils/apply-pagination';
 import { PopupGfg } from 'src/sections/transaction/transactions-add';
-import { PopupAddTransaction, BasicModal } from 'src/sections/transaction/transactions-add';
+import { PopupAddTransaction } from 'src/sections/transaction/transactions-add';
 
 const now = new Date();
 
@@ -63,62 +63,6 @@ const data = [
     type: 'Chi tiêu',
     category: 'Tiền ăn'
   },
-  // {
-  //   id: '5e887d0b3d090c1b8f162003',
-  //   address: {
-  //     city: 'Carson City',
-  //     country: 'USA',
-  //     state: 'Nevada',
-  //     street: '2188  Armbrester Drive'
-  //   },
-  //   avatar: '/assets/avatars/avatar-omar-darboe.png',
-  //   createdAt: subDays(subHours(now, 15), 4).getTime(),
-  //   email: 'omar.darobe@devias.io',
-  //   name: 'Omar Darobe',
-  //   phone: '415-907-2647'
-  // },
-  // {
-  //   id: '5e88792be2d4cfb4bf0971d9',
-  //   address: {
-  //     city: 'Los Angeles',
-  //     country: 'USA',
-  //     state: 'California',
-  //     street: '1798  Hickory Ridge Drive'
-  //   },
-  //   avatar: '/assets/avatars/avatar-siegbert-gottfried.png',
-  //   createdAt: subDays(subHours(now, 2), 5).getTime(),
-  //   email: 'siegbert.gottfried@devias.io',
-  //   name: 'Siegbert Gottfried',
-  //   phone: '702-661-1654'
-  // },
-  // {
-  //   id: '5e8877da9a65442b11551975',
-  //   address: {
-  //     city: 'Murray',
-  //     country: 'USA',
-  //     state: 'Utah',
-  //     street: '3934  Wildrose Lane'
-  //   },
-  //   avatar: '/assets/avatars/avatar-iulia-albu.png',
-  //   createdAt: subDays(subHours(now, 8), 6).getTime(),
-  //   email: 'iulia.albu@devias.io',
-  //   name: 'Iulia Albu',
-  //   phone: '313-812-8947'
-  // },
-  // {
-  //   id: '5e8680e60cba5019c5ca6fda',
-  //   address: {
-  //     city: 'Salt Lake City',
-  //     country: 'USA',
-  //     state: 'Utah',
-  //     street: '368 Lamberts Branch Road'
-  //   },
-  //   avatar: '/assets/avatars/avatar-nasimiyu-danai.png',
-  //   createdAt: subDays(subHours(now, 1), 9).getTime(),
-  //   email: 'nasimiyu.danai@devias.io',
-  //   name: 'Nasimiyu Danai',
-  //   phone: '801-301-7894'
-  // }
 ];
 
 const useTransactions = (page, rowsPerPage) => {
