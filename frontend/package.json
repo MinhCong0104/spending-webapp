@@ -1,12 +1,12 @@
 {
-  "name": "material-kit-react",
+  "name": "spending-webapp",
   "version": "3.0.0",
   "author": "Devias",
   "licence": "MIT",
   "homepage": "https://devias.io",
   "private": false,
   "scripts": {
-    "dev": "next",
+    "dev": "nodenv .",
     "build": "next build",
     "start": "next start",
     "export": "next export",
@@ -26,6 +26,7 @@
     "apexcharts": "3.44.2",
     "bootstrap": "^5.3.2",
     "date-fns": "2.30.0",
+    "dotenv": "^16.4.1",
     "formik": "2.4.5",
     "next": "^14.0.4",
     "nprogress": "0.2.0",
@@ -46,5 +47,9 @@
     "@types/react-dom": "18.2.17",
     "eslint": "8.55.0",
     "eslint-config-next": "14.0.4"
-  }
+  },
+  "description": "![license](https://img.shields.io/badge/license-MIT-blue.svg)",
+  "main": "next.config.js",
+  "keywords": [],
+  "license": "ISC"
 }
