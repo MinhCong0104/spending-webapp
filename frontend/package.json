@@ -1,12 +1,11 @@
 {
   "name": "spending-webapp",
-  "version": "3.0.0",
-  "author": "Devias",
+  "version": "0.1.0",
+  "author": "Trieu Minh Cong",
   "licence": "MIT",
-  "homepage": "https://devias.io",
   "private": false,
   "scripts": {
-    "dev": "nodenv .",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
     "export": "next export",
