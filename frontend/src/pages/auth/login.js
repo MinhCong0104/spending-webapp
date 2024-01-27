@@ -41,7 +41,6 @@ const Page = () => {
     }),
     onSubmit: async (values, helpers) => {
       try {
-        console.log(process.env.NEXT_PUBLIC_API_URL);
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
           method: "POST",
           body: new URLSearchParams(values),
@@ -51,8 +50,12 @@ const Page = () => {
         })
         if (res.ok) {
           const json = await res.json()
-          localStorage.setItem("token", json.token)
+          localStorage.setItem("token", json.token.access_token)
           router.push('/');
+        } else {
+          helpers.setStatus({ success: false });
+          helpers.setErrors({ submit: "Wrong username or password" });
+          helpers.setSubmitting(false);
         }
       } catch (err) {
         helpers.setStatus({ success: false });

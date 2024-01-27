@@ -88,7 +88,7 @@ export const CategoriesTable = (props) => {
                       />
                     </TableCell>
                     <TableCell>
-                      {category.category}
+                      {category.name}
                     </TableCell>
                     <TableCell>
                       {category.type}

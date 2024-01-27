@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState, useEffect } from 'react';
 import Head from 'next/head';
 import ArrowDownOnSquareIcon from '@heroicons/react/24/solid/ArrowDownOnSquareIcon';
 import ArrowUpOnSquareIcon from '@heroicons/react/24/solid/ArrowUpOnSquareIcon';
@@ -13,56 +13,62 @@ import api from 'src/fetch/api';
 
 const now = new Date();
 
-const data = [
-  {
-    id: '6e887ac47eed253091be10cb',
-    category: 'Tiền ăn',
-    type: 'Spend',
-    note: 'Dùng khi giao dịch là trả tiền ăn uống hàng ngày'
-  },
-  {
-    id: '6e887b209c28ac3dd97f6db5',
-    category: 'Tiền nhà',
-    type: 'Spend',
-    note: 'Dùng khi giao dịch là trả tiền nhà (điện, nước, dịch vụ, tiền thuê phòng)'
-  },
-  {
-    id: '6e887b7602bdbc4dbb234b27',
-    category: 'Tiêu dùng',
-    type: 'Spend',
-    note: 'Dùng khi giao dịch là trả tiền đi chơi, ăn vặt, chi tiêu linh tinh...'
-  },
-  {
-    id: '6e86809283e28b96d2d38537',
-    category: 'Mua đồ',
-    type: 'Spend',
-    note: 'Dùng khi giao dịch là trả tiền mua sắm quần áo, đồ gia dụng'
-  },
-  {
-    id: '6e86805e2bafd54f66cc95c3',
-    category: 'Lương',
-    type: 'Income',
-    note: 'Dùng khi giao dịch là góp tiền lương vào để chi tiêu'
-  },
-  {
-    id: '6e887a1fbefd7938eea9c981',
-    category: 'Rút tiền tiết kiệm',
-    type: 'Income',
-    note: 'Dùng khi giao dịch là rút tiền tiết kiệm để chi tiêu'
-  },
-  {
-    id: '6e887a1fbefd7938eea9axz1',
-    category: 'Tiết kiệm',
-    type: 'Save',
-    note: 'Dùng khi giao dịch là gửi tiền tiết kiệm'
-  },
-];
+// const data = [
+//   {
+//     id: '6e887ac47eed253091be10cb',
+//     category: 'Tiền ăn',
+//     type: 'Spend',
+//     note: 'Dùng khi giao dịch là trả tiền ăn uống hàng ngày'
+//   },
+//   {
+//     id: '6e887b209c28ac3dd97f6db5',
+//     category: 'Tiền nhà',
+//     type: 'Spend',
+//     note: 'Dùng khi giao dịch là trả tiền nhà (điện, nước, dịch vụ, tiền thuê phòng)'
+//   },
+//   {
+//     id: '6e887b7602bdbc4dbb234b27',
+//     category: 'Tiêu dùng',
+//     type: 'Spend',
+//     note: 'Dùng khi giao dịch là trả tiền đi chơi, ăn vặt, chi tiêu linh tinh...'
+//   },
+//   {
+//     id: '6e86809283e28b96d2d38537',
+//     category: 'Mua đồ',
+//     type: 'Spend',
+//     note: 'Dùng khi giao dịch là trả tiền mua sắm quần áo, đồ gia dụng'
+//   },
+//   {
+//     id: '6e86805e2bafd54f66cc95c3',
+//     category: 'Lương',
+//     type: 'Income',
+//     note: 'Dùng khi giao dịch là góp tiền lương vào để chi tiêu'
+//   },
+//   {
+//     id: '6e887a1fbefd7938eea9c981',
+//     category: 'Rút tiền tiết kiệm',
+//     type: 'Income',
+//     note: 'Dùng khi giao dịch là rút tiền tiết kiệm để chi tiêu'
+//   },
+//   {
+//     id: '6e887a1fbefd7938eea9axz1',
+//     category: 'Tiết kiệm',
+//     type: 'Save',
+//     note: 'Dùng khi giao dịch là gửi tiền tiết kiệm'
+//   },
+// ];
 
-const fetchCategories = async () => {
-  const response = await api.get('/categories/');
-  setCategories(response.data);
-}
 
+const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories`, {
+  method: 'GET',
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer " + localStorage.getItem("token")
+  },
+});
+const data = await res.json();
+
+console.log(data)
 
 const useCategories = (page, rowsPerPage) => {
   return useMemo(

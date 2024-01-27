@@ -14,36 +14,33 @@ export const AuthGuard = (props) => {
   // This flow allows you to manually redirect the user after sign-out, otherwise this will be
   // triggered and will automatically redirect to sign-in page.
 
-  useEffect(
-    () => {
-      if (!router.isReady) {
-        return;
-      }
+  useEffect(() => {
+    fetchProfile()
+  }, [])
 
-      // Prevent from calling twice in development mode with React.StrictMode enabled
-      if (ignore.current) {
-        return;
-      }
-
-      ignore.current = true;
-
-      if (!isAuthenticated) {
-        console.log('Not authenticated, redirecting');
-        router
-          .replace({
-            pathname: '/auth/login',
-            query: router.asPath !== '/' ? { continueUrl: router.asPath } : undefined
-          })
-          .catch(console.error);
+  async function fetchProfile() {
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/me`, {
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + localStorage.getItem("token")
+        }
+      })
+      if (res.ok) {
+        // alert("Login success")
+        router.push('/');
       } else {
-        setChecked(true);
+        router.push("/auth/login")
       }
-    },
-    [router.isReady]
-  );
+    } catch (err) {
+      router.push("/auth/login")
+    }
+  }
 
-  if (!checked) {
-    return null;
+  function logout() {
+    localStorage.removeItem("token")
+    router.push("/")
   }
 
   // If got here, it means that the redirect did not occur, and that tells us that the user is
@@ -62,45 +59,45 @@ AuthGuard.propTypes = {
 
 
 
-import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
-import styles from '../styles/layout.module.css'
+// import { useRouter } from 'next/router'
+// import { useState, useEffect } from 'react'
+// import styles from '../styles/layout.module.css'
 
-export default function LayoutAuthenticated(props) {
-  const [profile, setProfile] = useState()
-  const router = useRouter()
+// export default function LayoutAuthenticated(props) {
+//   const [profile, setProfile] = useState()
+//   const router = useRouter()
 
-  useEffect(() => {
-    fetchProfile()
-  }, [])
+//   useEffect(() => {
+//     fetchProfile()
+//   }, [])
 
-  async function fetchProfile() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/test/profile`, {
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + localStorage.getItem("token")
-      }
-    })
-    if (res.ok) {
-      const json = await res.json()
-      setProfile(json)
-    } else {
-      router.push("/signin")
-    }
-  }
+//   async function fetchProfile() {
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/test/profile`, {
+//       headers: {
+//         "Content-Type": "application/json",
+//         "Authorization": "Bearer " + localStorage.getItem("token")
+//       }
+//     })
+//     if (res.ok) {
+//       const json = await res.json()
+//       setProfile(json)
+//     } else {
+//       router.push("/signin")
+//     }
+//   }
 
-  function logout() {
-    localStorage.removeItem("token")
-    router.push("/")
-  }
+//   function logout() {
+//     localStorage.removeItem("token")
+//     router.push("/")
+//   }
 
-  return (
-    <div className={styles.layout}>
-      <div className={styles.nav}>
-        <p>Signed in as: {profile && profile.username}</p>
-        <p><button onClick={logout}>Log out</button></p>
-      </div>
-      {props.children}
-    </div>
-  )
-}
+//   return (
+//     <div className={styles.layout}>
+//       <div className={styles.nav}>
+//         <p>Signed in as: {profile && profile.username}</p>
+//         <p><button onClick={logout}>Log out</button></p>
+//       </div>
+//       {props.children}
+//     </div>
+//   )
+// }
