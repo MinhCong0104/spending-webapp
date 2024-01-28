@@ -38,15 +38,15 @@ export const PopupAddCategory = () => {
     const auth = useAuth();
     const formik = useFormik({
       initialValues: {
-        category: '',
+        name: '',
         type: '',
         note: '',
       },
       validationSchema: Yup.object({
-        category: Yup
+        name: Yup
           .string()
           .max(255)
-          .required('Category name is required'),
+          .required('Name name is required'),
         type: Yup
           .string()
           .max(255)
@@ -54,13 +54,24 @@ export const PopupAddCategory = () => {
       }),
       onSubmit: async (values, helpers) => {
         try {
-          await auth.signUp(values.email, values.name, values.password);
-          router.push('/');
+          console.log(process.env.NEXT_PUBLIC_API_URL);
+          const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories`, {
+            method: "POST",
+            body: JSON.stringify(values),
+            headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+          })
+          if (res.ok) {
+            alert("Add category success")
+            router.refresh();
+          }
         } catch (err) {
           helpers.setStatus({ success: false });
           helpers.setErrors({ submit: err.message });
           helpers.setSubmitting(false);
-        }
+          }
       }
     });
  
@@ -98,14 +109,14 @@ export const PopupAddCategory = () => {
                     >
                         <Stack spacing={3}>
                             <TextField
-                                error={!!(formik.touched.category && formik.errors.category)}
+                                error={!!(formik.touched.name && formik.errors.name)}
                                 fullWidth
-                                helperText={formik.touched.category && formik.errors.category}
-                                label="Category"
-                                name="category"
+                                helperText={formik.touched.name && formik.errors.name}
+                                label="Name"
+                                name="name"
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
-                                value={formik.values.category}
+                                value={formik.values.name}
                             />
                             <TextField
                                 fullWidth
