@@ -18,6 +18,7 @@ import {
 } from '@mui/material';
 import { useAuth } from 'src/hooks/use-auth';
 import { Layout as AuthLayout } from 'src/layouts/auth/layout';
+import Cookies from 'js-cookie';
 
 const Page = () => {
   const router = useRouter();
@@ -50,7 +51,7 @@ const Page = () => {
         })
         if (res.ok) {
           const json = await res.json()
-          localStorage.setItem("token", json.token.access_token)
+          Cookies.set("token", json.token.access_token)
           router.push('/');
         } else {
           helpers.setStatus({ success: false });

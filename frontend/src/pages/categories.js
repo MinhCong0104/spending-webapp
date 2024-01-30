@@ -9,13 +9,14 @@ import { CategoriesTable } from 'src/sections/category/categories-table';
 import { applyPagination } from 'src/utils/apply-pagination';
 import { PopupAddCategory } from 'src/sections/category/category-add';
 import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
 
 
 const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories`, {
   method: 'GET',
   headers: {
     "Content-Type": "application/json",
-    "Authorization": "Bearer " + localStorage.getItem("token")
+    "Authorization": "Bearer " + Cookies.get("token")
   },
 });
 const data = await res.json();
