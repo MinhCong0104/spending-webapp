@@ -6,12 +6,12 @@ from migrate_odoo_data.infra.rpc_inherit import OdooXmlrpc
 
 
 # From
-source = OdooXmlrpc('https://demo-odoo16.bachasoftware.com/')
-source.login('DEMO_ERP_1101', 'congtm.bhsoft@gmail.com', 'Mc010401')
+source = OdooXmlrpc('url')
+source.login('db_name', 'login', 'pw or api_key')
 
 # To
-target = OdooXmlrpc('http://127.0.0.1:1717')
-target.login('CORE', 'thanhbt1.bhsoft@gmail.com', '1')
+target = OdooXmlrpc('url')
+target.login('db_name', 'login', 'pw or api_key')
 
 
 partner_field = ['active', 'name', 'image_1920', 'is_company', 'type', 'street', 'street2', 'city', 'state_id',
