@@ -21,7 +21,6 @@ const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories`, {
 });
 const data = await res.json();
 
-console.log(data)
 
 const useCategories = (page, rowsPerPage) => {
   return useMemo(
@@ -31,6 +30,7 @@ const useCategories = (page, rowsPerPage) => {
     [page, rowsPerPage]
   );
 };
+
 
 const useCategoriesIds = (categories) => {
   return useMemo(
