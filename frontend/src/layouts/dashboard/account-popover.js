@@ -3,6 +3,8 @@ import { useRouter } from 'next/navigation';
 import PropTypes from 'prop-types';
 import { Box, Divider, MenuItem, MenuList, Popover, Typography } from '@mui/material';
 import { useAuth } from 'src/hooks/use-auth';
+import Cookies from 'js-cookie';
+
 
 export const AccountPopover = (props) => {
   const { anchorEl, onClose, open } = props;
@@ -13,6 +15,7 @@ export const AccountPopover = (props) => {
     () => {
       onClose?.();
       auth.signOut();
+      Cookies.remove('token')
       router.push('/auth/login');
     },
     [onClose, auth, router]

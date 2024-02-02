@@ -22,7 +22,7 @@ import Cookies from 'js-cookie';
 
 const Page = () => {
   const router = useRouter();
-  // const auth = useAuth();
+  const auth = useAuth();
   const method = 'username';
   const formik = useFormik({
     initialValues: {
@@ -42,22 +42,8 @@ const Page = () => {
     }),
     onSubmit: async (values, helpers) => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
-          method: "POST",
-          body: new URLSearchParams(values),
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        })
-        if (res.ok) {
-          const json = await res.json()
-          Cookies.set("token", json.token.access_token)
-          router.push('/');
-        } else {
-          helpers.setStatus({ success: false });
-          helpers.setErrors({ submit: "Wrong username or password" });
-          helpers.setSubmitting(false);
-        }
+        await auth.signIn(values.email, values.password);
+        router.push('/');
       } catch (err) {
         helpers.setStatus({ success: false });
         helpers.setErrors({ submit: err.message });

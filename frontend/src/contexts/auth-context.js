@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useReducer, useRef } from 'react';
 import PropTypes from 'prop-types';
+import Cookies from 'js-cookie';
 
 const HANDLERS = {
   INITIALIZE: 'INITIALIZE',
@@ -81,11 +82,19 @@ export const AuthProvider = (props) => {
     }
 
     if (isAuthenticated) {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/me`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Authorization": "Bearer " + Cookies.get("token")
+        }
+      })
+
       const user = {
-        id: '5e86809283e28b96d2d38537',
-        avatar: '/assets/avatars/avatar-anika-visser.png',
-        name: 'Anika Visser',
-        email: 'anika.visser@devias.io'
+        id: res.id,
+        // avatar: '/assets/avatars/avatar-anika-visser.png',
+        name: res.name,
+        email: res.email
       };
 
       dispatch({
@@ -107,29 +116,19 @@ export const AuthProvider = (props) => {
     []
   );
 
-  const skip = () => {
-    try {
-      window.sessionStorage.setItem('authenticated', 'true');
-    } catch (err) {
-      console.error(err);
-    }
-
-    const user = {
-      id: '5e86809283e28b96d2d38537',
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
-      email: 'anika.visser@devias.io'
-    };
-
-    dispatch({
-      type: HANDLERS.SIGN_IN,
-      payload: user
-    });
-  };
-
   const signIn = async (email, password) => {
-    console.log("sign in")
-    if (email !== 'demo@devias.io' || password !== 'Password123!') {
+
+    const resSignIn = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
+      method: "POST",
+      body: new URLSearchParams({username: email, password: password}),
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+    })
+    if (resSignIn.status == 200) {
+      const json = await res.json();
+      Cookies.set("token", json.token.access_token);
+    } else {
       throw new Error('Please check your email and password');
     }
 
@@ -139,11 +138,26 @@ export const AuthProvider = (props) => {
       console.error(err);
     }
 
+    // const user = {
+    //   id: '5e86809283e28b96d2d38537',
+    //   avatar: '/assets/avatars/avatar-anika-visser.png',
+    //   name: 'Anika Visser',
+    //   email: 'anika.visser@devias.io'
+    // };
+
+    const resUser = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/me`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": "Bearer " + Cookies.get("token")
+      }
+    })
+
     const user = {
-      id: '5e86809283e28b96d2d38537',
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
-      email: 'anika.visser@devias.io'
+      id: resUser.id,
+      // avatar: '/assets/avatars/avatar-anika-visser.png',
+      name: resUser.name,
+      email: resUser.email
     };
 
     dispatch({
@@ -166,7 +180,7 @@ export const AuthProvider = (props) => {
     <AuthContext.Provider
       value={{
         ...state,
-        skip,
+        // skip,
         signIn,
         signUp,
         signOut
