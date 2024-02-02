@@ -49,7 +49,6 @@ const Page = () => {
             "Content-Type": "application/x-www-form-urlencoded"
           }
         })
-        console.log(">>>>>", res.ok)
         if (res.ok) {
           const json = await res.json()
           Cookies.set("token", json.token.access_token)

@@ -8,6 +8,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useAuth } from 'src/hooks/use-auth';
 import { Layout as AuthLayout } from 'src/layouts/auth/layout';
+import Cookies from 'js-cookie';
 
 
 const style = {
@@ -60,7 +61,7 @@ export const PopupAddCategory = () => {
             body: JSON.stringify(values),
             headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer " + localStorage.getItem("token")
+            "Authorization": "Bearer " + Cookies.get("token")
             }
           })
           if (res.ok) {
@@ -102,7 +103,7 @@ export const PopupAddCategory = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <h2 style={{textAlign: "center"}}>Add a transaction</h2>
+                    <h2 style={{textAlign: "center"}}>Add a category</h2>
                     <form
                         noValidate
                         onSubmit={formik.handleSubmit}
