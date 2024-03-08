@@ -9,14 +9,24 @@ import {
   Typography
 } from '@mui/material';
 
-const user = {
-  avatar: '/assets/avatars/avatar-anika-visser.png',
-  city: 'Los Angeles',
-  country: 'USA',
-  jobTitle: 'Senior Developer',
-  name: 'Anika Visser',
-  timezone: 'GTM-7'
-};
+
+// const user = {
+//   avatar: '/assets/avatars/avatar-anika-visser.png',
+//   city: 'Los Angeles',
+//   country: 'USA',
+//   jobTitle: 'Senior Developer',
+//   name: 'Anika Visser',
+//   timezone: 'GTM-7'
+// };
+
+const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/me`, {
+  method: 'GET',
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer " + Cookies.get("token")
+  },
+});
+const user = await res.json();
 
 export const AccountProfile = () => (
   <Card>

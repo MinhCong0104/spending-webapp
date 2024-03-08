@@ -15,7 +15,6 @@ export const AccountPopover = (props) => {
     () => {
       onClose?.();
       auth.signOut();
-      Cookies.remove('token')
       router.push('/auth/login');
     },
     [onClose, auth, router]

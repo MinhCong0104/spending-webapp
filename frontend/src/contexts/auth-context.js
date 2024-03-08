@@ -116,20 +116,19 @@ export const AuthProvider = (props) => {
     []
   );
 
-  const signIn = async (email, password) => {
-
+  const signIn = async (username, password) => {
     const resSignIn = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
       method: "POST",
-      body: new URLSearchParams({username: email, password: password}),
+      body: new URLSearchParams({username: username, password: password}),
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       }
     })
     if (resSignIn.status == 200) {
-      const json = await res.json();
+      const json = await resSignIn.json();
       Cookies.set("token", json.token.access_token);
     } else {
-      throw new Error('Please check your email and password');
+      throw new Error('Please check your username and password');
     }
 
     try {
@@ -171,6 +170,7 @@ export const AuthProvider = (props) => {
   };
 
   const signOut = () => {
+    Cookies.remove('token')
     dispatch({
       type: HANDLERS.SIGN_OUT
     });
