@@ -1,7 +1,18 @@
-
 import React, { useState, FormEvent }  from 'react'; 
-import 'reactjs-popup/dist/index.css'; 
-import { Box, Button, Container, Stack, SvgIcon, Typography, TextField, Modal, Link } from '@mui/material';
+// import 'reactjs-popup/dist/index.css'; 
+import { 
+    Box, 
+    Button, 
+    Container, 
+    Stack, 
+    SvgIcon, 
+    Typography, 
+    TextField, 
+    Modal, 
+    Link,
+    Select,
+    MenuItem,
+} from '@mui/material';
 import PlusIcon from '@heroicons/react/24/solid/PlusIcon';
 import { useRouter } from 'next/navigation';
 import { useFormik } from 'formik';
@@ -9,6 +20,7 @@ import * as Yup from 'yup';
 import { useAuth } from 'src/hooks/use-auth';
 import { Layout as AuthLayout } from 'src/layouts/auth/layout';
 import Cookies from 'js-cookie';
+import MultipleSelect from './category-select-type';
 
 
 const style = {
@@ -25,7 +37,7 @@ const style = {
 
 
 export const PopupAddCategory = () => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
  
     const handleClose = () => {
         setOpen(false);
@@ -65,8 +77,7 @@ export const PopupAddCategory = () => {
             }
           })
           if (res.ok) {
-            alert("Add category success")
-            router.refresh();
+            setOpen(false);
           }
         } catch (err) {
           helpers.setStatus({ success: false });
@@ -127,16 +138,16 @@ export const PopupAddCategory = () => {
                                 onChange={formik.handleChange}
                                 value={formik.values.note}
                             />
-                            <TextField
-                                error={!!(formik.touched.type && formik.errors.type)}
-                                fullWidth
-                                helperText={formik.touched.type && formik.errors.type}
-                                label="Type"
+                            <Select
+                                // defaultValue="Benz"
+                                placeholder="Type"
                                 name="type"
-                                onBlur={formik.handleBlur}
-                                onChange={formik.handleChange}
-                                value={formik.values.type}
-                            />
+                                fullWidth
+                            >
+                                <MenuItem  value="income">Mercedes Benz</MenuItem >
+                                <MenuItem  value="spend">Tesla</MenuItem >
+                                <MenuItem  value="x">Rolls Royce</MenuItem >
+                            </Select>
                         </Stack>
                         {formik.errors.submit && (
                             <Typography
