@@ -1,72 +1,38 @@
 import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import {InputLabel, MenuItem, FormControl, Select} from '@mui/material';
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
-
-const types = [
-  'spend',
-  'income',
-  'save',
-];
-
-function getStyles(name, type, theme) {
-  return {
-    fontWeight:
-    type.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
-
-export default function MultipleSelect(fieldName='type') {
-  const theme = useTheme();
-  const [type, setType] = React.useState([]);
+export default function SelectVariants(props) {
+  const [fieldValue, setFieldValue] = React.useState('');
 
   const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setType(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
+    setFieldValue(event.target.value);
   };
+  console.log(fieldValue)
 
   return (
     <div>
-      <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-name-label">Type</InputLabel>
+      <FormControl 
+        variant="filled"
+        fullWidth
+      >
+        <InputLabel id="demo-simple-select-filled-label">{props.name}</InputLabel>
         <Select
-          labelId="demo-multiple-name-label"
-          id="demo-multiple-name"
-          multiple={false}
-          name={fieldName}
-          value={type}
+          labelId="demo-simple-select-filled-label"
+          id="demo-simple-select-filled"
+          name={props.name}
+          value={fieldValue}
           onChange={handleChange}
-          input={<OutlinedInput label="Name" />}
-          MenuProps={MenuProps}
         >
-          {types.map((name) => (
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          {props.valuesList.map((value) => (
             <MenuItem
-              key={name}
-              value={name}
-              style={getStyles(name, type, theme)}
+              // key={name}
+              value={value}
+              // style={getStyles(name, personName, theme)}
             >
-              {name}
+              {value}
             </MenuItem>
           ))}
         </Select>
