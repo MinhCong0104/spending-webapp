@@ -1,7 +1,14 @@
-
 import React, { useState, FormEvent }  from 'react'; 
-import 'reactjs-popup/dist/index.css'; 
-import { Box, Button, Container, Stack, SvgIcon, Typography, TextField, Modal, Link } from '@mui/material';
+// import 'reactjs-popup/dist/index.css'; 
+import { 
+    Box, 
+    Button, 
+    Stack, 
+    SvgIcon, 
+    Typography, 
+    TextField, 
+    Modal, 
+} from '@mui/material';
 import PlusIcon from '@heroicons/react/24/solid/PlusIcon';
 import { useRouter } from 'next/navigation';
 import { useFormik } from 'formik';
@@ -9,6 +16,10 @@ import * as Yup from 'yup';
 import { useAuth } from 'src/hooks/use-auth';
 import { Layout as AuthLayout } from 'src/layouts/auth/layout';
 import Cookies from 'js-cookie';
+import SelectVariants from './category-select-type';
+
+
+const types = ['income', 'spend', 'save']
 
 
 const style = {
@@ -25,7 +36,7 @@ const style = {
 
 
 export const PopupAddCategory = () => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
  
     const handleClose = () => {
         setOpen(false);
@@ -48,14 +59,13 @@ export const PopupAddCategory = () => {
           .string()
           .max(255)
           .required('Name name is required'),
-        type: Yup
-          .string()
-          .max(255)
-          .required('Type is required'),
+        // type: Yup
+        //   .string()
+        //   .required('Type is required'),
       }),
       onSubmit: async (values, helpers) => {
         try {
-          console.log(process.env.NEXT_PUBLIC_API_URL);
+          console.log()
           const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories`, {
             method: "POST",
             body: JSON.stringify(values),
@@ -65,10 +75,10 @@ export const PopupAddCategory = () => {
             }
           })
           if (res.ok) {
-            alert("Add category success")
-            router.refresh();
+            setOpen(false);
           }
         } catch (err) {
+          console.log(err)
           helpers.setStatus({ success: false });
           helpers.setErrors({ submit: err.message });
           helpers.setSubmitting(false);
@@ -127,17 +137,13 @@ export const PopupAddCategory = () => {
                                 onChange={formik.handleChange}
                                 value={formik.values.note}
                             />
-                            <TextField
-                                error={!!(formik.touched.type && formik.errors.type)}
-                                fullWidth
-                                helperText={formik.touched.type && formik.errors.type}
-                                label="Type"
-                                name="type"
-                                onBlur={formik.handleBlur}
-                                onChange={formik.handleChange}
-                                value={formik.values.type}
+                            <SelectVariants 
+                                name="Type"
+                                valuesList={types}
+                                // value={formik.value.type}
                             />
                         </Stack>
+
                         {formik.errors.submit && (
                             <Typography
                                 color="error"

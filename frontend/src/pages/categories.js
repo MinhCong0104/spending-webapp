@@ -10,24 +10,40 @@ import { applyPagination } from 'src/utils/apply-pagination';
 import { PopupAddCategory } from 'src/sections/category/category-add';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
+import { da } from 'date-fns/locale';
 
 
-const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories`, {
-  method: 'GET',
-  headers: {
-    "Content-Type": "application/json",
-    "Authorization": "Bearer " + Cookies.get("token")
-  },
-});
-const data = await res.json();
+// const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories`, {
+//   method: 'GET',
+//   headers: {
+//     "Content-Type": "application/json",
+//     "Authorization": "Bearer " + Cookies.get("token")
+//   },
+// });
+// const data = await res.json();
+
+async function fetchCategories() {
+  // retrieves categories data from the server
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories`, {
+    method: 'GET',
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + Cookies.get("token")
+    },
+  })
+  if (!res.ok) {
+    throw new Error('Cannot fetch data from server')
+  }
+  return res
+}
 
 
-const useCategories = (page, rowsPerPage) => {
+const useCategories = (page, rowsPerPage, data) => {
   return useMemo(
     () => {
       return applyPagination(data, page, rowsPerPage);
     },
-    [page, rowsPerPage]
+    [page, rowsPerPage, data]
   );
 };
 
@@ -45,9 +61,16 @@ const useCategoriesIds = (categories) => {
 const Page = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const categories = useCategories(page, rowsPerPage);
+  const [data, setData] = useState([]);
+  const categories = useCategories(page, rowsPerPage, data);
   const categoriesIds = useCategoriesIds(categories);
   const categoriesSelection = useSelection(categoriesIds);
+
+  useEffect(() => {
+    fetchCategories()
+      .then(res => res.json())
+      .then(data => setData(data));
+  }, []);
 
   const handlePageChange = useCallback(
     (event, value) => {

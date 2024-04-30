@@ -82,25 +82,30 @@ export const AuthProvider = (props) => {
     }
 
     if (isAuthenticated) {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/me`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          "Authorization": "Bearer " + Cookies.get("token")
-        }
-      })
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/me`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Authorization": "Bearer " + Cookies.get("token")
+          }
+        })
 
-      const user = {
-        id: res.id,
-        // avatar: '/assets/avatars/avatar-anika-visser.png',
-        name: res.name,
-        email: res.email
-      };
+        const user = {
+          id: res.id,
+          name: res.name,
+          email: res.email
+        };
+  
+        dispatch({
+          type: HANDLERS.INITIALIZE,
+          payload: user
+        });
+        
+      } catch (err) {
+        alert("Server Error")
+      }
 
-      dispatch({
-        type: HANDLERS.INITIALIZE,
-        payload: user
-      });
     } else {
       dispatch({
         type: HANDLERS.INITIALIZE
