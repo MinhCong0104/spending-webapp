@@ -4,13 +4,15 @@ import { subDays, subHours } from 'date-fns';
 import ArrowDownOnSquareIcon from '@heroicons/react/24/solid/ArrowDownOnSquareIcon';
 import ArrowUpOnSquareIcon from '@heroicons/react/24/solid/ArrowUpOnSquareIcon';
 import { Box, Button, Container, Stack, SvgIcon, Typography } from '@mui/material';
+
 import { useSelection } from 'src/hooks/use-selection';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
-import { TransactionsTable } from 'src/sections/transaction/transactions-table';
-import { TransactionsSearch } from 'src/sections/transaction/transactions-search';
 import { applyPagination } from 'src/utils/apply-pagination';
-import { PopupGfg } from 'src/sections/transaction/transactions-add';
-import { PopupAddTransaction } from 'src/sections/transaction/transactions-add';
+
+import { IncomeTable } from 'src/sections/income/income-table';
+import { IncomeSearch } from 'src/sections/income/income-search';
+import { PopupAddIncome } from 'src/sections/income/income-add';
+
 
 const now = new Date();
 
@@ -18,50 +20,26 @@ const data = [
   {
     id: '5e887ac47eed253091be10cb',
     date: subDays(subHours(now, 7), 1).getTime(),
-    amount: -10000,
-    note: 'Mua rau',
-    type: 'Chi tiêu',
-    category: 'Tiền ăn'
+    amount: 9000000,
+    category: 'Lương',
+    wallet: 'Momo - Công',
+    note: 'Công lĩnh lương tháng 5'
   },
   {
     id: '5e887b209c28ac3dd97f6db5',
     date: subDays(subHours(now, 1), 2).getTime(),
-    amount: -100000,
-    note: 'Xem phim',
-    type: 'Chi tiêu',
-    category: 'Tiêu dùng'
-  },
-  {
-    id: '5e887b7602bdbc4dbb234b27',
-    date: subDays(subHours(now, 8), 2).getTime(),
-    amount: 6000000,
-    note: 'Lương của Phương',
-    type: 'Thu nhập',
-    category: 'Lương'
+    amount: 10000000,
+    category: 'Lương',
+    wallet: 'Momo - Phương',
+    note: 'Phương lĩnh lương tháng 5'
   },
   {
     id: '5e86809283e28b96d2d38537',
     date: subDays(subHours(now, 11), 2).getTime(),
-    amount: -5000000,
-    note: 'Gửi tiết kiệm eInvest',
-    type: 'Tiết kiệm',
-    category: 'Tiết kiệm'
-  },
-  {
-    id: '5e86805e2bafd54f66cc95c3',
-    date: subDays(subHours(now, 7), 3).getTime(),
-    amount: -300000,
-    note: 'Ăn lẩu',
-    type: 'Chi tiêu',
-    category: 'Tiền ăn'
-  },
-  {
-    id: '5e887a1fbefd7938eea9c981',
-    date: subDays(subHours(now, 5), 4).getTime(),
-    amount: -150000,
-    note: 'Mua gạo / khoản này chia 3',
-    type: 'Chi tiêu',
-    category: 'Tiền ăn'
+    amount: 500000,
+    note: 'Bán đàn',
+    category: 'Bán đồ dùng',
+    wallet: 'Momo - Công'
   },
 ];
 
@@ -108,7 +86,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Transactions | Spending-Webapp
+          Income | Spending-Webapp
         </title>
       </Head>
       <Box
@@ -127,7 +105,7 @@ const Page = () => {
             >
               <Stack spacing={1}>
                 <Typography variant="h4">
-                  Transactions
+                  Income
                 </Typography>
                 <Stack
                   alignItems="center"
@@ -157,11 +135,11 @@ const Page = () => {
                 </Stack>
               </Stack>
               <div>
-                <PopupAddTransaction/>
+                <PopupAddIncome/>
               </div>
             </Stack>
-            <TransactionsSearch />
-            <TransactionsTable
+            <IncomeSearch />
+            <IncomeTable
               count={data.length}
               items={transactions}
               onDeselectAll={transactionsSelection.handleDeselectAll}

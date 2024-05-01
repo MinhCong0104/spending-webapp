@@ -16,7 +16,7 @@ import {
 import { Scrollbar } from 'src/components/scrollbar';
 import { getInitials } from 'src/utils/get-initials';
 
-export const TransactionsTable = (props) => {
+export const SaveTable = (props) => {
   const {
     count = 0,
     items = [],
@@ -55,7 +55,7 @@ export const TransactionsTable = (props) => {
                   />
                 </TableCell>
                 <TableCell>
-                  Date
+                  Save Account
                 </TableCell>
                 <TableCell>
                   Amount
@@ -63,18 +63,12 @@ export const TransactionsTable = (props) => {
                 <TableCell>
                   Note
                 </TableCell>
-                <TableCell>
-                  Type
-                </TableCell>
-                <TableCell>
-                  Category
-                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {items.map((transaction) => {
                 const isSelected = selected.includes(transaction.id);
-                const date = format(transaction.date, 'dd/MM/yyyy');
+                // const date = format(transaction.date, 'dd/MM/yyyy');
 
                 return (
                   <TableRow
@@ -95,19 +89,13 @@ export const TransactionsTable = (props) => {
                       />
                     </TableCell>
                     <TableCell>
-                      {date}
+                      {transaction.account}
                     </TableCell>
                     <TableCell>
                       {transaction.amount}
                     </TableCell>
                     <TableCell>
                       {transaction.note}
-                    </TableCell>
-                    <TableCell>
-                      {transaction.type}
-                    </TableCell>
-                    <TableCell>
-                      {transaction.category}
                     </TableCell>
                   </TableRow>
                 );
@@ -129,7 +117,7 @@ export const TransactionsTable = (props) => {
   );
 };
 
-TransactionsTable.propTypes = {
+SaveTable.propTypes = {
   count: PropTypes.number,
   items: PropTypes.array,
   onDeselectAll: PropTypes.func,

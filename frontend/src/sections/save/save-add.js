@@ -23,7 +23,7 @@ const style = {
   };
 
 
-export const PopupAddTransaction = () => {
+export const PopupAddSave = () => {
     const [open, setOpen] = React.useState(false);
  
     const handleClose = () => {
@@ -129,27 +129,6 @@ export const PopupAddTransaction = () => {
                                 value={formik.values.amount}
                             />
                             <TextField
-                                // error={!!(formik.touched.password && formik.errors.password)}
-                                fullWidth
-                                // helperText={formik.touched.password && formik.errors.password}
-                                label="Note"
-                                name="note"
-                                onBlur={formik.handleBlur}
-                                onChange={formik.handleChange}
-                                // type="password"
-                                value={formik.values.note}
-                            />
-                            <TextField
-                                error={!!(formik.touched.type && formik.errors.type)}
-                                fullWidth
-                                helperText={formik.touched.type && formik.errors.type}
-                                label="Type"
-                                name="type"
-                                onBlur={formik.handleBlur}
-                                onChange={formik.handleChange}
-                                value={formik.values.type}
-                            />
-                            <TextField
                                 error={!!(formik.touched.category && formik.errors.category)}
                                 fullWidth
                                 helperText={formik.touched.category && formik.errors.category}
@@ -158,6 +137,25 @@ export const PopupAddTransaction = () => {
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
                                 value={formik.values.category}
+                            />
+                            <TextField
+                                error={!!(formik.touched.type && formik.errors.type)}
+                                fullWidth
+                                helperText={formik.touched.type && formik.errors.type}
+                                label="Wallet"
+                                name="wallet"
+                                onBlur={formik.handleBlur}
+                                onChange={formik.handleChange}
+                                value={formik.values.type}
+                            />
+                            <TextField
+                                fullWidth
+                                label="Note"
+                                name="note"
+                                onBlur={formik.handleBlur}
+                                onChange={formik.handleChange}
+                                // type="password"
+                                value={formik.values.note}
                             />
                         </Stack>
                         {formik.errors.submit && (
